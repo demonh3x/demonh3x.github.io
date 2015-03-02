@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>A journey of a restless mind</title>
+    <description>A personal blog about my experience as a resident apprentice at 8thLight
+</description>
+    <link>http://demonh3x.github.io//</link>
+    <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 02 Mar 2015 14:16:53 +0000</pubDate>
+    <lastBuildDate>Mon, 02 Mar 2015 14:16:53 +0000</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+  </channel>
+</rss>
