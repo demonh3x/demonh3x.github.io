@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>A journey of a restless mind</title>
+    <title>The journey of a restless mind</title>
     <description>A personal blog about my experience as a resident apprentice at 8thLight
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 02 Mar 2015 14:16:53 +0000</pubDate>
-    <lastBuildDate>Mon, 02 Mar 2015 14:16:53 +0000</lastBuildDate>
+    <pubDate>Tue, 03 Mar 2015 09:40:54 +0000</pubDate>
+    <lastBuildDate>Tue, 03 Mar 2015 09:40:54 +0000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Restless</title>
+        <description>&lt;p&gt;Today was my first day at 8thLight London as a Resident Apprentice.&lt;/p&gt;
+
+&lt;p&gt;Today is Monday. I arrived Saturday night (around 2am) to a hostel I booked that is 20 minutes walking from the office. 
+That night was awfull. I was sharing the room with other 11 people who wanted a place to fall asleep after partying nearby. That means: drunk people making noise until 4/5am.
+Next Sunday I had to wake up somewhat early to get a phone number and be able to communicate with anyone sharing flats. I spent most of the day looking and contacting adverts. I got time to view a couple of rooms. I was needed to stay active communicating until late in the evening.
+Although I was expected to be at 9am at the office, I had to wake up a bit earlier to be able to go to a Bank and try to get one account.&lt;/p&gt;
+
+&lt;p&gt;Those things got me really mentally tired.&lt;/p&gt;
+
+&lt;p&gt;I was being &lt;code&gt;restless&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;I allways considered myself a restless person in the meaning of &lt;code&gt;non-stop learning, doing and improving everything I&#39;ve been interested in&lt;/code&gt;. I didn’t want the other meanings of the word: &lt;code&gt;worried&lt;/code&gt;, &lt;code&gt;nervous&lt;/code&gt;. It’s funny how the word &lt;code&gt;restless&lt;/code&gt; is composed by the words &lt;code&gt;rest&lt;/code&gt; and &lt;code&gt;less&lt;/code&gt;, like saying: &lt;code&gt;You are resting too much, You don&#39;t need to rest&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Lets continue with my experience of the first day at 8thLight. 
+I received a nice, warm welcome from a lot of people at 8thLight. They very kindly offered help with anything I need in this transition. I really appreciate that! Thank you!&lt;/p&gt;
+
+&lt;p&gt;After some necessary paperwork, I got assigned some tasks in which there is the writing of this blog. I’m using &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; for it.
+I struggled to concentrate and understand the basics of it because I was mentally tired. I was spending too much time for something as basic as creating a blog. Around 2 to 4 times longer than I think I would have spent if I were properly rested. To minimize the amount of wasted time because of my tiredness I decided to copy, paste and edit the built-in starting template instead of properly learning the tool. I thought: &lt;code&gt;I just need to create a basic blog to start posting. I will improve it if and when needed&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The same situation happened with the following tasks… I wasn’t able to concentrate. I made bad decisions that I realised afterwards and had to go back to fix them.&lt;/p&gt;
+
+&lt;p&gt;When I sleep well, and all I need, I can feel much more mentally agile.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 02 Mar 2015 22:00:00 +0000</pubDate>
+        <link>http://demonh3x.github.io//8thlight/mentalhealth/2015/03/02/restless.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/mentalhealth/2015/03/02/restless.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+        <category>mentalhealth</category>
+        
+      </item>
     
   </channel>
 </rss>
