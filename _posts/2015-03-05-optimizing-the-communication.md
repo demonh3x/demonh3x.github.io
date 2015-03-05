@@ -134,7 +134,7 @@ Vim usage
 At some point, if you are really confortable with the previous aspects, the text editor may get in the way of transmitting the information to the computer.
 
 Learning to use vim feels counterintuitive. Just to get as productive in vim as in your current text editor, you have to learn a lot of shortcuts and be confortable with the modes. That takes time and practice.
-[vim adventures][vima] is an interesting way to learn it.
+[Vim Adventures][vima] is an interesting way to learn it.
 
 [vima]: http://vim-adventures.com/
 
