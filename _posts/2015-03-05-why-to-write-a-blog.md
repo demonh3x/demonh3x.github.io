@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Why to write a blog?"
-date:   2015-03-05 22:00
+date:   2015-03-05 11:00
 categories: 8thlight blog perseverance
 ---
 One of the first things that is requested in a Resident apprenticeship is to have a personal blog about the experience.   
