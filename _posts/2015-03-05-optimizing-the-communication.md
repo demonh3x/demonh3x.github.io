@@ -61,8 +61,6 @@ It does not make sense to use another text editor to go faster if you are strugg
 
 This doesn't mean you have to master each aspect before getting into the next one. It only means that improving a previous aspect has more time profit than improving on following ones.
 
-`Strive for progress, not perfection`
-
 Understanding, solving and simplifying the problem
 ==================================================
 Lets start by understand what is the problem we are trying to solve. 
@@ -141,10 +139,15 @@ Why is writing in vim faster than in a graphical text editor? That's because all
 
 *Going back to the analogy: this is making your mouth articulate words faster to keep up with the thoughts in your head.*
 
-You have to be careful to learn properly the  actions. Because if you learn that moving a finger to press a key to do an action, but that key doesn't do that action, you are going to be correcting yourself very often and losing time because of it.
+You have to be careful to learn properly the  actions. Because if you learn that moving a finger to press a key to do an action, but that key doesn't do that action, you are going to be correcting yourself very often and losing time because of it. By polishing my finger moves I saved some time.
 
 *Going back to the analogy: this is stuttering while trying to say something.*
 
 The Result
 ----------
 <iframe src="https://player.vimeo.com/video/121234763" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/121234763">Coin Changer Kata</a> from <a href="https://vimeo.com/user33522377">Mateu Adsuara</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+
+That's 5 minutes 15 seconds. And there is yet room for improvement.
+
+Remember: 
+`Strive for progress, not perfection`

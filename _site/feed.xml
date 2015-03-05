@@ -6,8 +6,8 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 Mar 2015 15:02:18 +0000</pubDate>
-    <lastBuildDate>Thu, 05 Mar 2015 15:02:18 +0000</lastBuildDate>
+    <pubDate>Thu, 05 Mar 2015 15:09:59 +0000</pubDate>
+    <lastBuildDate>Thu, 05 Mar 2015 15:09:59 +0000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -69,8 +69,6 @@ It does not make sense to learn RSpec (to do TDD) if you don’t know the Ruby s
 It does not make sense to use another text editor to go faster if you are struggling with the problem, with the Ruby syntax or with the TDD procedure.&lt;/p&gt;
 
 &lt;p&gt;This doesn’t mean you have to master each aspect before getting into the next one. It only means that improving a previous aspect has more time profit than improving on following ones.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Strive for progress, not perfection&lt;/code&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;understanding-solving-and-simplifying-the-problem&quot;&gt;Understanding, solving and simplifying the problem&lt;/h1&gt;
 &lt;p&gt;Lets start by understand what is the problem we are trying to solve.&lt;/p&gt;
@@ -135,13 +133,18 @@ By automating the execution of the tests after saving, I made the communication 
 
 &lt;p&gt;&lt;em&gt;Going back to the analogy: this is making your mouth articulate words faster to keep up with the thoughts in your head.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;You have to be careful to learn properly the  actions. Because if you learn that moving a finger to press a key to do an action, but that key doesn’t do that action, you are going to be correcting yourself very often and losing time because of it.&lt;/p&gt;
+&lt;p&gt;You have to be careful to learn properly the  actions. Because if you learn that moving a finger to press a key to do an action, but that key doesn’t do that action, you are going to be correcting yourself very often and losing time because of it. By polishing my finger moves I saved some time.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Going back to the analogy: this is stuttering while trying to say something.&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;the-result&quot;&gt;The Result&lt;/h2&gt;
 &lt;iframe src=&quot;https://player.vimeo.com/video/121234763&quot; width=&quot;500&quot; height=&quot;313&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 &lt;p&gt;&lt;a href=&quot;https://vimeo.com/121234763&quot;&gt;Coin Changer Kata&lt;/a&gt; from &lt;a href=&quot;https://vimeo.com/user33522377&quot;&gt;Mateu Adsuara&lt;/a&gt; on &lt;a href=&quot;https://vimeo.com&quot;&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;That’s 5 minutes 15 seconds. And there is yet room for improvement.&lt;/p&gt;
+
+&lt;p&gt;Remember: 
+&lt;code&gt;Strive for progress, not perfection&lt;/code&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 05 Mar 2015 15:00:00 +0000</pubDate>
         <link>http://demonh3x.github.io//8thlight/vim/ruby/kata/2015/03/05/optimizing-the-communication.html</link>
