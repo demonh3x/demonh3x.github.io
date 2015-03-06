@@ -65,17 +65,17 @@ Understanding, solving and simplifying the problem
 ==================================================
 Lets start by understand what is the problem we are trying to solve. 
 
-The problem is about calculating the optimal combination of [UK coins][coins] for a money amount. Optimal means that the bigger coins are preferred. The notes are not considered. For example: given 5.98£, the coins should be:
+The problem is about calculating the optimal combination of [UK coins][coins] for a money amount. Optimal means that the bigger coins are preferred. The notes are not considered. For example: given £5.98, the coins should be:
 
 [coins]: http://en.wikipedia.org/wiki/Coins_of_the_pound_sterling#Coins_in_circulation
 
-- Two 2£ coins
-- A 1£ coin
-- A 0.50£ coin
-- Two 0.20£ coins
-- A 0.05£ coin
-- A 0.02£ coin
-- A 0.01£ coin
+- Two £2 coins
+- A £1 coin
+- A £0.50 coin
+- Two £0.20 coins
+- A £0.05 coin
+- A £0.02 coin
+- A £0.01 coin
 
 In [one of my firsts solutions][first-impl] I introduced some [accidental complication][accidental-complication].
 
