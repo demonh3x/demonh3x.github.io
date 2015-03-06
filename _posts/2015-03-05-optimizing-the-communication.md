@@ -12,11 +12,11 @@ I heard once a person say: "Those craftsmen/craftswomen doing katas super-fast o
 
 In order to be able to do this task, you need to communicate with the computer efficiently.
 
-I introduce next the `Abstract concept` and `An analogy` about comunicating. You can skip those parts and go to `Analysing the task’s aspects` section if you want.
+I introduce next the `Abstract concept` and `An analogy` about communicating. You can skip those parts and go to `Analyzing the task’s aspects` section if you want.
 
 Abstract concept
 ----------------
-When a sender wants to communicate some information to a receiver, some pre-requisites need to exist for that communication to be succesful: 
+When a sender wants to communicate some information to a receiver, some prerequisites need to exist for that communication to be successful: 
 
 - The sender needs to know clearly the information he/she wants to communicate.
 - They both need to be able to understand and express ideas with a common language.
@@ -30,20 +30,20 @@ If the speaker doesn't know what he/she wants to communicate, there is no point 
 
 The details of the language may vary depending on the zone it is spoken.
 It is not exactly the same Spanish spoken in Madrid than the one spoken in Mexico city.
-If there is a word that means one thing in Madrid another thing in Mexico city, and you want a perfect communication, the speaker and the listener need to know which meaning they are refering to when using that word. Otherwise there is going to be confusion. 
+If there is a word that means one thing in Madrid another thing in Mexico city, and you want a perfect communication, the speaker and the listener need to know which meaning they are referring to when using that word. Otherwise there is going to be confusion. 
 If they notice something was confused, solving that confusion (if they can) really slows down the communication.
 
-The speed at wich a person can understand spoken Spanish might be a problem.
+The speed at which a person can understand spoken Spanish might be a problem.
 If the speaker is forced to speak too slow or the listener needs the speaker to repeat the message too many times, the speaker can become frustrated and even stop trying to communicate.
 
-The speed at wich a person can speak Spanish is also a limiting factor. 
+The speed at which a person can speak Spanish is also a limiting factor. 
 It is quite difficult if the speaker's head thinks faster than his/her mouth can articulate words.
 Even worse: it is really frustrating when the speaker wants to say something but can't find the words and combine them to say that thing precisely. The best he/she can do in that case is to say something somewhat similar hoping that the receiver understands the idea.
 
 The precision at which a person can speak Spanish is another important thing to consider.
 The person might be, for example, stuttering when speaking Spanish. That makes him/her to be constantly correcting himself/herself and take more time than usual to say something. It could also confuse the listener.
 
-Analysing the task's aspects
+Analyzing the task's aspects
 ----------------------------
 I introduced the analogy because it has a lot of similarities with the process I faced doing this task. I will explain them as they appear.
 
@@ -97,7 +97,7 @@ The Ruby syntax is similar to other programming languages but it has it peculiar
 *Going back to the analogy: this is specifying that we are going to use the Madrid's Spanish instead of Mexico's.*
 
 [irb][irb] is a great tool to learn the ruby syntax and to experiment with it. 
-The more familiarised you are with the syntax, the faster you can express what you want. By searching in the documentation, experimenting and practicing I became more familiar with the syntax and faster writing it.
+The more familiarized you are with the syntax, the faster you can express what you want. By searching in the documentation, experimenting and practicing I became more familiar with the syntax and faster writing it.
 
 [irb]: http://en.wikipedia.org/wiki/Interactive_Ruby_Shell
 
@@ -115,7 +115,7 @@ That is quite grumpy, isn't it? It would be interesting if the computer also sug
 
 [magic]: https://twitter.com/ianbach/status/564938305251192832
 
-The speed of the communication between the programmer and the computer is the time difference between the moment you write code and the computer tells you everytihng is ok.
+The speed of the communication between the programmer and the computer is the time difference between the moment you write code and the computer tells you everything is OK.
 The more frequent you run the tests, the faster the communication is.
 By automating the execution of the tests after saving, I made the communication faster.
 
@@ -125,13 +125,13 @@ If I would need to improve this, I would follow [Kent's suggestion][save-bottlen
 
 *Going back to the analogy: this is making the listener to understand and respond faster.*
 
-The [transformation priority premise][tpp] suggests you do the steps that require less effort firts. By doing that, the code was evolving smoother and faster.
+The [transformation priority premise][tpp] suggests you do the steps that require less effort first. By doing that, the code was evolving smoother and faster.
  
 [tpp]: http://blog.8thlight.com/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html
  
 Vim usage
 =========
-At some point, if you are really confortable with the previous aspects, the text editor may get in the way of transmitting the information to the computer.
+At some point, if you are really comfortable with the previous aspects, the text editor may get in the way of transmitting the information to the computer.
 
 Learning to use vim feels counterintuitive. Just to get as productive in vim as in your current text editor, you have to learn a lot of shortcuts and be confortable with the modes. That takes time and practice.
 [Vim Adventures][vima] is an interesting way to learn it.
