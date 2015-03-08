@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>The journey of a restless mind</title>
-  <meta name="description" content="A personal blog about my experience as a resident apprentice at 8th Light
-">
+  <title>Extreme Startup</title>
+  <meta name="description" content="On Friday afternoon we did a session of Extreme Startup. It is a competitive programming game.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://demonh3x.github.io//">
+  <link rel="canonical" href="http://demonh3x.github.io//8thlight/2015/03/08/extreme-startup.html">
   <link rel="alternate" type="application/rss+xml" title="The journey of a restless mind" href="http://demonh3x.github.io//feed.xml" />
 </head>
 
@@ -55,55 +54,58 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">Extreme Startup</h1>
+    <p class="post-meta">Mar 8, 2015</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Mar 8, 2015</span>
+  <article class="post-content">
+    <p>On Friday afternoon we did a session of <a href="https://github.com/rchatley/extreme_startup">Extreme Startup</a>. It is a competitive programming game.</p>
 
-        <h2>
-          <a class="post-link" href="/8thlight/2015/03/08/extreme-startup.html">Extreme Startup</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 6, 2015</span>
+<h2 id="intro">Intro</h2>
 
-        <h2>
-          <a class="post-link" href="/8thlight/2015/03/06/estimating.html">Estimating</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 5, 2015</span>
+<p>Each participant has to implement a web API that responds to not-yet-known questions.
+There is an API client acting as a referee that asks those questions every few seconds and keeps track of the points for each participant.</p>
 
-        <h2>
-          <a class="post-link" href="/8thlight/vim/ruby/kata/2015/03/05/optimizing-the-communication.html">Optimizing the communication</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 5, 2015</span>
+<p>Each participant:</p>
 
-        <h2>
-          <a class="post-link" href="/8thlight/blog/perseverance/2015/03/05/why-to-write-a-blog.html">Why to write a blog?</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 2, 2015</span>
+<ul>
+  <li>Gets points if the API responds correctly to a question.</li>
+  <li>Loses some points if the API responds incorrectly to a question.</li>
+  <li>Loses a lot of points if the API is not working when asked a question.</li>
+</ul>
 
-        <h2>
-          <a class="post-link" href="/8thlight/mentalhealth/2015/03/02/restless.html">Restless</a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>The referee machine also is a web server where each participant can see the if the API has responded correctly, incorrectly or was not working when asked a question. It also has the game scoreboard.</p>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<h2 id="our-approach">Our approach</h2>
+
+<p>I participated with Chris Jordan.
+The first thing we thought was: We want to test drive this. How are we going to test our code without the web server nor the referee?</p>
+
+<p>To do that we created a function that received the question and returned the answer.
+We tested that function with questions we were loging as the referee was doing them.
+That function knew nothing about web stuff.
+On the other hand, the web server code received the web request, extracted the question, passed it to the function and formatted the response with the answer.</p>
+
+<p>That way we had a feedback loop much faster than the real environment. We didn’t have to wait <code>random number</code> seconds for the referee to ask the question we wanted to implement. We were <strong>simulating</strong> the real environment.</p>
+
+<h2 id="consequences">Consequences</h2>
+
+<p>Everything was wonderful. We rapidly got way ahead of everyone else because of that rapid feedback.</p>
+
+<p>But our server broke when asked questions it did not expect, so we added some exception handling code to the untested part and thought that would be OK. It was OK for some time, until we started losing some of the advantage.</p>
+
+<p>At the end, <a href="http://www.dirv.me/">Daniel Irvine</a> and Jarkyn Soltobaeva, who were at 2nd position, surpassed us.
+We didn’t know why. Our tests passed!</p>
+
+<p>The worst part is not knowing. We still don’t know exactly why. Our tests were very <a href="https://www.facebook.com/notes/kent-beck/making-making-manifesto/857477870951745">narrow in scope</a> because we were <strong>simulating</strong> the real environment.</p>
+
+<p>We were not looking to the <strong>real world</strong>.</p>
+
+
+  </article>
 
 </div>
 

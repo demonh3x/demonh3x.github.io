@@ -6,9 +6,63 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 Mar 2015 22:34:54 +0000</pubDate>
-    <lastBuildDate>Sun, 08 Mar 2015 22:34:54 +0000</lastBuildDate>
+    <pubDate>Sun, 08 Mar 2015 22:37:32 +0000</pubDate>
+    <lastBuildDate>Sun, 08 Mar 2015 22:37:32 +0000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Extreme Startup</title>
+        <description>&lt;p&gt;On Friday afternoon we did a session of &lt;a href=&quot;https://github.com/rchatley/extreme_startup&quot;&gt;Extreme Startup&lt;/a&gt;. It is a competitive programming game.&lt;/p&gt;
+
+&lt;h2 id=&quot;intro&quot;&gt;Intro&lt;/h2&gt;
+
+&lt;p&gt;Each participant has to implement a web API that responds to not-yet-known questions.
+There is an API client acting as a referee that asks those questions every few seconds and keeps track of the points for each participant.&lt;/p&gt;
+
+&lt;p&gt;Each participant:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Gets points if the API responds correctly to a question.&lt;/li&gt;
+  &lt;li&gt;Loses some points if the API responds incorrectly to a question.&lt;/li&gt;
+  &lt;li&gt;Loses a lot of points if the API is not working when asked a question.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The referee machine also is a web server where each participant can see the if the API has responded correctly, incorrectly or was not working when asked a question. It also has the game scoreboard.&lt;/p&gt;
+
+&lt;h2 id=&quot;our-approach&quot;&gt;Our approach&lt;/h2&gt;
+
+&lt;p&gt;I participated with Chris Jordan.
+The first thing we thought was: We want to test drive this. How are we going to test our code without the web server nor the referee?&lt;/p&gt;
+
+&lt;p&gt;To do that we created a function that received the question and returned the answer.
+We tested that function with questions we were loging as the referee was doing them.
+That function knew nothing about web stuff.
+On the other hand, the web server code received the web request, extracted the question, passed it to the function and formatted the response with the answer.&lt;/p&gt;
+
+&lt;p&gt;That way we had a feedback loop much faster than the real environment. We didn’t have to wait &lt;code&gt;random number&lt;/code&gt; seconds for the referee to ask the question we wanted to implement. We were &lt;strong&gt;simulating&lt;/strong&gt; the real environment.&lt;/p&gt;
+
+&lt;h2 id=&quot;consequences&quot;&gt;Consequences&lt;/h2&gt;
+
+&lt;p&gt;Everything was wonderful. We rapidly got way ahead of everyone else because of that rapid feedback.&lt;/p&gt;
+
+&lt;p&gt;But our server broke when asked questions it did not expect, so we added some exception handling code to the untested part and thought that would be OK. It was OK for some time, until we started losing some of the advantage.&lt;/p&gt;
+
+&lt;p&gt;At the end, &lt;a href=&quot;http://www.dirv.me/&quot;&gt;Daniel Irvine&lt;/a&gt; and Jarkyn Soltobaeva, who were at 2nd position, surpassed us.
+We didn’t know why. Our tests passed!&lt;/p&gt;
+
+&lt;p&gt;The worst part is not knowing. We still don’t know exactly why. Our tests were very &lt;a href=&quot;https://www.facebook.com/notes/kent-beck/making-making-manifesto/857477870951745&quot;&gt;narrow in scope&lt;/a&gt; because we were &lt;strong&gt;simulating&lt;/strong&gt; the real environment.&lt;/p&gt;
+
+&lt;p&gt;We were not looking to the &lt;strong&gt;real world&lt;/strong&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 08 Mar 2015 22:00:00 +0000</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/03/08/extreme-startup.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/03/08/extreme-startup.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Estimating</title>
