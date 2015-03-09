@@ -42,10 +42,11 @@ Everything was wonderful. We rapidly got way ahead of everyone else because of t
 
 But our server broke when asked questions it did not expect, so we added some exception handling code to the untested part and thought that would be OK. It was OK for some time, until we started losing some of the advantage.
 
-At the end, [Daniel Irvine][di] and Jarkyn Soltobaeva, who were at 2nd position, surpassed us.
+At the end, [Daniel Irvine][di] and [Jarkyn Soltobaeva][js], who were at 2nd position, surpassed us.
 We didn't know why. Our tests passed! 
 
 [di]: http://www.dirv.me/
+[js]: http://indykid.github.io/
 
 The worst part is not knowing. We still don't know exactly why. Our tests were very [narrow in scope][testscope] because we were **simulating** the real environment.
 
