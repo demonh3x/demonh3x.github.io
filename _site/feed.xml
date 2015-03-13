@@ -6,9 +6,68 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 Mar 2015 22:37:32 +0000</pubDate>
-    <lastBuildDate>Sun, 08 Mar 2015 22:37:32 +0000</lastBuildDate>
+    <pubDate>Fri, 13 Mar 2015 17:03:33 +0000</pubDate>
+    <lastBuildDate>Fri, 13 Mar 2015 17:03:33 +0000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Kickstart a new language</title>
+        <description>&lt;p&gt;When learning a new language you are going to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;make a lot of mistakes.&lt;/li&gt;
+  &lt;li&gt;get stuck with a lot of things you don’t know yet.&lt;/li&gt;
+  &lt;li&gt;feel again you know nothing about programming.&lt;/li&gt;
+  &lt;li&gt;use the documentation, tutorials and examples.&lt;/li&gt;
+  &lt;li&gt;experiment a lot to fully understand the concepts.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The time you spend in that process is an investment.
+You are going to be a better programmer because of it.&lt;/p&gt;
+
+&lt;p&gt;Let’s imagine the following scenario: You have written some code and after executing it, you find that there is a mistake in it (syntax, behaviour or something else).
+You spent 20 minutes writing the code, 10 more finding where the problem is and another 10 fixing it.
+That’s 40 minutes to try a simple thing.&lt;/p&gt;
+
+&lt;p&gt;Those mistakes are inevitable. They are part of the learning process.
+But, is really necessary to spend that amount of time to learn from that mistake? Are the extra 20 minutes of searching for the mistake and fixing it really necessary?
+You already know the basics. How can you spend only the necessary amount of time learning what you don’t know yet?&lt;/p&gt;
+
+&lt;p&gt;It helps a lot if you are conscious of when and why you are losing time you don’t need to.&lt;/p&gt;
+
+&lt;p&gt;The two main aspects I know that influence the process are: the feedback loop and the source of knowledge.&lt;/p&gt;
+
+&lt;h2 id=&quot;feedback-loop&quot;&gt;Feedback loop&lt;/h2&gt;
+
+&lt;p&gt;By feedback loop I mean the amount of time between the moment you make a mistake and the moment you realise you made a mistake.&lt;/p&gt;
+
+&lt;p&gt;If you have a slow feedback loop, you are going to be losing time.
+The ideal scenario would be to know the mistake you made exactly at the same moment you made it.
+That would be similar to having a pair that knows really well the language constantly looking at the code you are writing.&lt;/p&gt;
+
+&lt;p&gt;Having tools like testing frameworks and automating those tests to run as frequently as possible is one way to speed up the feedback loop.&lt;/p&gt;
+
+&lt;p&gt;Using a repl is another way of speeding up the feedback loop.&lt;/p&gt;
+
+&lt;h2 id=&quot;source-of-knowledge&quot;&gt;Source of knowledge&lt;/h2&gt;
+
+&lt;p&gt;Another significant factor is the source of knowledge.&lt;/p&gt;
+
+&lt;p&gt;At some point you are going to need information about something you don’t understand or dont know.&lt;/p&gt;
+
+&lt;p&gt;The usual way is looking at the documentation or search in the internet. But to do that you need to know the thing you are looking for. Most of the times, the concepts you are trying to learn are new or have a different name to refer to them. So, because you don’t know how to look for it, is hard to find the precise information you want.&lt;/p&gt;
+
+&lt;p&gt;The most efficient way is having a person who already knows the language so he/she can explain the concepts with the amount of conciseness you need and when you need it.
+But that is not allways possible.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 13 Mar 2015 17:00:00 +0000</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/03/13/kickstart-a-new-language.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/03/13/kickstart-a-new-language.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Extreme Startup</title>
@@ -47,7 +106,7 @@ On the other hand, the web server code received the web request, extracted the q
 
 &lt;p&gt;But our server broke when asked questions it did not expect, so we added some exception handling code to the untested part and thought that would be OK. It was OK for some time, until we started losing some of the advantage.&lt;/p&gt;
 
-&lt;p&gt;At the end, &lt;a href=&quot;http://www.dirv.me/&quot;&gt;Daniel Irvine&lt;/a&gt; and Jarkyn Soltobaeva, who were at 2nd position, surpassed us.
+&lt;p&gt;At the end, &lt;a href=&quot;http://www.dirv.me/&quot;&gt;Daniel Irvine&lt;/a&gt; and &lt;a href=&quot;http://indykid.github.io/&quot;&gt;Jarkyn Soltobaeva&lt;/a&gt;, who were at 2nd position, surpassed us.
 We didn’t know why. Our tests passed!&lt;/p&gt;
 
 &lt;p&gt;The worst part is not knowing. We still don’t know exactly why. Our tests were very &lt;a href=&quot;https://www.facebook.com/notes/kent-beck/making-making-manifesto/857477870951745&quot;&gt;narrow in scope&lt;/a&gt; because we were &lt;strong&gt;simulating&lt;/strong&gt; the real environment.&lt;/p&gt;
