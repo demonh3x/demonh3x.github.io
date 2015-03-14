@@ -30,7 +30,7 @@ The two main aspects I know that influence the process are: the feedback loop an
 Feedback loop
 -------------
 
-By feedback loop I mean the amount of time between the moment you make a mistake and the moment you realise you made a mistake.
+By feedback loop I mean the amount of time between the moment you make a mistake and the moment you realize you made a mistake.
 
 If you have a slow feedback loop, you are going to be losing time.
 The ideal scenario would be to know the mistake you made exactly at the same moment you made it.
@@ -45,9 +45,9 @@ Source of knowledge
 
 Another significant factor is the source of knowledge. 
 
-At some point you are going to need information about something you don't understand or dont know.
+At some point you are going to need information about something you don't understand or don't know.
 
-The usual way is looking at the documentation or search in the internet. But to do that you need to know the thing you are looking for. Most of the times, the concepts you are trying to learn are new or have a different name to refer to them. So, because you don't know how to look for it, is hard to find the precise information you want.
+The usual way is looking at the documentation or search in the Internet. But to do that you need to know the thing you are looking for. Most of the times, the concepts you are trying to learn are new or have a different name to refer to them. So, because you don't know how to look for it, is hard to find the precise information you want.
 
 The most efficient way is having a person who already knows the language so he/she can explain the concepts with the amount of conciseness you need and when you need it.
-But that is not allways possible.
+But that is not always possible.
