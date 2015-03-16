@@ -25,8 +25,10 @@ The referee machine also is a web server where each participant can see the if t
 Our approach
 ------------
 
-I participated with Chris Jordan.
+I participated with [Chris Jordan][cj].
 The first thing we thought was: We want to test drive this. How are we going to test our code without the web server nor the referee?
+
+[cj]: http://c-j-j.github.io/
 
 To do that we created a function that received the question and returned the answer.
 We tested that function with questions we were loging as the referee was doing them.
