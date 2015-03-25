@@ -6,9 +6,45 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 19 Mar 2015 15:35:29 +0000</pubDate>
-    <lastBuildDate>Thu, 19 Mar 2015 15:35:29 +0000</lastBuildDate>
+    <pubDate>Wed, 25 Mar 2015 00:39:31 +0000</pubDate>
+    <lastBuildDate>Wed, 25 Mar 2015 00:39:31 +0000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>You are not your creations</title>
+        <description>&lt;p&gt;Do you remember how magical software seemed before you started programming?&lt;/p&gt;
+
+&lt;p&gt;Do you remember the joy you felt the first time you managed to code that thing that was only in your head?&lt;/p&gt;
+
+&lt;p&gt;Do you remember that feeling of excitement the first day you worked with a team?&lt;/p&gt;
+
+&lt;p&gt;Do you remember how hard it was to take the first critiques on your code?&lt;/p&gt;
+
+&lt;p&gt;Do you remember the painful consequences of bad decisions made in a project?&lt;/p&gt;
+
+&lt;p&gt;Do you remember the pride you felt when you and your team developed your first well-thought application for a client?&lt;/p&gt;
+
+&lt;p&gt;Every professional software developer should have experienced those things. And by going through that process, he/she should have developed a judgement about how to do things. &lt;a href=&quot;https://vimeo.com/26330100&quot;&gt;He/she knows different alternatives and makes a decision about what to do with those (chosing one or postponing the choice)&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The thing is, that judgement is developed like your personality. The same way you develop your personality by experiencing things in all your life, you develop your profesional judgement by experiencing things related to your professional life. Everyone has different experiences. Everyone has different judgements. &lt;strong&gt;Each person values differently the things around him/her&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, when I showed my result on some tasks to a group of other 8th Light-ers – a crowd with very diverse and very developed judgement, as you can imagine – I got a lot of feedback about most of the aspects involved. 
+Most of that feedback included the options I already considered and I decided &lt;em&gt;not&lt;/em&gt; to choose. In those moments I had this pessimistic thought: 
+&lt;code&gt;Did I make the wrong decisions?&lt;/code&gt; &lt;code&gt;If I did, does that mean that all the invested time and dedication is worthless?&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Obviously not&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;That felt similar to the first occasions I got my code critiqued. As you may have learnt too: &lt;a href=&quot;https://www.google.co.uk/search?q=you+are+not+your+code&quot;&gt;you are not your code&lt;/a&gt;. I was hurt when my decisions were critiqued because &lt;strong&gt;I subconsciously took that personally&lt;/strong&gt;. Although the target was not the code, those decisions led to it. So, in a way, it was another manifestation of the same concept.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 25 Mar 2015 00:30:00 +0000</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/03/25/you-are-not-your-creations.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/03/25/you-are-not-your-creations.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Software craftsmanship [Book]</title>
