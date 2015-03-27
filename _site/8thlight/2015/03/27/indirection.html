@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Codebar</title>
-  <meta name="description" content="Codebar is a free, weekly, software development workshop based in London where voluntary coaches and interested students meet to enhance the community.">
+  <title>Indirection</title>
+  <meta name="description" content="I was working on the ruby tic tac toe exercise with the minimax algorithm. And I started by TDDing the minimax algorithm directly through the payoff score fo...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://demonh3x.github.io//8thlight/2015/03/25/codebar.html">
+  <link rel="canonical" href="http://demonh3x.github.io//8thlight/2015/03/27/indirection.html">
   <link rel="alternate" type="application/rss+xml" title="The journey of a restless mind" href="http://demonh3x.github.io//feed.xml" />
 </head>
 
@@ -57,22 +57,20 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Codebar</h1>
-    <p class="post-meta">Mar 25, 2015</p>
+    <h1 class="post-title">Indirection</h1>
+    <p class="post-meta">Mar 27, 2015</p>
   </header>
 
   <article class="post-content">
-    <p><a href="http://codebar.io/">Codebar</a> is a free, weekly, software development workshop based in London where voluntary coaches and interested students meet to enhance the community.</p>
+    <p>I was working on the ruby <a href="http://en.wikipedia.org/wiki/Tic-tac-toe">tic tac toe</a> exercise with the <a href="http://en.wikipedia.org/wiki/Minimax">minimax</a> algorithm. And I started by TDDing the minimax algorithm directly through the payoff score for each given board state. That way I had a class with the algorithm but that class was not conforming to the <code>Player</code> contract. So, I had to create a <code>PerfectPlayer</code> class that conforms with the <code>Player</code> contract and uses the <code>Minimax</code> strategy.</p>
 
-<p>Some of the students have a very basic level. <a href="http://demonh3x.github.io/8thlight/2015/03/13/kickstart-a-new-language.html">If you’re conscious about the frustration and difficulties happening at the beginning</a>, you know that having someone to help you understand and not get frustrated is a really important aspect in that process.</p>
+<p>Because there is also a random player, both algorithms can be abstracted to a <code>Strategy</code> layer. That means that the <code>Player</code> can become an <a href="http://en.wikipedia.org/wiki/Adapter_pattern">adapter</a> from <code>Strategy</code> to <code>Player</code>. With that, we have:</p>
 
-<p>Today is the third time I go to these workshops as a coach.</p>
+<p><strong>Game (1 class)</strong> -<em>uses</em>-&gt; <strong>Player (1 class)</strong> -<em>uses</em>-&gt; <strong>Strategy (N classes)</strong></p>
 
-<p>I’m addicted to the joy and satisfaction when I’m able to transform ideas into reality. I also love that thrilling sensation when discovering completely new things.</p>
+<p>This adds a layer of indirection from <code>Game</code> to <code>Strategy</code> called <code>Player</code>. That layer has a cost in complexity, understanding and maintenance. Unless there is a good reason to keep that, it can be simplified to:</p>
 
-<p>Making other people feel those sensations is not the same as experiencing them yourself but it is not that far. I can empathize with them and be infected with their feelings.</p>
-
-<p>That makes me happy and proud of what they can accomplish.</p>
+<p><strong>Game (1 class)</strong> -<em>uses</em>-&gt; <strong>Player (N classes)</strong></p>
 
   </article>
 
