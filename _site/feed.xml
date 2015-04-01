@@ -6,9 +6,32 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 31 Mar 2015 01:08:28 +0100</pubDate>
-    <lastBuildDate>Tue, 31 Mar 2015 01:08:28 +0100</lastBuildDate>
+    <pubDate>Thu, 02 Apr 2015 00:28:07 +0100</pubDate>
+    <lastBuildDate>Thu, 02 Apr 2015 00:28:07 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Investing in craftsmanship</title>
+        <description>&lt;p&gt;When you think about working for a company, I’m pretty sure you expect to provide some kind of value to them. You may be developing products or doing some kind of service. Something that results in a near-term profit. And that expectation will be reinforced by the fact that you are being paid.&lt;/p&gt;
+
+&lt;p&gt;What would you think from a business perspective of a company that has &lt;strong&gt;learning&lt;/strong&gt; as the only one initial expectation from their employees? &lt;a href=&quot;https://www.linkedin.com/groups/CFO-asks-his-CEO-What-3044917.S.49056143&quot;&gt;It may sound like a very bad decision, right?&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;What would you think from a client perspective of a company that lets any new employee to do work on your project. Would you trust a newcomer doing work for you? What if the newcomer is not prepared enough?&lt;/p&gt;
+
+&lt;p&gt;How would you feel if the only expectation from you at your job is to learn while most of your workmates are providing value? And what if you even consume other workmates’ work time?&lt;/p&gt;
+
+&lt;p&gt;One might think learning is one’s responsibility. As such, one should do it as an investment on oneself. And I completely agree. Given that we are in a &lt;a href=&quot;http://idratherbewriting.com/2007/07/24/the-rapidly-changing-pace-of-technology-some-thoughts-on-our-response-to-it/&quot;&gt;profession that changes rapidly&lt;/a&gt;, if you don’t invest in your own business – yourself as a professional – &lt;a href=&quot;http://www.petrikainulainen.net/software-development/learning/5-things-i-do-to-stay-relevant/&quot;&gt;you will be out of the game soon&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But that doesn’t mean that any software company can avoid supporting that. Their business is at stake.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 01 Apr 2015 00:00:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/04/01/investing-in-craftsmanship.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/01/investing-in-craftsmanship.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Two better than one</title>
@@ -405,46 +428,6 @@ We didn’t know why. Our tests passed!&lt;/p&gt;
         <pubDate>Sun, 08 Mar 2015 22:00:00 +0000</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/03/08/extreme-startup.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/03/08/extreme-startup.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Estimating</title>
-        <description>&lt;p&gt;To assign tasks we are doing iteration planning meetings (IPMs). In those, we specify which tasks I have to do next. The tracking of those tasks is done in a &lt;a href=&quot;http://en.wikipedia.org/wiki/Kanban_board&quot;&gt;kanban board&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Then I have to estimate how much time I think they are going to take. The time units are half day of work. That means that 2 units are a full day of work (8 hours). The time units are not divisible. And an estimation can’t be 0 time units. That estimation is based on 3 points of view:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Being optimistic.&lt;/li&gt;
-  &lt;li&gt;Being realistic.&lt;/li&gt;
-  &lt;li&gt;Being pessimistic.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I am noticing that maybe I am being pessimistic by default. 
-Optimistic, realistic and pessimistic seem subjective thoughts. I can’t estimate with subjective thoughts, they are unreliable. So I have to find a more objective way of thinking about it:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;To achieve that task, what are the steps I have to take?&lt;/li&gt;
-  &lt;li&gt;Do I have some experience in some of the steps? How much time did they take?&lt;/li&gt;
-  &lt;li&gt;Optimistic: Everything goes really smooth, there are no interruptions, full focus on the task…&lt;/li&gt;
-  &lt;li&gt;Realistic: Considering some interruptions, some moments when one can’t focus properly, maybe I missed one or two steps to complete the task…&lt;/li&gt;
-  &lt;li&gt;Pessimistic: I got my assumptions wrong. There are missed steps to complete the task that I did not think of. I am being interrupted often. I can’t focus on the task. I will dedicate out-of-work time to keep up…&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The problem of thinking pessimistically that way is that my estimations are very exaggerated.
-I had to think about it from other point of view: It should not take more than X time to do it.
-Thinking of it that way made me value the time I was spending in a task.&lt;/p&gt;
-
-&lt;p&gt;On the other hand. If I have never done anything similar enough to the step I’m trying to estimate, How am I supposed to know the time is going to take to do it?&lt;/p&gt;
-
-&lt;p&gt;I feel really uncomfortable estimating, that means I need to improve on it.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 06 Mar 2015 10:00:00 +0000</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/03/06/estimating.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/03/06/estimating.html</guid>
         
         
         <category>8thlight</category>
