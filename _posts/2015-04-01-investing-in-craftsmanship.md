@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Investing in craftsmanship"
-date:   2015-03-31 23:00:00
+date:   2015-04-01 23:00:00
 categories: 8thlight
 ---
 When you think about working for a company, I'm pretty sure you expect to provide some kind of value to them. You may be developing products or doing some kind of service. Something that results in a near-term profit. And that expectation will be reinforced by the fact that you are being paid.
