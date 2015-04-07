@@ -6,9 +6,77 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 07 Apr 2015 01:12:14 +0100</pubDate>
-    <lastBuildDate>Tue, 07 Apr 2015 01:12:14 +0100</lastBuildDate>
+    <pubDate>Wed, 08 Apr 2015 00:42:00 +0100</pubDate>
+    <lastBuildDate>Wed, 08 Apr 2015 00:42:00 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Higher-order functions I</title>
+        <description>&lt;p&gt;Having the possibility to use functions as values in a programming language enables us to make &lt;a href=&quot;http://en.wikipedia.org/wiki/Higher-order_function&quot;&gt;higher-order functions&lt;/a&gt;. That’s a fancy way of saying that we can do &lt;strong&gt;functions that receive functions as parameters or return functions&lt;/strong&gt;. Having that feature unveils interesting benefits.&lt;/p&gt;
+
+&lt;p&gt;Let’s start with a problem I faced today in Ruby. Let’s suposse we have a class like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Game&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_finished?&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# code ommited&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;result&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# code ommited&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code&gt;is_finished?&lt;/code&gt; method tells us if the &lt;code&gt;Game&lt;/code&gt; has concluded. Returning &lt;code&gt;false&lt;/code&gt; means that there is no result yet and if you call the &lt;code&gt;result&lt;/code&gt; method it may return &lt;code&gt;nil&lt;/code&gt; or something without real meaning. You have to wait for &lt;code&gt;is_finished?&lt;/code&gt; to return &lt;code&gt;true&lt;/code&gt; to be able to see the real &lt;code&gt;result&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;That means that every user of that class is going to contain this kind of code:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_finished?&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;do_something_with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Each time some part of the code needs to access to &lt;code&gt;game.result&lt;/code&gt;, it is forced to check if the &lt;code&gt;game.is_finished?&lt;/code&gt; before it can do something with the result.&lt;/p&gt;
+
+&lt;p&gt;Something smells in there… and not only because the users are forced to duplicate the if statement, but also because it seems to violate &lt;a href=&quot;http://c2.com/cgi/wiki?TellDontAsk&quot;&gt;tell don’t ask&lt;/a&gt;: the users are asking the game for two things instead of telling it what to do.&lt;/p&gt;
+
+&lt;p&gt;So, I followed those smells and using higher-order functions (blocks/lambdas in Ruby) came up with this idea:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Game&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;when_finished&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is_finished?&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_finished?&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# code ommited&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;result&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# code ommited&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;That changes the way the users interact with it:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;when_finished&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do_something_with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;With this we have reduced the smells we were noticing.&lt;/p&gt;
+
+&lt;p&gt;But there is more. We forgot the &lt;code&gt;else&lt;/code&gt;. What if the user of that code wants to do something else when the game is not finished? Because the implementation of &lt;code&gt;when_finished&lt;/code&gt; evaluates to &lt;code&gt;nil&lt;/code&gt; when is not finished, we can do the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;when_finished&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do_something_with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do_something_else&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;That works as we expect because the &lt;code&gt;||&lt;/code&gt; operator is &lt;a href=&quot;http://en.wikipedia.org/wiki/Lazy_evaluation&quot;&gt;lazy&lt;/a&gt;. It only evaluates the right operand (&lt;code&gt;do_something_else&lt;/code&gt;) when the left operand (&lt;code&gt;game.when_finished {|result| do_something_with result}&lt;/code&gt;) is falsey.&lt;/p&gt;
+
+&lt;p&gt;This syntax may be a bit forced, and this might be evolved to something else, &lt;em&gt;maybe&lt;/em&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 08 Apr 2015 01:30:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/04/08/higher-order-functions-i.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/08/higher-order-functions-i.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Efficient teaching</title>
@@ -374,65 +442,6 @@ Almost everyone in the team uses it for everyday coding.&lt;/p&gt;
         <category>8thlight</category>
         
         <category>collaborating</category>
-        
-      </item>
-    
-      <item>
-        <title>Kickstart a new language</title>
-        <description>&lt;p&gt;When learning a new language you are going to:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;make a lot of mistakes.&lt;/li&gt;
-  &lt;li&gt;get stuck with a lot of things you don’t know yet.&lt;/li&gt;
-  &lt;li&gt;feel again you know nothing about programming.&lt;/li&gt;
-  &lt;li&gt;use the documentation, tutorials and examples.&lt;/li&gt;
-  &lt;li&gt;experiment a lot to fully understand the concepts.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The time you spend in that process is an investment.
-You are going to be a better programmer because of it.&lt;/p&gt;
-
-&lt;p&gt;Let’s imagine the following scenario: You have written some code and after executing it, you find that there is a mistake in it (syntax, behaviour or something else).
-You spent 20 minutes writing the code, 10 more finding where the problem is and another 10 fixing it.
-That’s 40 minutes to try a simple thing.&lt;/p&gt;
-
-&lt;p&gt;Those mistakes are inevitable. They are part of the learning process.
-But, is really necessary to spend that amount of time to learn from that mistake? Are the extra 20 minutes of searching for the mistake and fixing it really necessary?
-You already know the basics. How can you spend only the necessary amount of time learning what you don’t know yet?&lt;/p&gt;
-
-&lt;p&gt;It helps a lot if you are conscious of when and why you are losing time you don’t need to.&lt;/p&gt;
-
-&lt;p&gt;The two main aspects I know that influence the process are: the feedback loop and the source of knowledge.&lt;/p&gt;
-
-&lt;h2 id=&quot;feedback-loop&quot;&gt;Feedback loop&lt;/h2&gt;
-
-&lt;p&gt;By feedback loop I mean the amount of time between the moment you make a mistake and the moment you realize you made a mistake.&lt;/p&gt;
-
-&lt;p&gt;If you have a slow feedback loop, you are going to be losing time.
-The ideal scenario would be to know the mistake you made exactly at the same moment you made it.
-That would be similar to having a pair that knows really well the language constantly looking at the code you are writing.&lt;/p&gt;
-
-&lt;p&gt;Having tools like testing frameworks and automating those tests to run as frequently as possible is one way to speed up the feedback loop.&lt;/p&gt;
-
-&lt;p&gt;Using a repl is another way of speeding up the feedback loop.&lt;/p&gt;
-
-&lt;h2 id=&quot;source-of-knowledge&quot;&gt;Source of knowledge&lt;/h2&gt;
-
-&lt;p&gt;Another significant factor is the source of knowledge.&lt;/p&gt;
-
-&lt;p&gt;At some point you are going to need information about something you don’t understand or don’t know.&lt;/p&gt;
-
-&lt;p&gt;The usual way is looking at the documentation or search in the Internet. But to do that you need to know the thing you are looking for. Most of the times, the concepts you are trying to learn are new or have a different name to refer to them. So, because you don’t know how to look for it, is hard to find the precise information you want.&lt;/p&gt;
-
-&lt;p&gt;The most efficient way is having a person who already knows the language so he/she can explain the concepts with the amount of conciseness you need and when you need it.
-But that is not always possible.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 13 Mar 2015 17:00:00 +0000</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/03/13/kickstart-a-new-language.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/03/13/kickstart-a-new-language.html</guid>
-        
-        
-        <category>8thlight</category>
         
       </item>
     
