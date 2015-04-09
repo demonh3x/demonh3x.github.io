@@ -6,9 +6,42 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 Apr 2015 00:42:00 +0100</pubDate>
-    <lastBuildDate>Wed, 08 Apr 2015 00:42:00 +0100</lastBuildDate>
+    <pubDate>Thu, 09 Apr 2015 01:33:50 +0100</pubDate>
+    <lastBuildDate>Thu, 09 Apr 2015 01:33:50 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Maybe</title>
+        <description>&lt;p&gt;&lt;a href=&quot;/8thlight/2015/04/08/higher-order-functions-i.html&quot;&gt;In the last blog post&lt;/a&gt; I was writing about the smell of using if statements when a value may be present or not.&lt;/p&gt;
+
+&lt;p&gt;In this blog post I’m going to let the code speak by itself.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Author&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Maybe&lt;/span&gt;
+   
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;just&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Mateu&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;author&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include?&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;change&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;upcase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;or&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;I don&amp;#39;t know&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/demonh3x/b0ef3ba310757bf8a020&quot;&gt;See the magic here&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 09 Apr 2015 02:30:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/04/09/maybe.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/09/maybe.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Higher-order functions I</title>
@@ -398,50 +431,6 @@ New country, new team, new everyday language, new way of life, no old friends no
         
         
         <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Common ground</title>
-        <description>&lt;p&gt;There is a lot of emphasis at the begining of an apprenticeship on a set of skills and tools that everyone else in the team already knows and uses everyday.
-As a part of a team, you need to be able to pair with anyone and in a way that you both are comfortable doing it.&lt;/p&gt;
-
-&lt;p&gt;Some skills or tools might sound obvious, others not so much.&lt;/p&gt;
-
-&lt;h1 id=&quot;touch-typing&quot;&gt;Touch typing&lt;/h1&gt;
-
-&lt;p&gt;This one is quite obvious.&lt;/p&gt;
-
-&lt;p&gt;I never learned how to properly touch type. But because I used computers from the age of 12 I am able to type quite quickly and precisely without having the &lt;em&gt;“correct”&lt;/em&gt; technique. Maybe if I develop the proper technique I would type faster and with more precision, but I don’t think the difference would be that significant.&lt;/p&gt;
-
-&lt;h1 id=&quot;us-keyboard&quot;&gt;US keyboard&lt;/h1&gt;
-
-&lt;p&gt;Most of the team members have the US keyboard. The rest who don’t have it, have the OS configured to use the US distribution and know how to use it fluently.&lt;/p&gt;
-
-&lt;p&gt;I come from a Spanish keyboard.
-Both are QWERTY distributions, so almost all the letters are in the same position. That is good because I don’t have to re-learn anything of that.
-But almost all the symbols are in another position. So I had to re-train my movements when thinking of the symbols. Which is a bit difficult to do because I had to override what I’ve been doing for the past 16 years.&lt;/p&gt;
-
-&lt;h1 id=&quot;vim&quot;&gt;Vim&lt;/h1&gt;
-
-&lt;p&gt;Vim is a text editor that is available by default in most Linux distributions and in Mac OS.
-Besides that, it is a very lightweight and flexible tool. Almost everything can be customized and extended via plug-ins.
-Almost everyone in the team uses it for everyday coding.&lt;/p&gt;
-
-&lt;p&gt;I’ve used it a bit before this apprenticeship, but only enough to not be lost in the modes. Nothing about being efficient in its usage. Each day I learn how to use a new feature that makes me more efficient using it.&lt;/p&gt;
-
-&lt;h1 id=&quot;tmux&quot;&gt;Tmux&lt;/h1&gt;
-
-&lt;p&gt;Tmux enable you to have multi-tasking in a shell. If you don’t want to get stuck with a single process, you need a tool like this one.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 14 Mar 2015 17:30:00 +0000</pubDate>
-        <link>http://demonh3x.github.io//8thlight/collaborating/2015/03/14/common-ground.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/collaborating/2015/03/14/common-ground.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-        <category>collaborating</category>
         
       </item>
     
