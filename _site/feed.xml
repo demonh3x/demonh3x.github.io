@@ -6,9 +6,32 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 09 Apr 2015 01:33:50 +0100</pubDate>
-    <lastBuildDate>Thu, 09 Apr 2015 01:33:50 +0100</lastBuildDate>
+    <pubDate>Tue, 14 Apr 2015 10:31:21 +0100</pubDate>
+    <lastBuildDate>Tue, 14 Apr 2015 10:31:21 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Innovate</title>
+        <description>&lt;p&gt;We know that, usually, there can be several different solutions to a problem. Each one with a different set of pros and cons.&lt;/p&gt;
+
+&lt;p&gt;I think most of us – problem solvers –, in our experience, have been spoiled by seeing an external solution. At least once. If we try to solve the problem again, most probably, we may end up copying the same solution. Once that happens, it is difficult to see alternatives.&lt;/p&gt;
+
+&lt;p&gt;When I want a different solution or I want to expand my knowledge, I try to do the following:&lt;/p&gt;
+
+&lt;p&gt;Think on the problem that I want to solve. I think of &lt;code&gt;what&lt;/code&gt; I want – that may be composed of more little &lt;code&gt;what&lt;/code&gt; pieces. Then I think of &lt;code&gt;how&lt;/code&gt; that solution solved those.&lt;/p&gt;
+
+&lt;p&gt;If we think of what a solution is, we may describe it as a set of decisions on &lt;code&gt;how&lt;/code&gt; to solve each one of the little &lt;code&gt;what&lt;/code&gt; pieces. &lt;a href=&quot;https://twitter.com/worrydream/status/452877691440492544&quot;&gt;Most of the innovations are made by trying to solve a &lt;code&gt;what&lt;/code&gt; with more information than the original solver had at the moment&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Once I have those, I try to think of alternative &lt;code&gt;how&lt;/code&gt;s. Only by choosing a different &lt;code&gt;how&lt;/code&gt; on one &lt;code&gt;what&lt;/code&gt;, It is very possible to end with a different solution. The more different the solution you want it to be, the more &lt;code&gt;how&lt;/code&gt; you are going to need to change.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 14 Apr 2015 11:30:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/04/14/innovate.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/14/innovate.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Maybe</title>
@@ -396,41 +419,6 @@ Most of that feedback included the options I already considered and I decided &l
         <category>8thlight</category>
         
         <category>books</category>
-        
-      </item>
-    
-      <item>
-        <title>Estimating II</title>
-        <description>&lt;p&gt;&lt;a href=&quot;http://blog.8thlight.com/uncle-bob/2012/04/20/Why-Is-Estimating-So-Hard.html&quot;&gt;Estimating is hard&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://skim.la/&quot;&gt;Steve Kim&lt;/a&gt;, my mentor, after reading my &lt;a href=&quot;http://demonh3x.github.io/8thlight/2015/03/06/estimating.html&quot;&gt;first post about estimating&lt;/a&gt; sent me a link to a &lt;a href=&quot;http://blog.8thlight.com/paul-pagel/FromEstimateToCommitment.pdf&quot;&gt;document from Paul Pagel about that topic&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I mentioned in my &lt;a href=&quot;http://demonh3x.github.io/8thlight/2015/03/06/estimating.html&quot;&gt;first post about estimating&lt;/a&gt; that my original way of thinking pessimistically results in – what I thought – very exaggerated estimations. That is a result of the insecurity in myself and the unknown future.&lt;/p&gt;
-
-&lt;p&gt;In my last IPM I estimated pessimistically as &lt;code&gt;It should not take more than X time to do it&lt;/code&gt;. It turned out as a &lt;strong&gt;complete failure&lt;/strong&gt;. It is true that filling that &lt;code&gt;X&lt;/code&gt; makes me value the time I spend in a task. But it will not be a valid estimation because it doesn’t represent the time it will &lt;strong&gt;actually take me&lt;/strong&gt; to do it. A valid pessimistically estimation needs to include the uncertainty and my insecurity.&lt;/p&gt;
-
-&lt;p&gt;By making that mistake I understood one of the reasons why I feel really uncomfortable estimating: I like to keep my promises. Estimating feels like a promise, even though &lt;a href=&quot;https://signalvnoise.com/posts/2136-its-not-a-promise-its-a-guess&quot;&gt;it shouldn’t because it is a guess&lt;/a&gt;.
-Not meeting an estimation hurts me. By estimating a task in a time-frame that I will not be able to achieve I am destroying my honor and trust. I am a worthless professional if no one trusts me.&lt;/p&gt;
-
-&lt;p&gt;And I know &lt;strong&gt;now&lt;/strong&gt; why I didn’t see that failure coming.&lt;/p&gt;
-
-&lt;p&gt;Pressure blinds your perception and judgment. Of course the client is going to apply pressure: he/she wants the application as soon as possible and as cheap as possible but without reducing the quality nor the features.
-The client may think that the estimation is something negotiable. Because of that, you can estimate differently, but then that estimation will not be as accurate as your original estimation. The real development will take the same time independently of your estimation.
-The only way to reduce the amount of time an application is going to take to develop is by negotiating the features of it. That doesn’t mean the application is going to be inferior, it means that &lt;a href=&quot;https://kunuk.files.wordpress.com/2014/10/minimum-viable-product2.png&quot;&gt;we are going to analise what are the really important aspects of those features so we can prioritize them&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://dev.fesere.de/&quot;&gt;Felipe Sere&lt;/a&gt;, my co-mentor, helped me remember those things. I already knew most of them, I was applying them in the applications I have been involved. Then, why I didn’t apply them this time?&lt;/p&gt;
-
-&lt;p&gt;I am in a completely new environment.
-New country, new team, new everyday language, new way of life, no old friends nor family near. And the most influential one: new role. I was no longer the one that guides, I am being guided. I was no longer providing value, I am an apprentice. Everything I thought is the right thing is being questioned.&lt;/p&gt;
-
-&lt;p&gt;Because of that I was not thinking of the IPMs with &lt;a href=&quot;http://skim.la/&quot;&gt;Steve&lt;/a&gt; as client-simulation scenarios. I was thinking of them as mentor-pushing scenarios. So when he applied &lt;em&gt;“client pressure”&lt;/em&gt; I trusted his decision of – what I interpreted as the mentor – pushing me beyond my possibilities. I was caught off-guard.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 15 Mar 2015 22:30:00 +0000</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/03/15/estimating-2.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/03/15/estimating-2.html</guid>
-        
-        
-        <category>8thlight</category>
         
       </item>
     
