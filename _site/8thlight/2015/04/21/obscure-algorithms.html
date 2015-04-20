@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>The journey of a restless mind</title>
-  <meta name="description" content="A personal blog about my experience as a resident apprentice at 8th Light
-">
+  <title>Obscure algorithms</title>
+  <meta name="description" content="I’ve been implementing this tic tac toe AI that needs to play in a 4 by 4 board.It has to be perfect. It has to be fast. And the combination of those things ...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://demonh3x.github.io//">
+  <link rel="canonical" href="http://demonh3x.github.io//8thlight/2015/04/21/obscure-algorithms.html">
   <link rel="alternate" type="application/rss+xml" title="The journey of a restless mind" href="http://demonh3x.github.io//feed.xml" />
 </head>
 
@@ -55,167 +54,37 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">Obscure algorithms</h1>
+    <p class="post-meta">Apr 21, 2015</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Apr 21, 2015</span>
+  <article class="post-content">
+    <p>I’ve been implementing this tic tac toe AI that needs to play in a 4 by 4 board.
+It has to be perfect. It has to be fast. And the combination of those things is what makes it difficult.</p>
 
-        <h2>
-          <a class="post-link" href="/8thlight/2015/04/21/obscure-algorithms.html">Obscure algorithms</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Apr 14, 2015</span>
+<p>One of the problems is that if you use a simple recursive algorithm to analise all the combinations in the game, it will take forever in a 4 by 4 board. They are too many combinations. So, you have to find ways to do less processing. The one I chose was to implement <a href="http://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning">minimax with alpha-beta pruning</a>. But that algorithm is too technical and too academic for someone who has no deep understanding on mathematics like me.</p>
 
-        <h2>
-          <a class="post-link" href="/8thlight/2015/04/14/innovate.html">Innovate</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Apr 9, 2015</span>
+<p>Because I needed to implement it in a way that I could be sure it was going to work as expected, I first had to understand what I was trying to do. Understanding why the algorithm works is an interesting challenge.
+If you haven’t seen <a href="http://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning">alpha-beta pruning</a> before, try to make sense out of what alpha and beta mean and how they work in that context. They are names that depend very heavily on the reader to understand uncommon concepts. I still don’t know the real mathematic meaning behind them.</p>
 
-        <h2>
-          <a class="post-link" href="/8thlight/2015/04/09/maybe.html">Maybe</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Apr 8, 2015</span>
+<p>Like most algorithms, the mechanics are very logical and human-like thinking. But the notation and implementation obscures very heavily that meaning.
+After spending a full day of work trying to make sense out of it I got an idea. You don’t need any mathematics to understand it. You only need to be human and have a bit of logic.</p>
 
-        <h2>
-          <a class="post-link" href="/8thlight/2015/04/08/higher-order-functions-i.html">Higher-order functions I</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Apr 7, 2015</span>
+<p>Minimax is based on the thinking that I’m going to choose the best option that I have available and that I can suppose the opponent is going to choose the worse option for me. If the opponent chooses something less bad, that’s better for me.</p>
 
-        <h2>
-          <a class="post-link" href="/8thlight/2015/04/07/efficient-teaching.html">Efficient teaching</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Apr 2, 2015</span>
+<p>Given those decisions, I know that I am not going to choose the options that are worse for me.
+So, if I have the option to choose between a draw or a lose, as soon as I know a path gives the opponent the chance to defeat me I don’t need to look further: I prefer the draw for now. Similarly, I don’t need to look further into the paths that are not going to improve a previous alternative.</p>
 
-        <h2>
-          <a class="post-link" href="/8thlight/2015/04/02/investing-in-craftsmanship.html">Investing in craftsmanship</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 31, 2015</span>
+<p>If the opponent can choose between a path that may give me a better outcome than other alternatives, the opponent is going to choose an alternative. As soon as I know the opponent is not going to choose that path with better outcome for me I can stop looking further.</p>
 
-        <h2>
-          <a class="post-link" href="/8thlight/2015/03/31/two-better-than-one.html">Two better than one</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 27, 2015</span>
+<p>Also, if the opponent has the chance to win, no other option that he may choose is going to be worse than that. As soon as I know he may win, I can stop looking for more options that he may choose in that situation. And the opposite also applies: If I know I can choose to win, I can stop looking for alternatives: I know I’m going to choose to win.</p>
 
-        <h2>
-          <a class="post-link" href="/8thlight/2015/03/27/indirection.html">Indirection</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 25, 2015</span>
+<p>That’s it, nothing less and nothing more.</p>
 
-        <h2>
-          <a class="post-link" href="/8thlight/2015/03/25/codebar.html">Codebar</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 25, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/8thlight/2015/03/25/you-are-not-your-creations.html">You are not your creations</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 19, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/8thlight/books/2015/03/19/sotware-craftsmanship.html">Software craftsmanship [Book]</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 15, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/8thlight/2015/03/15/estimating-2.html">Estimating II</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 14, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/8thlight/collaborating/2015/03/14/common-ground.html">Common ground</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 13, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/8thlight/2015/03/13/kickstart-a-new-language.html">Kickstart a new language</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 8, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/8thlight/2015/03/08/extreme-startup.html">Extreme Startup</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 6, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/8thlight/2015/03/06/estimating.html">Estimating</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 5, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/8thlight/vim/ruby/kata/2015/03/05/optimizing-the-communication.html">Optimizing the communication</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 5, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/8thlight/blog/perseverance/2015/03/05/why-to-write-a-blog.html">Why to write a blog?</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 2, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/8thlight/mentalhealth/2015/03/02/restless.html">Restless</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  </article>
 
 </div>
 
