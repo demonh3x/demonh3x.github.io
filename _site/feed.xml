@@ -6,9 +6,30 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Apr 2015 23:34:48 +0100</pubDate>
-    <lastBuildDate>Mon, 20 Apr 2015 23:34:48 +0100</lastBuildDate>
+    <pubDate>Wed, 22 Apr 2015 10:04:59 +0100</pubDate>
+    <lastBuildDate>Wed, 22 Apr 2015 10:04:59 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Uncertainty</title>
+        <description>&lt;p&gt;I was trying to make the AI in the tic tac toe game run fast. It was infinitelly slow. I had the hope that by implementing alpha-beta pruning would make it faster. And it did. After that it took about 15 seconds to make a move in the worse case scenario. It was a big improvement from before. But 15 seconds is too much for a user to wait. Something was not working as expected; it should be much faster.&lt;/p&gt;
+
+&lt;p&gt;At that point I was lost. In addition to alpha-beta pruning I tried to use cache to improve the performance, but that did not make any noticeable difference. It was slow! I had no idea about what was wrong with it. I was overwhelmed by the problem and the situation. I really hate that situation.&lt;/p&gt;
+
+&lt;p&gt;After disconnecting from the problem for a day or two I was ready to face it again. Now with fresh thoughts. With that and more research on optimised algorithms for tic tac toe I realised that my implementation was only pruning half of what it could. What a stupid mistake! Fixing that improved the speed a lot. And then I decided to use properly the tool for this job: &lt;a href=&quot;https://github.com/ruby-prof/ruby-prof&quot;&gt;a profiler&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The information provided by the profiler pointed to the places where most of the time was spent. Having that precise feedback I was able to try different alternatives and see the difference they made. Now I was making progress! No more uncertainty.&lt;/p&gt;
+
+&lt;p&gt;The lesson learned here is: when lost, the things that will help you get through that are: disconnecting from the problem and resting, conversations with fellow programmers, researching for information and using tools to get more feedback on your situation. Seem obvious, but in the middle of a tough situation is harder to realise it.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 22 Apr 2015 11:00:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/04/22/uncertainty.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/22/uncertainty.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Obscure algorithms</title>
@@ -313,42 +334,6 @@ While trying to fit those pieces I enter in a quite abstract way of thinking. Th
         <pubDate>Wed, 25 Mar 2015 18:00:00 +0000</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/03/25/codebar.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/03/25/codebar.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>You are not your creations</title>
-        <description>&lt;p&gt;Do you remember how magical software seemed before you started programming?&lt;/p&gt;
-
-&lt;p&gt;Do you remember the joy you felt the first time you managed to code that thing that was only in your head?&lt;/p&gt;
-
-&lt;p&gt;Do you remember that feeling of excitement the first day you worked with a team?&lt;/p&gt;
-
-&lt;p&gt;Do you remember how hard it was to take the first critiques on your code?&lt;/p&gt;
-
-&lt;p&gt;Do you remember the painful consequences of bad decisions made in a project?&lt;/p&gt;
-
-&lt;p&gt;Do you remember the pride you felt when you and your team developed your first well-thought application for a client?&lt;/p&gt;
-
-&lt;p&gt;Every professional software developer should have experienced those things. And by going through that process, he/she should have developed a judgment about how to do things. &lt;a href=&quot;https://vimeo.com/26330100&quot;&gt;He/she knows different alternatives and makes a decision about what to do with those (choosing one or postponing the choice)&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The thing is, that judgment is developed like your personality. The same way you develop your personality by experiencing things in all your life, you develop your professional judgment by experiencing things related to your professional life. Everyone has different experiences. Everyone has different judgments. &lt;strong&gt;Each person values differently the things around him/her&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;So, when I showed my result on some tasks to a group of other 8th Light-ers – a crowd with very diverse and very developed judgment, as you can imagine – I got a lot of feedback about most of the aspects involved. 
-Most of that feedback included the options I already considered and I decided &lt;em&gt;not&lt;/em&gt; to choose. In those moments I had this pessimistic thought: 
-&lt;code&gt;Did I make the wrong decisions?&lt;/code&gt; &lt;code&gt;If I did, does that mean that all the invested time and dedication is worthless?&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Obviously not&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;That felt similar to the first occasions I got my code critiqued. As you may have learnt too: &lt;a href=&quot;https://www.google.co.uk/search?q=you+are+not+your+code&quot;&gt;you are not your code&lt;/a&gt;. I was hurt when my decisions were critiqued because &lt;strong&gt;I subconsciously took that personally&lt;/strong&gt;. Although the target was not the code, those decisions led to it. So, in a way, it was another manifestation of the same concept.&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 25 Mar 2015 00:30:00 +0000</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/03/25/you-are-not-your-creations.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/03/25/you-are-not-your-creations.html</guid>
         
         
         <category>8thlight</category>
