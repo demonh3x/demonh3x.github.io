@@ -66,14 +66,14 @@ Lets try to think closer to low-level: remove generalizations and just focus on 
 def winner
   m = marks
   @winner ||= (
-    ((m[0] != nil) && (m[0] == m[1]) && (m[1] == m[2]) && m[0]) ||
-    ((m[3] != nil) && (m[3] == m[4]) && (m[4] == m[5]) && m[3]) ||
-    ((m[6] != nil) && (m[6] == m[7]) && (m[7] == m[8]) && m[6]) ||
-    ((m[0] != nil) && (m[0] == m[3]) && (m[3] == m[6]) && m[0]) ||
-    ((m[1] != nil) && (m[1] == m[4]) && (m[4] == m[7]) && m[1]) ||
-    ((m[2] != nil) && (m[2] == m[5]) && (m[5] == m[8]) && m[2]) ||
-    ((m[0] != nil) && (m[0] == m[4]) && (m[4] == m[8]) && m[0]) ||
-    ((m[2] != nil) && (m[2] == m[4]) && (m[4] == m[6]) && m[2])
+    ((m[0] != nil) && (m[0] == m[1]) && (m[0] == m[2]) && m[0]) ||
+    ((m[3] != nil) && (m[3] == m[4]) && (m[3] == m[5]) && m[3]) ||
+    ((m[6] != nil) && (m[6] == m[7]) && (m[6] == m[8]) && m[6]) ||
+    ((m[0] != nil) && (m[0] == m[3]) && (m[0] == m[6]) && m[0]) ||
+    ((m[1] != nil) && (m[1] == m[4]) && (m[1] == m[7]) && m[1]) ||
+    ((m[2] != nil) && (m[2] == m[5]) && (m[2] == m[8]) && m[2]) ||
+    ((m[0] != nil) && (m[0] == m[4]) && (m[0] == m[8]) && m[0]) ||
+    ((m[2] != nil) && (m[2] == m[4]) && (m[2] == m[6]) && m[2])
   ) || nil
 end
 {% endhighlight %}
@@ -121,18 +121,10 @@ But, by doing that, we lost the generic properties of the initial algorithm; it 
 We need to regain the correct behavior independently of the `lines`. Generalizing the code will slow us down again. Now, metaprogramming comes in handy:
 
 {% highlight ruby %}
-def self.each_group_of(count, collection)
-  last_index = collection.size - (count - 1) - 1
-  (0..last_index).each do |index|
-    group = collection.slice index, count
-    yield group
-  end
-end
-
 def self.get_code_for_winner_in(line)
   code = "(marks[#{line.first}] != nil) && "
-  each_group_of(2, line) do |a, b|
-    code += "(marks[#{a}] == marks[#{b}]) && "
+  line.drop(1).each do |location|
+    code += "(marks[#{line.first}] == marks[#{location}]) && "
   end
   code += "marks[#{line.first}]"
   code
