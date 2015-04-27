@@ -6,9 +6,45 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 23 Apr 2015 15:37:09 +0100</pubDate>
-    <lastBuildDate>Thu, 23 Apr 2015 15:37:09 +0100</lastBuildDate>
+    <pubDate>Mon, 27 Apr 2015 21:02:03 +0200</pubDate>
+    <lastBuildDate>Mon, 27 Apr 2015 21:02:03 +0200</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Analytical practice</title>
+        <description>&lt;p&gt;Today I had the opportunity to watch the introduction of &lt;a href=&quot;http://bennygreb.de/shop/en/DVDs/DVD-The-Art-and-Science-of-GROOVE.html&quot;&gt;&lt;em&gt;Benny Greb - The art and science of groove&lt;/em&gt;&lt;/a&gt;.
+He is a famous drummer and very good educator. He is also the author of &lt;a href=&quot;http://www.amazon.co.uk/The-Language-Drumming-Book-With/dp/1480342394/ref=pd_cp_d_h__0&quot;&gt;&lt;em&gt;The language of drumming&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In that introduction, he talks about what groove is and explains the myths that exist around it. He uses the following example of the misconceptions about the topic:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Well, is not as simple as that. Technique you can practice, but groove you can&#39;t. See, I&#39;ve been blessed with great feel. Solid time-feel is a gift, either you have it or you don&#39;t&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;He responds to those statements:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;If it is gift, I didn&#39;t have it, but I worked on it, improved it.
+Having a great groove is not a gift, it is a skill, but more specifically, a combination of learnable skills.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then, he continues with:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;We&#39;ll approach them from all the different angles and specific exercises and tools in each area that are all must-have elements of groove.
+At the end, all of them will serve you intuitively. And when you need to tweak something or troubleshoot you&#39;ll be able to zoom in and work on each of them separately.
+Become an expert that will diagnose and know when and why something isn&#39;t working. And then have tools available to fix it.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;That resonated with me. He is one of the bests because he can analyze in very deep detail all the aspects involved in drumming and is capable of isolating them in practice.
+I completely agree that approach towards a discipline is the only way to be the best you can be.
+That approach gives you an intuition that you can use subconsciously but without losing the capability of switching to a conscious approach. That is true not only in drumming, also in software and I bet in any available discipline.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 27 Apr 2015 21:00:00 +0200</pubDate>
+        <link>http://demonh3x.github.io//8thlight/drumming/2015/04/27/analytical_practice.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/drumming/2015/04/27/analytical_practice.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+        <category>drumming</category>
+        
+      </item>
     
       <item>
         <title>Optimizing with metaprogramming</title>
@@ -141,7 +177,7 @@ Lets try to think closer to low-level: remove generalizations and just focus on 
 
 &lt;p&gt;Now, we are generating the correct code to handle any type of board. And that code will execute much faster!&lt;/p&gt;
 </description>
-        <pubDate>Thu, 23 Apr 2015 09:30:00 +0100</pubDate>
+        <pubDate>Thu, 23 Apr 2015 10:30:00 +0200</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/04/23/optimizing-with-metaprogramming.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/23/optimizing-with-metaprogramming.html</guid>
         
@@ -162,7 +198,7 @@ Lets try to think closer to low-level: remove generalizations and just focus on 
 
 &lt;p&gt;The lesson learned here is: when lost, the things that will help you get through that are: disconnecting from the problem and resting, conversations with fellow programmers, researching for information and using tools to get more feedback on your situation. Seem obvious, but in the middle of a tough situation is harder to realise it.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 22 Apr 2015 11:00:00 +0100</pubDate>
+        <pubDate>Wed, 22 Apr 2015 12:00:00 +0200</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/04/22/uncertainty.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/22/uncertainty.html</guid>
         
@@ -195,7 +231,7 @@ So, if I have the option to choose between a draw or a lose, as soon as I know a
 
 &lt;p&gt;That’s it, nothing less and nothing more.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 21 Apr 2015 00:00:00 +0100</pubDate>
+        <pubDate>Tue, 21 Apr 2015 01:00:00 +0200</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/04/21/obscure-algorithms.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/21/obscure-algorithms.html</guid>
         
@@ -218,7 +254,7 @@ So, if I have the option to choose between a draw or a lose, as soon as I know a
 
 &lt;p&gt;Once I have those, I try to think of alternative &lt;code&gt;how&lt;/code&gt;s. Only by choosing a different &lt;code&gt;how&lt;/code&gt; on one &lt;code&gt;what&lt;/code&gt;, It is very possible to end with a different solution. The more different the solution you want it to be, the more &lt;code&gt;how&lt;/code&gt; you are going to need to change.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 14 Apr 2015 11:30:00 +0100</pubDate>
+        <pubDate>Tue, 14 Apr 2015 12:30:00 +0200</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/04/14/innovate.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/14/innovate.html</guid>
         
@@ -251,7 +287,7 @@ So, if I have the option to choose between a draw or a lose, as soon as I know a
 &lt;p&gt;&lt;a href=&quot;https://gist.github.com/demonh3x/b0ef3ba310757bf8a020&quot;&gt;See the magic here&lt;/a&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Thu, 09 Apr 2015 02:30:00 +0100</pubDate>
+        <pubDate>Thu, 09 Apr 2015 03:30:00 +0200</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/04/09/maybe.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/09/maybe.html</guid>
         
@@ -319,7 +355,7 @@ So, if I have the option to choose between a draw or a lose, as soon as I know a
 
 &lt;p&gt;This syntax may be a bit forced, and this might be evolved to something else, &lt;em&gt;maybe&lt;/em&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 08 Apr 2015 01:30:00 +0100</pubDate>
+        <pubDate>Wed, 08 Apr 2015 02:30:00 +0200</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/04/08/higher-order-functions-i.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/08/higher-order-functions-i.html</guid>
         
@@ -375,7 +411,7 @@ I still find myself making it sometimes. But when I notice it, I try to fix it a
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://open.bufferapp.com/how-to-give-receive-feedback-work/&quot;&gt;Healthy&lt;/a&gt; &lt;a href=&quot;http://www.entrepreneur.com/article/219437&quot;&gt;feedback&lt;/a&gt; is as important as anything else&lt;/strong&gt;.&lt;/p&gt;
 
 </description>
-        <pubDate>Tue, 07 Apr 2015 02:00:00 +0100</pubDate>
+        <pubDate>Tue, 07 Apr 2015 03:00:00 +0200</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/04/07/efficient-teaching.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/07/efficient-teaching.html</guid>
         
@@ -398,7 +434,7 @@ I still find myself making it sometimes. But when I notice it, I try to fix it a
 
 &lt;p&gt;But that doesn’t mean that any software company can avoid supporting that. Their business is at stake.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 02 Apr 2015 00:00:00 +0100</pubDate>
+        <pubDate>Thu, 02 Apr 2015 01:00:00 +0200</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/04/02/investing-in-craftsmanship.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/02/investing-in-craftsmanship.html</guid>
         
@@ -427,30 +463,9 @@ While trying to fit those pieces I enter in a quite abstract way of thinking. Th
 &lt;p&gt;&lt;a href=&quot;https://www.facebook.com/notes/912024212163777/&quot;&gt;That way we learnt faster that any of us would separately.&lt;/a&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Tue, 31 Mar 2015 00:55:00 +0100</pubDate>
+        <pubDate>Tue, 31 Mar 2015 01:55:00 +0200</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/03/31/two-better-than-one.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/03/31/two-better-than-one.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Indirection</title>
-        <description>&lt;p&gt;I was working on the ruby &lt;a href=&quot;http://en.wikipedia.org/wiki/Tic-tac-toe&quot;&gt;tic tac toe&lt;/a&gt; exercise with the &lt;a href=&quot;http://en.wikipedia.org/wiki/Minimax&quot;&gt;minimax&lt;/a&gt; algorithm. And I started by TDDing the minimax algorithm directly through the payoff score for each given board state. That way I had a class with the algorithm but that class was not conforming to the &lt;code&gt;Player&lt;/code&gt; contract. So, I had to create a &lt;code&gt;PerfectPlayer&lt;/code&gt; class that conforms with the &lt;code&gt;Player&lt;/code&gt; contract and uses the &lt;code&gt;Minimax&lt;/code&gt; strategy.&lt;/p&gt;
-
-&lt;p&gt;Because there is also a random player, both algorithms can be abstracted to a &lt;code&gt;Strategy&lt;/code&gt; layer. That means that the &lt;code&gt;Player&lt;/code&gt; can become an &lt;a href=&quot;http://en.wikipedia.org/wiki/Adapter_pattern&quot;&gt;adapter&lt;/a&gt; from &lt;code&gt;Strategy&lt;/code&gt; to &lt;code&gt;Player&lt;/code&gt;. With that, we have:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Game (1 class)&lt;/strong&gt; -&lt;em&gt;uses&lt;/em&gt;-&amp;gt; &lt;strong&gt;Player (1 class)&lt;/strong&gt; -&lt;em&gt;uses&lt;/em&gt;-&amp;gt; &lt;strong&gt;Strategy (N classes)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;This adds a layer of indirection from &lt;code&gt;Game&lt;/code&gt; to &lt;code&gt;Strategy&lt;/code&gt; called &lt;code&gt;Player&lt;/code&gt;. That layer has a cost in complexity, understanding and maintenance. Unless there is a good reason to keep that, it can be simplified to:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Game (1 class)&lt;/strong&gt; -&lt;em&gt;uses&lt;/em&gt;-&amp;gt; &lt;strong&gt;Player (N classes)&lt;/strong&gt;&lt;/p&gt;
-</description>
-        <pubDate>Fri, 27 Mar 2015 16:30:00 +0000</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/03/27/indirection.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/03/27/indirection.html</guid>
         
         
         <category>8thlight</category>
