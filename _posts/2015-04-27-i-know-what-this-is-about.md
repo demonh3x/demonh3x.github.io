@@ -7,7 +7,7 @@ categories: 8thlight drumming
 Also, in the introduction of [*Benny Greb - The art and science of groove*][groove] that I talked about in my [previous post][analytical-practice].
 
 [groove]: http://bennygreb.de/shop/en/DVDs/DVD-The-Art-and-Science-of-GROOVE.html
-[analytical-practice]: /drumming/2015/04/27/analytical_practice.html
+[analytical-practice]: /8thlight/drumming/2015/04/27/analytical_practice.html
 
 He explains that to get the benefit from that educational DVD, you have to keep in mind the following:
 
