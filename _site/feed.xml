@@ -6,9 +6,34 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 27 Apr 2015 21:02:03 +0200</pubDate>
-    <lastBuildDate>Mon, 27 Apr 2015 21:02:03 +0200</lastBuildDate>
+    <pubDate>Mon, 27 Apr 2015 21:03:18 +0200</pubDate>
+    <lastBuildDate>Mon, 27 Apr 2015 21:03:18 +0200</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>I know what this is about</title>
+        <description>&lt;p&gt;Also, in the introduction of &lt;a href=&quot;http://bennygreb.de/shop/en/DVDs/DVD-The-Art-and-Science-of-GROOVE.html&quot;&gt;&lt;em&gt;Benny Greb - The art and science of groove&lt;/em&gt;&lt;/a&gt; that I talked about in my &lt;a href=&quot;/drumming/2015/04/27/analytical_practice.html&quot;&gt;previous post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;He explains that to get the benefit from that educational DVD, you have to keep in mind the following:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;You&#39;ll have to do all the exercises. Some parts may sound familiar to you in one way or another and in purpose. I made them easy to understand so you&#39;ll quickly be able to get the dangerous feeling of &lt;/code&gt;&lt;strong&gt;&lt;code&gt;yeah, I know what this is about&lt;/code&gt;&lt;/strong&gt;&lt;code&gt;. But remember: &lt;/code&gt;&lt;strong&gt;&lt;code&gt;Knowing and not doing is not knowing&lt;/code&gt;&lt;/strong&gt;&lt;code&gt;. So don&#39;t get too smart to start. Do it. All of it. Your groove will only be as good as your weakest link.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;He makes two very strong points in here.&lt;/p&gt;
+
+&lt;p&gt;The first one is that the feeling of &lt;strong&gt;yeah, I know what this is about&lt;/strong&gt; is very dangerous. I felt that way some times and because of it I didn’t give enough attention to the explanation. The outcome of that confirmed that I was being a complete fool. I completely fooled myself by imaginating erroneously what I was supposed to be told. I noticed later that I didn’t know as much as I thought.&lt;/p&gt;
+
+&lt;p&gt;The second one is that, even if you think you can skip some practice in a discipline, you should reconsider it and do it anyways. Chances are that you will improve by doing it, no matter what the practice is and the previous experience that you have. Also, any discipline is a combination of skills and if one of them is not developed enough the overall performance will suffer. Imagine a software developer who cannot interact with clients. No matter how good he is at software, he will not be perceived as a good professional.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 27 Apr 2015 22:00:00 +0200</pubDate>
+        <link>http://demonh3x.github.io//8thlight/drumming/2015/04/27/i-know-what-this-is-about.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/drumming/2015/04/27/i-know-what-this-is-about.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+        <category>drumming</category>
+        
+      </item>
     
       <item>
         <title>Analytical practice</title>
@@ -437,35 +462,6 @@ I still find myself making it sometimes. But when I notice it, I try to fix it a
         <pubDate>Thu, 02 Apr 2015 01:00:00 +0200</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/04/02/investing-in-craftsmanship.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/02/investing-in-craftsmanship.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Two better than one</title>
-        <description>&lt;p&gt;When I face a problem that I don’t understand, my thoughts become very unclear and I start trying to make sense to the pieces of the problem.&lt;/p&gt;
-
-&lt;p&gt;In that process, some pieces may be quite clear from the beginning. I suppose that is because they have similarities with previously learnt concepts. But there are a lot of gaps between those.
-While trying to fit those pieces I enter in a quite abstract way of thinking. The closest way I found to describe it is that: I try to identify the concepts and discover the relationships between them. Because I don’t know if it has a name, I’m going to call it &lt;strong&gt;“discovery”&lt;/strong&gt; mode.&lt;/p&gt;
-
-&lt;p&gt;My experience in that &lt;em&gt;“discovery”&lt;/em&gt; mode is that it is very unfocused. I can fall out of the main area pretty easily and move to discover other related pieces that are irrelevant to the problem.&lt;/p&gt;
-
-&lt;p&gt;I found out that pairing in understanding a problem, makes my &lt;em&gt;“discovery”&lt;/em&gt; mode not lose track that easily. It becomes more focused because there is always the need to communicate the discoveries you are making and to learn what the pair has discovered.&lt;/p&gt;
-
-&lt;p&gt;Also, because I have to communicate what I’m thinking, any inconsistencies can be captured by myself or the pair at that moment. If the discoveries seem correct, that communication reinforces them.&lt;/p&gt;
-
-&lt;p&gt;Why am I writing about this? Today, &lt;a href=&quot;http://c-j-j.github.io/&quot;&gt;Chris Jordan&lt;/a&gt; asked me to pair with him to understand better the &lt;a href=&quot;http://en.wikipedia.org/wiki/Mastermind_%28board_game%29&quot;&gt;mastermind&lt;/a&gt; game and the &lt;a href=&quot;http://en.wikipedia.org/wiki/Negamax&quot;&gt;negamax&lt;/a&gt; approach to implement the AI algorithm that solves the &lt;a href=&quot;http://en.wikipedia.org/wiki/Mastermind_%28board_game%29&quot;&gt;mastermind&lt;/a&gt; &lt;em&gt;“secret code”&lt;/em&gt;. Neither of us knew how to do it.&lt;/p&gt;
-
-&lt;p&gt;We started by looking at a description of the algorithm but, like most of those descriptions, it was too academic and abstract. &lt;a href=&quot;http://www.goodreads.com/quotes/286395-an-expert-is-a-man-who-tells-you-a-simple&quot;&gt;That made it confusing&lt;/a&gt;. So we started bouncing the pieces we were extracting of that. And then we tried to understand them. We had to put examples to communicate with each other. Those examples were incomplete – like our understanding. But they were good enough to enter in the &lt;em&gt;“discovery”&lt;/em&gt; mode. When someone discovered (understood) some part, he explained to the pair in a simple enough way for him to understand.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.facebook.com/notes/912024212163777/&quot;&gt;That way we learnt faster that any of us would separately.&lt;/a&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 31 Mar 2015 01:55:00 +0200</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/03/31/two-better-than-one.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/03/31/two-better-than-one.html</guid>
         
         
         <category>8thlight</category>
