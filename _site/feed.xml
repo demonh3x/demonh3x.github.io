@@ -6,9 +6,42 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 30 Apr 2015 23:57:53 +0100</pubDate>
-    <lastBuildDate>Thu, 30 Apr 2015 23:57:53 +0100</lastBuildDate>
+    <pubDate>Tue, 05 May 2015 20:59:25 +0100</pubDate>
+    <lastBuildDate>Tue, 05 May 2015 20:59:25 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Getting things done</title>
+        <description>&lt;p&gt;Last Friday’s IPM with &lt;a href=&quot;http://skim.la/&quot;&gt;Steve Kim&lt;/a&gt; uncovered something interesting that I was not fully noticing.&lt;/p&gt;
+
+&lt;p&gt;I have been lately feeling like in a &lt;em&gt;zombie&lt;/em&gt; mental state. I was having difficulties to focus. I spent time on irrelevant things. I was not getting things done.&lt;/p&gt;
+
+&lt;p&gt;An example of that is what happened to me on last Thursday; I was working on implementing a GUI with the tic-tac-toe code I had, but I was struggling to do it; I couldn’t find a way to approach it. I spent all that morning only trying to focus and thinking. After lunch, I was desperate. Observing it, &lt;a href=&quot;http://maikon.github.io/&quot;&gt;Makis&lt;/a&gt; suggested that going for a walk could help, so I tried it.&lt;/p&gt;
+
+&lt;p&gt;I went for a walk, bought some cookies and sat for a bit in a small park. There, I cleared my mind enjoying those cookies and the sunny weather that rarely is available in London. After 30 minutes of not thinking about the problem, it was time to go back. On my way I started thinking that the approach I was trying was too forced; the approach I was trying was supposed to require only a few changes to the codebase, but I couldn’t find a way of fully do it. Why not try a different approach that requires changing more code?&lt;/p&gt;
+
+&lt;p&gt;With that idea in mind, when I arrived to the office, I grabbed my computer and entered in &lt;code&gt;the zone&lt;/code&gt; immediately and did not stop for almost anything. At the end of the day I had the necessary information to sense that the new approach was more suitable and easier to understand.&lt;/p&gt;
+
+&lt;p&gt;What a difference between that morning and the afternoon!&lt;/p&gt;
+
+&lt;p&gt;Although disconnecting for a bit worked at that moment, the problem with me feeling &lt;em&gt;zombie&lt;/em&gt; and not being productive is at a much fundamental level.&lt;/p&gt;
+
+&lt;p&gt;As, &lt;a href=&quot;http://en.wikipedia.org/wiki/David_Allen_%28author%29&quot;&gt;David Allen&lt;/a&gt; says in &lt;a href=&quot;https://www.youtube.com/watch?v=CHxhjDPKfbY&quot;&gt;his talk&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Interestingly, the more it is on your mind, the more is not happening, the more you are inappropriately engaged with it.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Don&#39;t keep anything on your head the rest of your life. Everything that your committed to finish that takes more than one step to finish it you need to clarify exactly what that outcome of the project is and put that on a project list that you look at it at least once a week.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;What&#39;s the problem? There is a more subliminal crisis that happens; The whole world now floods into your psyche and that could easily create a sense of overwhelm, a sense of confusion, a sense of conflict, every single thing seems to demand equal kind of attention for you. And then you usually respond to that by either numbing out or getting crazy busy. And then you blame that stress on the lack of time. All I need is more time.&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 May 2015 22:00:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/05/05/getting-things-done.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/05/getting-things-done.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Blocking calls and UIs</title>
@@ -435,62 +468,6 @@ So, if I have the option to choose between a draw or a lose, as soon as I know a
         <pubDate>Wed, 08 Apr 2015 01:30:00 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/04/08/higher-order-functions-i.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/08/higher-order-functions-i.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Efficient teaching</title>
-        <description>&lt;p&gt;Anyone in a civilization has been exposed to someone with more experience and understanding at some point. &lt;a href=&quot;http://en.wikipedia.org/wiki/Civilization#Cultural_identity&quot;&gt;Great human civilizations&lt;/a&gt; have been build with the power of that knowledge. Those who knew something that others didn’t, shared it for the greater good of their community.&lt;/p&gt;
-
-&lt;p&gt;The learning process depends in a lot of factors. Some factors are in the student, some are in the teacher, some are in the communication, some are in the society.&lt;/p&gt;
-
-&lt;p&gt;If you find yourself teaching and you really want to share what you know, there are some things you need to keep in mind:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The audience needs to be willing to learn.&lt;/li&gt;
-  &lt;li&gt;It is not enough to have the understanding, you have to be able to explain it in a way that is easy for others to understand.&lt;/li&gt;
-  &lt;li&gt;To explain the main concept, you may need to provide the missing gaps in the audience’s knowledge, and that implies being able to identify them as soon as they appear.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If you have those in mind &lt;strong&gt;you are in the right track&lt;/strong&gt;. Although &lt;strong&gt;it can be better&lt;/strong&gt;: you can use a bit of psychology.&lt;/p&gt;
-
-&lt;p&gt;We are humans. We are social-driven species. Your interactions with your students are an essential part in the success of your teaching.
-Have you ever wondered why so many kids think a teacher holds animosity toward them? &lt;em&gt;even if that is not true&lt;/em&gt;? (Are you sure it isn’t?)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;You have to be in a relationship with your students that &lt;a href=&quot;https://psychologies.co.uk/self/how-to-boost-your-natural-feelgood-chemicals.html&quot;&gt;feels good&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;You need to &lt;a href=&quot;http://en.wikipedia.org/wiki/Educational_psychology#Motivation&quot;&gt;motivate&lt;/a&gt; your students.&lt;/li&gt;
-  &lt;li&gt;You should &lt;a href=&quot;http://ecomba.pro/2015/03/14/care/&quot;&gt;transmit your enthusiasm&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If you think the students are the only ones responsible for that, think again: Do you really care of the &lt;strong&gt;success of your students&lt;/strong&gt;? Yo may be creating animosity towards your students.&lt;/p&gt;
-
-&lt;p&gt;In some places, the reputation of a teacher is measured by the amount of students that have successfully learnt from him/her. The core concept is true. Although, it can be easily distorted if the rewards are related to that measure.&lt;/p&gt;
-
-&lt;p&gt;Even if you have a good relationship with your students, there is a mistake that can destroy all the previous motivation.
-I still find myself making it sometimes. But when I notice it, I try to fix it asap. That mistake is in how the feedback is given. And I see it quite frequently in the way other people give feedback.&lt;/p&gt;
-
-&lt;p&gt;If you are a person with an &lt;a href=&quot;http://blog.8thlight.com/kevin-liddle/2013/02/18/we-are-principled-1.html&quot;&gt;always-improve mentality&lt;/a&gt; you may be making the same mistake. It may be related with the self-critical mental process: When I do something, I look for things that I can improve and then try to do it. That leaves me in a never-ending process. If I want to finish what I’m doing, I have to decide when it is good enough &lt;em&gt;for the time being&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;So, when I made the mistake in giving feedback, I followed the same process: I was looking for things to improve. I omitted the things that are good. And I did not consider if it was good enough. I assumed that the needed information were only the things that can be improved.&lt;/p&gt;
-
-&lt;p&gt;If you mention only the things that can be improved, the main idea is: &lt;code&gt;you have things that are wrong and you better change them&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;If you make explicit that &lt;em&gt;it may be good enough&lt;/em&gt; or &lt;em&gt;is his decision to improve it&lt;/em&gt; and provide suggestions on how to face it, the idea is: &lt;code&gt;it is not bad, but it can be improved and you will have my support&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;And if you add on top of that the good things, the idea is: &lt;code&gt;it is good, and we can make it much better&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;I think you can see the motivation outcome that is going to be from each one.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://open.bufferapp.com/how-to-give-receive-feedback-work/&quot;&gt;Healthy&lt;/a&gt; &lt;a href=&quot;http://www.entrepreneur.com/article/219437&quot;&gt;feedback&lt;/a&gt; is as important as anything else&lt;/strong&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 07 Apr 2015 02:00:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/04/07/efficient-teaching.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/07/efficient-teaching.html</guid>
         
         
         <category>8thlight</category>
