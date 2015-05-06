@@ -6,9 +6,43 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 May 2015 20:59:25 +0100</pubDate>
-    <lastBuildDate>Tue, 05 May 2015 20:59:25 +0100</lastBuildDate>
+    <pubDate>Wed, 06 May 2015 20:22:13 +0100</pubDate>
+    <lastBuildDate>Wed, 06 May 2015 20:22:13 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Perspective</title>
+        <description>&lt;p&gt;As I said in &lt;a href=&quot;/8thlight/2015/05/05/getting-things-done.html&quot;&gt;my previous post&lt;/a&gt;: I found myself losing time that can be avoided. And recently I found some reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;I don’t know how to continue with the story I’m working with.&lt;/li&gt;
+  &lt;li&gt;I wander through the code for a long time to find what to do next.&lt;/li&gt;
+  &lt;li&gt;I do things that are not very relevant.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;All of them are caused by not having enough perspective of &lt;em&gt;where I am&lt;/em&gt;, &lt;em&gt;where I need to go&lt;/em&gt; and &lt;em&gt;what steps make sense&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the &lt;a href=&quot;http://en.wikipedia.org/wiki/Getting_Things_Done#Methodology&quot;&gt;getting things done&lt;/a&gt; method you need to keep in mind about your goals at different levels:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;current actions&lt;/li&gt;
+  &lt;li&gt;current projects&lt;/li&gt;
+  &lt;li&gt;areas of responsibility&lt;/li&gt;
+  &lt;li&gt;1-2 year goals&lt;/li&gt;
+  &lt;li&gt;3-5 year goals&lt;/li&gt;
+  &lt;li&gt;Life&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Although I had in mind the intermediate &lt;em&gt;horizons&lt;/em&gt; until now, I’m lacking in the rest. It’s time to change that and improve on my perspective of the &lt;em&gt;current actions&lt;/em&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 06 May 2015 22:00:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/05/06/perspective.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/06/perspective.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Getting things done</title>
@@ -400,74 +434,6 @@ So, if I have the option to choose between a draw or a lose, as soon as I know a
         <pubDate>Thu, 09 Apr 2015 02:30:00 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/04/09/maybe.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/09/maybe.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Higher-order functions I</title>
-        <description>&lt;p&gt;Having the possibility to use functions as values in a programming language enables us to make &lt;a href=&quot;http://en.wikipedia.org/wiki/Higher-order_function&quot;&gt;higher-order functions&lt;/a&gt;. That’s a fancy way of saying that we can do &lt;strong&gt;functions that receive functions as parameters or return functions&lt;/strong&gt;. Having that feature unveils interesting benefits.&lt;/p&gt;
-
-&lt;p&gt;Let’s start with a problem I faced today in Ruby. Let’s suposse we have a class like this:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Game&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_finished?&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# code ommited&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;result&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# code ommited&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;The &lt;code&gt;is_finished?&lt;/code&gt; method tells us if the &lt;code&gt;Game&lt;/code&gt; has concluded. Returning &lt;code&gt;false&lt;/code&gt; means that there is no result yet and if you call the &lt;code&gt;result&lt;/code&gt; method it may return &lt;code&gt;nil&lt;/code&gt; or something without real meaning. You have to wait for &lt;code&gt;is_finished?&lt;/code&gt; to return &lt;code&gt;true&lt;/code&gt; to be able to see the real &lt;code&gt;result&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;That means that every user of that class is going to contain this kind of code:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_finished?&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;do_something_with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Each time some part of the code needs to access to &lt;code&gt;game.result&lt;/code&gt;, it is forced to check if the &lt;code&gt;game.is_finished?&lt;/code&gt; before it can do something with the result.&lt;/p&gt;
-
-&lt;p&gt;Something smells in there… and not only because the users are forced to duplicate the if statement, but also because it seems to violate &lt;a href=&quot;http://c2.com/cgi/wiki?TellDontAsk&quot;&gt;tell don’t ask&lt;/a&gt;: the users are asking the game for two things instead of telling it what to do.&lt;/p&gt;
-
-&lt;p&gt;So, I followed those smells and using higher-order functions (blocks/lambdas in Ruby) came up with this idea:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Game&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;when_finished&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is_finished?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_finished?&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# code ommited&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;result&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# code ommited&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;That changes the way the users interact with it:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;when_finished&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do_something_with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;With this we have reduced the smells we were noticing.&lt;/p&gt;
-
-&lt;p&gt;But there is more. We forgot the &lt;code&gt;else&lt;/code&gt;. What if the user of that code wants to do something else when the game is not finished? Because the implementation of &lt;code&gt;when_finished&lt;/code&gt; evaluates to &lt;code&gt;nil&lt;/code&gt; when is not finished, we can do the following:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;when_finished&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do_something_with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do_something_else&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;That works as we expect because the &lt;code&gt;||&lt;/code&gt; operator is &lt;a href=&quot;http://en.wikipedia.org/wiki/Lazy_evaluation&quot;&gt;lazy&lt;/a&gt;. It only evaluates the right operand (&lt;code&gt;do_something_else&lt;/code&gt;) when the left operand (&lt;code&gt;game.when_finished {|result| do_something_with result}&lt;/code&gt;) is falsey.&lt;/p&gt;
-
-&lt;p&gt;This syntax may be a bit forced, and this might be evolved to something else, &lt;em&gt;maybe&lt;/em&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 08 Apr 2015 01:30:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/04/08/higher-order-functions-i.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/08/higher-order-functions-i.html</guid>
         
         
         <category>8thlight</category>
