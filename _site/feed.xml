@@ -6,9 +6,97 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 07 May 2015 20:53:56 +0100</pubDate>
-    <lastBuildDate>Thu, 07 May 2015 20:53:56 +0100</lastBuildDate>
+    <pubDate>Fri, 08 May 2015 21:33:00 +0100</pubDate>
+    <lastBuildDate>Fri, 08 May 2015 21:33:00 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Journal - week 8th May</title>
+        <description>&lt;p&gt;This is the first of the weekly series on my newly started journal containing the small tasks I do as the &lt;code&gt;current actions&lt;/code&gt; &lt;em&gt;horizon&lt;/em&gt; (explained in the &lt;a href=&quot;/8thlight/2015/05/06/perspective.html&quot;&gt;perspective blog post&lt;/a&gt;). This came out of a suggestion from my co-mentor &lt;a href=&quot;http://dev.fesere.de/&quot;&gt;Felipe&lt;/a&gt; about providing concrete examples to the generic idea of &lt;em&gt;horizons&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;tuesday-5th&quot;&gt;Tuesday 5th&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;That night I slept 10-9 hours.&lt;/li&gt;
+  &lt;li&gt;Read &lt;a href=&quot;http://www.amazon.co.uk/Extreme-Programming-Explained-Embrace-Change/dp/0201616416&quot;&gt;XP explained&lt;/a&gt; in the bus to the office.&lt;/li&gt;
+  &lt;li&gt;Planned small tasks to follow: it felt productive.&lt;/li&gt;
+  &lt;li&gt;Showed the result in the tictactoe GUI.&lt;/li&gt;
+  &lt;li&gt;Avoided moving in tictactoe to places already occupied.&lt;/li&gt;
+  &lt;li&gt;Got a bit stuck refactoring duplication of copy-pasting the buttons in the GUI  (generalizing click events). Achieved it by receiving the sender object of the event in the slot (Qt) as suggested by &lt;a href=&quot;https://twitter.com/ChristophGockel&quot;&gt;Christoph&lt;/a&gt; (shout out!)&lt;/li&gt;
+  &lt;li&gt;Added complexity for compatibility with computer player in tictactoe&lt;/li&gt;
+  &lt;li&gt;Lost (or invested) 30 minutes organizing the following tasks.&lt;/li&gt;
+  &lt;li&gt;Introduced GUI tests.&lt;/li&gt;
+  &lt;li&gt;Separated old previous CLI code that is reusable and adapted tests for it.&lt;/li&gt;
+  &lt;li&gt;Used new generic for UIs tictactoe code for CLI code.&lt;/li&gt;
+  &lt;li&gt;Removed old code.&lt;/li&gt;
+  &lt;li&gt;Read &lt;a href=&quot;http://www.amazon.co.uk/Extreme-Programming-Explained-Embrace-Change/dp/0201616416&quot;&gt;XP explained&lt;/a&gt; in the bus back home.&lt;/li&gt;
+  &lt;li&gt;In the afternoon I wrote 2 blog posts: &lt;a href=&quot;/8thlight/2015/05/05/getting-things-done.html&quot;&gt;Getting things done&lt;/a&gt; (reused part of my own transcription of the talk from David Alen) and &lt;a href=&quot;/8thlight/2015/05/06/perspective.html&quot;&gt;Perspective&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;wednesday-6th&quot;&gt;Wednesday 6th&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;That night I slept 8 hours.&lt;/li&gt;
+  &lt;li&gt;Read &lt;a href=&quot;http://www.amazon.co.uk/Extreme-Programming-Explained-Embrace-Change/dp/0201616416&quot;&gt;XP explained&lt;/a&gt; in the bus to the office.&lt;/li&gt;
+  &lt;li&gt;Planned what to do (steps to get computer player working)&lt;/li&gt;
+  &lt;li&gt;Spiked timer for GUI required to make the updates of the computer player without locking the GUI.&lt;/li&gt;
+  &lt;li&gt;Erased spike code and started test-driving it&lt;/li&gt;
+  &lt;li&gt;Spent 30 min approximately with &lt;a href=&quot;https://priyapatil101.wordpress.com/&quot;&gt;Priya&lt;/a&gt; helping with naming, intent and a bit of refactoring.&lt;/li&gt;
+  &lt;li&gt;Asked Nathan and &lt;a href=&quot;http://maikon.github.io/&quot;&gt;Makis&lt;/a&gt; for advice on testing order of calls. Conclusion: don’t, better to have end-to-end that make sure.&lt;/li&gt;
+  &lt;li&gt;Added GUI top-botton, end-to-end tests that helped know what to do next and when I’m done.&lt;/li&gt;
+  &lt;li&gt;Starting adding tictactoe options in the same GameWindow but then refactored to different window because it more decoupled and easier to test.&lt;/li&gt;
+  &lt;li&gt;Had warnings for having multiple Qt layouts on top of the widget hierarchy.&lt;/li&gt;
+  &lt;li&gt;Had intermitent, non-always reproducible segmentation faults from Qt bindings for Ruby when trying to resize GameWindow. Spent some time trying to reproduce and isolate cause. I had no luck with it. Separating options into another window avoided those to appear.&lt;/li&gt;
+  &lt;li&gt;Created pull request of the GUI to review.&lt;/li&gt;
+  &lt;li&gt;Travis CI was not building because Qt bindings was not specified in the Gemfile.&lt;/li&gt;
+  &lt;li&gt;Removed obsolete code.&lt;/li&gt;
+  &lt;li&gt;Fixed properties and regression tests that depended on obsolete code.&lt;/li&gt;
+  &lt;li&gt;Read &lt;a href=&quot;http://www.amazon.co.uk/Extreme-Programming-Explained-Embrace-Change/dp/0201616416&quot;&gt;XP explained&lt;/a&gt; in the bus back home.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;thursday-7th&quot;&gt;Thursday 7th&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;That night I slept 10-9 hours.&lt;/li&gt;
+  &lt;li&gt;Read &lt;a href=&quot;http://www.amazon.co.uk/Extreme-Programming-Explained-Embrace-Change/dp/0201616416&quot;&gt;XP explained&lt;/a&gt; in the bus to the office.&lt;/li&gt;
+  &lt;li&gt;Did standup with apprentices.&lt;/li&gt;
+  &lt;li&gt;Made Travis CI run code by adding Qt bindings in the Gemfile but that made the integration slow (15 minutes each execution) and the test were failing because it couldn’t connect to X server.&lt;/li&gt;
+  &lt;li&gt;Ignored GUI tests and updated pull request to send it via mail for review.&lt;/li&gt;
+  &lt;li&gt;Had doubts about if the testing GUI was the correct approach. &lt;a href=&quot;http://skim.la/&quot;&gt;Skim&lt;/a&gt; suggested is good and I should run all the tests In CI.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://hanster.github.io/&quot;&gt;Sam&lt;/a&gt; suggested using &lt;a href=&quot;http://docs.travis-ci.com/user/gui-and-headless-browsers/&quot;&gt;xvfb&lt;/a&gt; for running GUI tests in Travis CI. When I tried, it worked perfectly (shout out!)&lt;/li&gt;
+  &lt;li&gt;Because I was not willing to wait 15 minutes each time I would like to try a change in CI, I started creating my own CI machine locally with Vagrant but that felt &lt;a href=&quot;http://en.wiktionary.org/wiki/yak_shaving&quot;&gt;yak shaving&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Updated higher-order functions blog post with feedback received.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://dev.fesere.de/&quot;&gt;Felipe&lt;/a&gt; suggested do this series of posts after reading &lt;a href=&quot;/8thlight/2015/05/06/perspective.html&quot;&gt;perspective blog post&lt;/a&gt; (shout out!)&lt;/li&gt;
+  &lt;li&gt;Wrote a bit of &lt;a href=&quot;/8thlight/2015/05/07/blocking-calls-and-uis-ii.html&quot;&gt;blocking calls and UIs II&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Read &lt;a href=&quot;http://www.amazon.co.uk/Extreme-Programming-Explained-Embrace-Change/dp/0201616416&quot;&gt;XP explained&lt;/a&gt; in the bus back home.&lt;/li&gt;
+  &lt;li&gt;Spent 2 more hours finishing &lt;a href=&quot;/8thlight/2015/05/07/blocking-calls-and-uis-ii.html&quot;&gt;blocking calls and UIs II&lt;/a&gt; at home.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;friday-8th&quot;&gt;Friday 8th&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;That night I slept 7 hours.&lt;/li&gt;
+  &lt;li&gt;Started preparing the IPM: thinking how to drive it, having a browser with 8th Light’s tool for IPMs, links to tictactoe code, blog posts, etc…&lt;/li&gt;
+  &lt;li&gt;Got distracted in &lt;a href=&quot;https://slack.com/&quot;&gt;Slack&lt;/a&gt; by talking about the food ordering process for 8LU and came up with the idea of doing a tool to simplify it.&lt;/li&gt;
+  &lt;li&gt;Had my IPM with &lt;a href=&quot;http://skim.la/&quot;&gt;Skim&lt;/a&gt;. The &lt;em&gt;client&lt;/em&gt; side of him was happy with what was delivered and suggested some changes to refine what he preferred. The &lt;em&gt;mentor&lt;/em&gt; side reviewed the code and suggested some refactorings.&lt;/li&gt;
+  &lt;li&gt;We tried the estimation process without the pressure of having to give an answer at the same moment. That felt more comfortable.&lt;/li&gt;
+  &lt;li&gt;Asked for feedback on the idea of the tool for the food ordering process and another tool for doing the pomodoro technique with a team.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ecomba.pro/&quot;&gt;Enrique&lt;/a&gt; facilitated a debate about trust and some shared experiences.&lt;/li&gt;
+  &lt;li&gt;We had a conversation with &lt;a href=&quot;http://maikon.github.io/&quot;&gt;Makis&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/ChristophGockel&quot;&gt;Christoph&lt;/a&gt; and &lt;a href=&quot;http://skim.la/&quot;&gt;Skim&lt;/a&gt; about Elixir, a language build on top of Earlang.&lt;/li&gt;
+  &lt;li&gt;Had the monthly retrospection with &lt;a href=&quot;http://skim.la/&quot;&gt;Skim&lt;/a&gt; and [Felipe][felipe] and we concluded with the following goals (in &lt;a href=&quot;/8thlight/2015/05/06/perspective.html&quot;&gt;perspective&lt;/a&gt;: &lt;code&gt;current projects&lt;/code&gt; &lt;em&gt;horizon&lt;/em&gt;):
+    &lt;ul&gt;
+      &lt;li&gt;Minimize risk by splitting stories and scope.&lt;/li&gt;
+      &lt;li&gt;Find heuristics to guide my estimates.&lt;/li&gt;
+      &lt;li&gt;Improve my git usage by branching more.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Fri, 08 May 2015 22:30:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/05/08/journal-8th-may.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/08/journal-8th-may.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Blocking calls and UIs II</title>
@@ -453,29 +541,6 @@ So, if I have the option to choose between a draw or a lose, as soon as I know a
         <pubDate>Tue, 21 Apr 2015 00:00:00 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/04/21/obscure-algorithms.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/21/obscure-algorithms.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Innovate</title>
-        <description>&lt;p&gt;We know that, usually, there can be several different solutions to a problem. Each one with a different set of pros and cons.&lt;/p&gt;
-
-&lt;p&gt;I think most of us – problem solvers –, in our experience, have been spoiled by seeing an external solution. At least once. If we try to solve the problem again, most probably, we may end up copying the same solution. Once that happens, it is difficult to see alternatives.&lt;/p&gt;
-
-&lt;p&gt;When I want a different solution or I want to expand my knowledge, I try to do the following:&lt;/p&gt;
-
-&lt;p&gt;Think on the problem that I want to solve. I think of &lt;code&gt;what&lt;/code&gt; I want – that may be composed of more little &lt;code&gt;what&lt;/code&gt; pieces. Then I think of &lt;code&gt;how&lt;/code&gt; that solution solved those.&lt;/p&gt;
-
-&lt;p&gt;If we think of what a solution is, we may describe it as a set of decisions on &lt;code&gt;how&lt;/code&gt; to solve each one of the little &lt;code&gt;what&lt;/code&gt; pieces. &lt;a href=&quot;https://twitter.com/worrydream/status/452877691440492544&quot;&gt;Most of the innovations are made by trying to solve a &lt;code&gt;what&lt;/code&gt; with more information than the original solver had at the moment&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Once I have those, I try to think of alternative &lt;code&gt;how&lt;/code&gt;s. Only by choosing a different &lt;code&gt;how&lt;/code&gt; on one &lt;code&gt;what&lt;/code&gt;, It is very possible to end with a different solution. The more different the solution you want it to be, the more &lt;code&gt;how&lt;/code&gt; you are going to need to change.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 14 Apr 2015 11:30:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/04/14/innovate.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/14/innovate.html</guid>
         
         
         <category>8thlight</category>
