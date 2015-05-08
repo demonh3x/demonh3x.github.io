@@ -26,3 +26,7 @@ In the [getting things done][wiki] method you need to keep in mind about your go
 * Life
 
 Although I had in mind the intermediate *horizons* until now, I'm lacking in the rest. It's time to change that and improve on my perspective of the *current actions*.
+
+**edit:** An example of those *current actions* could be the [journal of week 8th May][journal]
+
+[journal]: /8thlight/2015/05/08/journal-8th-may.html
