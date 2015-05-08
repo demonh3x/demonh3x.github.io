@@ -84,7 +84,7 @@ Friday 8th
 * Asked for feedback on the idea of the tool for the food ordering process and another tool for doing the pomodoro technique with a team.
 * [Enrique][ecomba] facilitated a debate about trust and some shared experiences.
 * We had a conversation with [Makis][makis], [Christoph][christoph] and [Skim][skim] about Elixir, a language build on top of Earlang.
-* Had the monthly retrospection with [Skim][skim] and [Felipe][felipe] and we concluded with the following goals (in [perspective][perspective]: `current projects` *horizon*):
+* Had the monthly retrospection with [Skim][skim] and [Felipe][fsere] and we concluded with the following goals (in [perspective][perspective]: `current projects` *horizon*):
   * Minimize risk by splitting stories and scope.
   * Find heuristics to guide my estimates.
   * Improve my git usage by branching more.
