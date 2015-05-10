@@ -77,13 +77,14 @@ Thursday 7th
 Friday 8th
 ----------
 * That night I slept 7 hours.
+* Read [XP explained][xp] in the bus to the office.
 * Started preparing the IPM: thinking how to drive it, having a browser with 8th Light's tool for IPMs, links to tictactoe code, blog posts, etc...
 * Got distracted in [Slack][slack] by talking about the food ordering process for 8LU and came up with the idea of doing a tool to simplify it.
 * Had my IPM with [Skim][skim]. The *client* side of him was happy with what was delivered and suggested some changes to refine what he preferred. The *mentor* side reviewed the code and suggested some refactorings.
 * We tried the estimation process without the pressure of having to give an answer at the same moment. That felt more comfortable.
 * Asked for feedback on the idea of the tool for the food ordering process and another tool for doing the pomodoro technique with a team.
 * [Enrique][ecomba] facilitated a debate about trust and some shared experiences.
-* We had a conversation with [Makis][makis], [Christoph][christoph] and [Skim][skim] about Elixir, a language build on top of Earlang.
+* We had a conversation with [Makis][makis], [Christoph][christoph] and [Skim][skim] about Elixir, a language build on top of Erlang.
 * Had the monthly retrospection with [Skim][skim] and [Felipe][fsere] and we concluded with the following goals (in [perspective][perspective]: `current projects` *horizon*):
   * Minimize risk by splitting stories and scope.
   * Find heuristics to guide my estimates.
