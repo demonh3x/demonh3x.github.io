@@ -6,9 +6,73 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 10 May 2015 17:52:42 +0100</pubDate>
-    <lastBuildDate>Sun, 10 May 2015 17:52:42 +0100</lastBuildDate>
+    <pubDate>Mon, 11 May 2015 22:08:18 +0100</pubDate>
+    <lastBuildDate>Mon, 11 May 2015 22:08:18 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Blocking calls and UIs III</title>
+        <description>&lt;p&gt;In the &lt;a href=&quot;/8thlight/2015/05/07/blocking-calls-and-uis-ii.html&quot;&gt;previous post&lt;/a&gt; we solved the &lt;code&gt;human vs human&lt;/code&gt; usage. Let’s face the &lt;code&gt;computer vs computer&lt;/code&gt; usage now. I’m choosing &lt;code&gt;computer vs computer&lt;/code&gt; after &lt;code&gt;human vs human&lt;/code&gt; because it is simpler than introducing &lt;code&gt;computer vs human&lt;/code&gt; directly. If we did that, we would have to think how to do the computer and also how we interleave computer and human. By doing &lt;code&gt;computer vs computer&lt;/code&gt; first, we are deferring the interleaving complexity for now.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;computer vs computer&lt;/code&gt;: the user does not input anything, he/she sees the change that the first computer makes. Then, he/she sees the change that the second computer makes. Finally, the process repeats until the game finishes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Because the user does not input anything, the argument &lt;code&gt;location&lt;/code&gt; on the &lt;code&gt;Game.move&lt;/code&gt; method is not relevant, so let’s forget about it for now. If we did that, we would have the following &lt;code&gt;Game&lt;/code&gt; class:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Game&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;move&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;board&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_finished?&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;winner&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code&gt;CLI&lt;/code&gt; is simple; we just loop and print.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CLI&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;display_board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;move&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;display_board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;until&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_finished?&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;display_winner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;winner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;But when we would implement the GUI we would have a problem; we were relying on the &lt;code&gt;when_user_selected_location&lt;/code&gt; event to &lt;code&gt;display_board&lt;/code&gt; and &lt;code&gt;display_winner&lt;/code&gt; after each move. Now, we cannot depend upon that event. We want something automatic. We might think in using a loop like the one in the &lt;code&gt;CLI&lt;/code&gt;, but that would not work.&lt;/p&gt;
+
+&lt;p&gt;To understand why, we need to know that in a &lt;code&gt;GUI&lt;/code&gt; there are a lot of components. Events on one component have consequences on others. Most &lt;code&gt;GUI&lt;/code&gt; work with an &lt;a href=&quot;http://en.wikipedia.org/wiki/Event_loop&quot;&gt;event loop&lt;/a&gt; that, very roughly, iterates over all the components to update them, notifying any events that need to be processed and repainting if their aspect has changed. If we block the &lt;a href=&quot;http://en.wikipedia.org/wiki/Event_loop&quot;&gt;event loop&lt;/a&gt; by doing a long computation or running another very long loop, the &lt;code&gt;GUI&lt;/code&gt; will stop responding because the components are no longer notified with the events and are neither repainted.&lt;/p&gt;
+
+&lt;p&gt;We would like to execute something inside that &lt;a href=&quot;http://en.wikipedia.org/wiki/Event_loop&quot;&gt;event loop&lt;/a&gt; without stopping its iteration. It depends on the GUI framework but, most of them provide an event that enables the execution of code very frequently. Let’s refer to it as &lt;code&gt;update&lt;/code&gt;. We could use it like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GUI&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;start&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;display_board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;move&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;display_board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;display_winner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;winner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_finished?&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;That’s good enough for our case because the &lt;code&gt;Game.move&lt;/code&gt; method does not take more than 1 second to finish in the worst case scenario. That means that the &lt;code&gt;GUI&lt;/code&gt; may not be responding for 1 second, but we are sure it will resume responding after that.&lt;/p&gt;
+
+&lt;p&gt;If the &lt;code&gt;Game.move&lt;/code&gt; method would take more than 1 second and the blocking on the &lt;code&gt;GUI&lt;/code&gt; should not happen at all, we would need to take a look at more complicated stuff: threads.&lt;/p&gt;
+
+&lt;p&gt;In the next post we will face the interleaving of &lt;code&gt;human&lt;/code&gt; and &lt;code&gt;computer&lt;/code&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 11 May 2015 22:00:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/05/11/blocking-calls-and-uis-iii.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/11/blocking-calls-and-uis-iii.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Journal - week 8th May</title>
@@ -512,39 +576,6 @@ Lets try to think closer to low-level: remove generalizations and just focus on 
         <pubDate>Wed, 22 Apr 2015 11:00:00 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/04/22/uncertainty.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/22/uncertainty.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Obscure algorithms</title>
-        <description>&lt;p&gt;I’ve been implementing this tic tac toe AI that needs to play in a 4 by 4 board.
-It has to be perfect. It has to be fast. And the combination of those things is what makes it difficult.&lt;/p&gt;
-
-&lt;p&gt;One of the problems is that if you use a simple recursive algorithm to analise all the combinations in the game, it will take forever in a 4 by 4 board. They are too many combinations. So, you have to find ways to do less processing. The one I chose was to implement &lt;a href=&quot;http://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning&quot;&gt;minimax with alpha-beta pruning&lt;/a&gt;. But that algorithm is too technical and too academic for someone who has no deep understanding on mathematics like me.&lt;/p&gt;
-
-&lt;p&gt;Because I needed to implement it in a way that I could be sure it was going to work as expected, I first had to understand what I was trying to do. Understanding why the algorithm works is an interesting challenge.
-If you haven’t seen &lt;a href=&quot;http://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning&quot;&gt;alpha-beta pruning&lt;/a&gt; before, try to make sense out of what alpha and beta mean and how they work in that context. They are names that depend very heavily on the reader to understand uncommon concepts. I still don’t know the real mathematic meaning behind them.&lt;/p&gt;
-
-&lt;p&gt;Like most algorithms, the mechanics are very logical and human-like thinking. But the notation and implementation obscures very heavily that meaning.
-After spending a full day of work trying to make sense out of it I got an idea. You don’t need any mathematics to understand it. You only need to be human and have a bit of logic.&lt;/p&gt;
-
-&lt;p&gt;Minimax is based on the thinking that I’m going to choose the best option that I have available and that I can suppose the opponent is going to choose the worse option for me. If the opponent chooses something less bad, that’s better for me.&lt;/p&gt;
-
-&lt;p&gt;Given those decisions, I know that I am not going to choose the options that are worse for me.
-So, if I have the option to choose between a draw or a lose, as soon as I know a path gives the opponent the chance to defeat me I don’t need to look further: I prefer the draw for now. Similarly, I don’t need to look further into the paths that are not going to improve a previous alternative.&lt;/p&gt;
-
-&lt;p&gt;If the opponent can choose between a path that may give me a better outcome than other alternatives, the opponent is going to choose an alternative. As soon as I know the opponent is not going to choose that path with better outcome for me I can stop looking further.&lt;/p&gt;
-
-&lt;p&gt;Also, if the opponent has the chance to win, no other option that he may choose is going to be worse than that. As soon as I know he may win, I can stop looking for more options that he may choose in that situation. And the opposite also applies: If I know I can choose to win, I can stop looking for alternatives: I know I’m going to choose to win.&lt;/p&gt;
-
-&lt;p&gt;That’s it, nothing less and nothing more.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 21 Apr 2015 00:00:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/04/21/obscure-algorithms.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/04/21/obscure-algorithms.html</guid>
         
         
         <category>8thlight</category>
