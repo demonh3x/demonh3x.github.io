@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Journal - week 15th May</title>
+  <meta name="description" content="Monday 11th  That night I slept 7 hours.  Read XP Explained in the bus.  Planned what steps to take to create a gem for tic-tac-toe.  Look for information ab...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://demonh3x.github.io//8thlight/2015/05/16/journal-15th-may.html">
+  <link rel="alternate" type="application/rss+xml" title="The journey of a restless mind" href="http://demonh3x.github.io//feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">The journey of a restless mind</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Journal - week 15th May</h1>
+    <p class="post-meta">May 16, 2015</p>
+  </header>
+
+  <article class="post-content">
+    <h2 id="monday-11th">Monday 11th</h2>
+<ul>
+  <li>That night I slept 7 hours.</li>
+  <li>Read XP Explained in the bus.</li>
+  <li>Planned what steps to take to create a gem for tic-tac-toe.</li>
+  <li>Look for information about how to make gems.</li>
+  <li>Created a .gemspec for tic-tac-toe.</li>
+  <li>Reorganized modules and files to separate tic-tac-toe in three repositories: Core, CLI, GUI.</li>
+  <li>Had some problems after renaming github repository for core.</li>
+  <li>Created github repositories for CLI and GUI.</li>
+  <li>Configured Travis for CLI and GUI.</li>
+  <li>Added codeclimate for CLI and GUI.</li>
+  <li>Lost time because I installed the core gem and then I was refactoring the core gem. And any failures were not being detected because the tests were loading the gem’s classes.</li>
+  <li>Talked with Skim and other colleagues about git branching strategies.</li>
+  <li>Wondered about creating gems for CLI/GUI. Conclusion: They are not libraries to consume, they are binaries to execute.</li>
+  <li>Read XP Explained in the bus.</li>
+  <li>Published <a href="/8thlight/2015/05/11/blocking-calls-and-uis-iii.html">Blocking calls and UIs III</a> that I wrote over the weekend.</li>
+</ul>
+
+<h2 id="tuesday-12th">Tuesday 12th</h2>
+<ul>
+  <li>That night I slept 9-10 hours.</li>
+  <li>Read XP Explained in the bus.</li>
+  <li>Planned what steps to take to have similar user experience in GUI and CLI.</li>
+  <li>Yak shaved: created git shortcuts for most used commands.</li>
+  <li>Added tests for the option to play again: got a bit stuck on asserting that the windows were showing and hiding because the windows were always hidden in tests.</li>
+  <li>Tried branching out each small task. Conclusion: too small tasks are a headache, story-size branches seem good.</li>
+  <li>When had something that might be enough, asked for the client’s feedback.</li>
+  <li>Talked a bit with Sam about Ruby: protected, public, private, modules vs inheritance, class instance variables vs instance variables.</li>
+  <li>Tried to add bundler cache in Travis to reduce the time of GUI integration, it did not work because the gem was installed manually and bundler did not find it.</li>
+  <li>Started refactoring GUI.</li>
+  <li>Read XP Explained in the bus.</li>
+  <li>At home, wrote <a href="/8thlight/2015/05/12/sleep.html">Sleep</a> post and published it.</li>
+  <li>Felipe proposed to pair for a bit, we started changing inheritance for composition and adding a generic layer for any GUI.</li>
+</ul>
+
+<h2 id="wednesday-13th">Wednesday 13th</h2>
+<ul>
+  <li>That night I slept 7 hours.</li>
+  <li>Finished reading XP Explained in the bus.</li>
+  <li>Did standup with apprentices.</li>
+  <li>Moved specific GUI widget details to a factory.</li>
+  <li>Separated GUI widgets in different files.</li>
+  <li>Because the GUI tests depended on Qt framework, I had to change the entry point to access Qt classes a lot of times.</li>
+  <li>Generalized GUI widget APIs.</li>
+  <li>Talked with Skim about the current refactoring state and the simplest way to detach the UI framework.</li>
+  <li>Had idea for a blog post: setter methods for configuration instead of constructor arguments may help the refactoring stage.</li>
+  <li>At home, wrote <a href="/8thlight/2015/05/13/diffuse-mode.html">Diffuse mode</a> post and published it.</li>
+</ul>
+
+<h2 id="thursday-14th">Thursday 14th</h2>
+<ul>
+  <li>That night I slept 8 hours.</li>
+  <li>Started reading Clean Code in the bus.</li>
+  <li>Planned what steps to take to finish the refactor.</li>
+  <li>Standup with apprentices.</li>
+  <li>Reinforced my feeling on setter methods over constructor arguments in the refactoring stage because simplified moving things around.</li>
+  <li>Found a strange thing in the refactoring that felt like a smell: class with no public methods. It was only registering events in the constructor to call the logic and update the display.</li>
+  <li>That made me wonder about refactoring towards something like <code>events (input)</code> -&gt; <code>logic</code> -&gt; <code>display (output)</code></li>
+  <li>Had a conversation with Skim about that idea and what approach to focus on. Difficult to separate events from representation because in Qt they are tied together inside the widgets. And decided to have <code>common Window objects</code> -use-&gt; <code>specific GUI objects</code> -use-&gt; <code>Qt widgets</code>.</li>
+  <li>A lot of refactoring.</li>
+  <li>Useful things in the refactoring:
+    <ul>
+      <li>setter methods instead of constructor arguments.</li>
+      <li>integration tests (although had to change after most of the refactorings)</li>
+      <li>changing modification of instance variables for arguments and return values.</li>
+    </ul>
+  </li>
+  <li>Read Clean Code in the bus.</li>
+</ul>
+
+<h2 id="friday-15th">Friday 15th</h2>
+<ul>
+  <li>That night I slept 8 hours.</li>
+  <li>Read Clean Code in the bus.</li>
+  <li>Standup with apprentices.</li>
+  <li>Gave advice to Priya about nervousness in giving talks.</li>
+  <li>Had IPM with Skim:
+    <ul>
+      <li>Delivered stories: good.</li>
+      <li>Code review: need to do a lot of small improvements, inconsistencies and simplifications.</li>
+    </ul>
+  </li>
+  <li>Did the estimations again without having to give an immediate answer. Again, it felt comfortable and quite precise.</li>
+  <li>We assisted to a talk from Priya on Unix Processes and then another about the impostor syndrome from Daniel and Enrique.</li>
+  <li>Had a meeting about improving and concerns.</li>
+  <li>Had a small conversation with Uku about doing a free self-organized open-space similar to socrates conference.</li>
+  <li>Read Clean Code in the bus.</li>
+</ul>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">The journey of a restless mind</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>email:</li>
+          <li><a href="mailto:mateuadsuara@gmail.com">mateuadsuara@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/demonh3x">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">demonh3x</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/demonh3x">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">demonh3x</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">A personal blog about my experience as a resident apprentice at 8th Light
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
