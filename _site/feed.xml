@@ -6,9 +6,88 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 19 May 2015 20:59:06 +0100</pubDate>
-    <lastBuildDate>Tue, 19 May 2015 20:59:06 +0100</lastBuildDate>
+    <pubDate>Tue, 26 May 2015 23:06:54 +0100</pubDate>
+    <lastBuildDate>Tue, 26 May 2015 23:06:54 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Blocking calls and UIs IV</title>
+        <description>&lt;p&gt;In the &lt;a href=&quot;/8thlight/2015/05/11/blocking-calls-and-uis-iii.html&quot;&gt;previous post&lt;/a&gt; we solved the &lt;code&gt;computer vs computer&lt;/code&gt; usage. Let’s face the interleaving of &lt;code&gt;computer&lt;/code&gt; and &lt;code&gt;human&lt;/code&gt; in this one.&lt;/p&gt;
+
+&lt;p&gt;With only &lt;code&gt;humans&lt;/code&gt; we had the following API:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Game&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;move&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;board&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_finished?&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;winner&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And with only &lt;code&gt;computers&lt;/code&gt; we had the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Game&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;move&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;board&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_finished?&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;winner&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We need to support both ways of usage in a generic way. Let’s start by describing what they do and find the things they have in common.&lt;/p&gt;
+
+&lt;p&gt;We are calling both &lt;code&gt;move&lt;/code&gt; methods to advance to the next player. But, for a &lt;code&gt;human&lt;/code&gt; the game requires a &lt;code&gt;location&lt;/code&gt; to play. If we keep the &lt;code&gt;location&lt;/code&gt; parameter, what do we send when the computer is playing? &lt;code&gt;nil&lt;/code&gt;?. And more importantly, how do we know the computer is playing to send &lt;code&gt;nil&lt;/code&gt;? Do we need to add the &lt;code&gt;current_player&lt;/code&gt; method to &lt;code&gt;Game&lt;/code&gt;? That will make the UIs know and duplicate some of the &lt;code&gt;Game&lt;/code&gt; logic and violates the &lt;a href=&quot;http://en.wikipedia.org/wiki/Single_responsibility_principle&quot;&gt;single responsibility principle&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We have another option, we can keep the &lt;code&gt;move&lt;/code&gt; method without any parameters and provide that location in some other way. But in what way? If the &lt;code&gt;Game&lt;/code&gt; knows when it needs the &lt;code&gt;location&lt;/code&gt; value, makes sense for the &lt;code&gt;Game&lt;/code&gt; to request it when is needed. What object should &lt;code&gt;Game&lt;/code&gt; request for the &lt;code&gt;location&lt;/code&gt;? The &lt;code&gt;location&lt;/code&gt; comes from the user through the UI, but the &lt;code&gt;Game&lt;/code&gt; shouldn’t know about any specific UI. We need to use the &lt;a href=&quot;http://en.wikipedia.org/wiki/Dependency_inversion_principle&quot;&gt;dependency inversion principle&lt;/a&gt; here: &lt;code&gt;Game&lt;/code&gt; depends on an abstraction to get the &lt;code&gt;location&lt;/code&gt; and the specific UI will provide its implementation for it.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Game&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;move&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;board&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_finished?&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;winner&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We have to keep in mind that in a &lt;code&gt;Gui&lt;/code&gt;, if the &lt;code&gt;Game&lt;/code&gt; asks to &lt;code&gt;get_location&lt;/code&gt;, the user may not have selected a &lt;code&gt;location&lt;/code&gt; yet. And we cannot block for the same reasons we talked about in the &lt;a href=&quot;/8thlight/2015/05/11/blocking-calls-and-uis-iii.html&quot;&gt;previous post&lt;/a&gt;. That means that the object that provides the &lt;code&gt;location&lt;/code&gt; could not be ready to be queried.&lt;/p&gt;
+
+&lt;p&gt;An implementation could be:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GuiUser&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;when_user_selected_location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@location&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;location&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@is_ready&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_ready?&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@is_ready&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_location&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@is_ready&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@location&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In the &lt;code&gt;Cli&lt;/code&gt; things are much easier. We know that each time we &lt;code&gt;ask_to_select_location&lt;/code&gt; it will block and return a valid &lt;code&gt;location&lt;/code&gt;. The implementation could be as simple as:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CliUser&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_ready?&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_location&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ask_to_select_location&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;With that, we can have all modes working.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 26 May 2015 23:00:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/05/26/blocking-calls-and-uis-iv.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/26/blocking-calls-and-uis-iv.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Vim plugins - part I</title>
@@ -608,39 +687,6 @@ You may have noticed also that it sometimes is more than expected from an adult,
         <pubDate>Wed, 06 May 2015 22:00:00 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/05/06/perspective.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/06/perspective.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Getting things done</title>
-        <description>&lt;p&gt;Last Friday’s IPM with &lt;a href=&quot;http://skim.la/&quot;&gt;Steve Kim&lt;/a&gt; uncovered something interesting that I was not fully noticing.&lt;/p&gt;
-
-&lt;p&gt;I have been lately feeling like in a &lt;em&gt;zombie&lt;/em&gt; mental state. I was having difficulties to focus. I spent time on irrelevant things. I was not getting things done.&lt;/p&gt;
-
-&lt;p&gt;An example of that is what happened to me on last Thursday; I was working on implementing a GUI with the tic-tac-toe code I had, but I was struggling to do it; I couldn’t find a way to approach it. I spent all that morning only trying to focus and thinking. After lunch, I was desperate. Observing it, &lt;a href=&quot;http://maikon.github.io/&quot;&gt;Makis&lt;/a&gt; suggested that going for a walk could help, so I tried it.&lt;/p&gt;
-
-&lt;p&gt;I went for a walk, bought some cookies and sat for a bit in a small park. There, I cleared my mind enjoying those cookies and the sunny weather that rarely is available in London. After 30 minutes of not thinking about the problem, it was time to go back. On my way I started thinking that the approach I was trying was too forced; the approach I was trying was supposed to require only a few changes to the codebase, but I couldn’t find a way of fully do it. Why not try a different approach that requires changing more code?&lt;/p&gt;
-
-&lt;p&gt;With that idea in mind, when I arrived to the office, I grabbed my computer and entered in &lt;code&gt;the zone&lt;/code&gt; immediately and did not stop for almost anything. At the end of the day I had the necessary information to sense that the new approach was more suitable and easier to understand.&lt;/p&gt;
-
-&lt;p&gt;What a difference between that morning and the afternoon!&lt;/p&gt;
-
-&lt;p&gt;Although disconnecting for a bit worked at that moment, the problem with me feeling &lt;em&gt;zombie&lt;/em&gt; and not being productive is at a much fundamental level.&lt;/p&gt;
-
-&lt;p&gt;As, &lt;a href=&quot;http://en.wikipedia.org/wiki/David_Allen_%28author%29&quot;&gt;David Allen&lt;/a&gt; says in &lt;a href=&quot;https://www.youtube.com/watch?v=CHxhjDPKfbY&quot;&gt;his talk&lt;/a&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Interestingly, the more it is on your mind, the more is not happening, the more you are inappropriately engaged with it.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Don&#39;t keep anything on your head the rest of your life. Everything that your committed to finish that takes more than one step to finish it you need to clarify exactly what that outcome of the project is and put that on a project list that you look at it at least once a week.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;What&#39;s the problem? There is a more subliminal crisis that happens; The whole world now floods into your psyche and that could easily create a sense of overwhelm, a sense of confusion, a sense of conflict, every single thing seems to demand equal kind of attention for you. And then you usually respond to that by either numbing out or getting crazy busy. And then you blame that stress on the lack of time. All I need is more time.&lt;/code&gt;&lt;/p&gt;
-</description>
-        <pubDate>Tue, 05 May 2015 22:00:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/05/05/getting-things-done.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/05/getting-things-done.html</guid>
         
         
         <category>8thlight</category>
