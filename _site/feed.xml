@@ -6,9 +6,87 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 May 2015 22:40:23 +0100</pubDate>
-    <lastBuildDate>Wed, 27 May 2015 22:40:23 +0100</lastBuildDate>
+    <pubDate>Mon, 01 Jun 2015 21:25:10 +0100</pubDate>
+    <lastBuildDate>Mon, 01 Jun 2015 21:25:10 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Simple</title>
+        <description>&lt;p&gt;Last Friday, &lt;a href=&quot;http://maikon.github.io/&quot;&gt;Makis&lt;/a&gt; offered to pair on whatever I was working on. I just started working a bit with &lt;a href=&quot;http://rack.github.io/&quot;&gt;Rack&lt;/a&gt;.
+I did a bit of the pieces I thought I needed and I was proud of the path I was taking. It was clever, too clever. To the point of re-implementing some of the functionality provided by &lt;a href=&quot;http://rack.github.io/&quot;&gt;Rack&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For example the router. Only because I didn’t like the API; it seemed complex and rigid to me:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/route&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;text/plain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;OK&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can see that the way of doing routing is by using &lt;code&gt;Rack::Builder&lt;/code&gt;. You have to specify the full path with &lt;code&gt;map&lt;/code&gt;, you cannot match the requests by other characteristics. And you cannot filter by &lt;code&gt;GET&lt;/code&gt;, &lt;code&gt;POST&lt;/code&gt;, etc. there. So I did my own implementation of a router:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Router&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;UNDEFINED_DEFAULT_HANDLER&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;No default handler has been defined!&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default_handler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;UNDEFINED_DEFAULT_HANDLER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;routes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;routes&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default_handler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default_handler&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;routes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;default_handler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;attr_accessor&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:default_handler&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The same client code would be like:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;path_starts_with?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;partial_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;REQUEST_PATH&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start_with?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;partial_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;path_starts_with?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;/route&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;text/plain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;OK&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Very similar to the &lt;code&gt;Rack::Builder&lt;/code&gt; syntax. But the &lt;code&gt;Router&lt;/code&gt; I implemented is much more flexible and it does not depend on any class of &lt;a href=&quot;http://rack.github.io/&quot;&gt;Rack&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I thought it was simple: the logic of the router (&lt;code&gt;call&lt;/code&gt; method) is only 4 lines long!
+But it took a bit more than I expected for &lt;a href=&quot;http://maikon.github.io/&quot;&gt;Makis&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/ChristophGockel&quot;&gt;Christoph&lt;/a&gt; to see what was happening there. I remember what &lt;a href=&quot;https://twitter.com/ChristophGockel&quot;&gt;Christoph&lt;/a&gt; said:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;The router receives the routes. But wait... It is a hash and its keys are lambdas!!?&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;That was something unexpected. Simple code should be easy to maintain. And to be easy to maintain, &lt;a href=&quot;http://www.azquotes.com/quote/773497&quot;&gt;has to be obvious&lt;/a&gt;. The &lt;code&gt;Router&lt;/code&gt; is not obvious. It is expected for anyone looking to a &lt;a href=&quot;http://rack.github.io/&quot;&gt;Rack&lt;/a&gt; project to see &lt;code&gt;Rack::Builder&lt;/code&gt;, not a custom &lt;code&gt;Router&lt;/code&gt;. And even worse, it is not expected to see &lt;code&gt;lambdas&lt;/code&gt; as keys in a &lt;code&gt;Hash&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://maikon.github.io/&quot;&gt;Makis&lt;/a&gt; also like another &lt;a href=&quot;http://en.wikiquote.org/wiki/Ward_Cunningham#The_Simplest_Thing_that_Could_Possibly_Work&quot;&gt;quote from Ward Cunningham&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Simplicity is the shortest path to a solution.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Writing those custom classes is not the shortest path.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 01 Jun 2015 22:00:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/06/01/simple.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/06/01/simple.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Vim plugins - part II</title>
@@ -548,70 +626,6 @@ You may have noticed also that it sometimes is more than expected from an adult,
         <pubDate>Tue, 12 May 2015 23:00:00 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/05/12/sleep.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/12/sleep.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Blocking calls and UIs III</title>
-        <description>&lt;p&gt;In the &lt;a href=&quot;/8thlight/2015/05/07/blocking-calls-and-uis-ii.html&quot;&gt;previous post&lt;/a&gt; we solved the &lt;code&gt;human vs human&lt;/code&gt; usage. Let’s face the &lt;code&gt;computer vs computer&lt;/code&gt; usage now. I’m choosing &lt;code&gt;computer vs computer&lt;/code&gt; after &lt;code&gt;human vs human&lt;/code&gt; because it is simpler than introducing &lt;code&gt;computer vs human&lt;/code&gt; directly. If we did that, we would have to think how to do the computer and also how we interleave computer and human. By doing &lt;code&gt;computer vs computer&lt;/code&gt; first, we are deferring the interleaving complexity for now.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code&gt;computer vs computer&lt;/code&gt;: the user does not input anything, he/she sees the change that the first computer makes. Then, he/she sees the change that the second computer makes. Finally, the process repeats until the game finishes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Because the user does not input anything, the argument &lt;code&gt;location&lt;/code&gt; on the &lt;code&gt;Game.move&lt;/code&gt; method is not relevant, so let’s forget about it for now. If we did that, we would have the following &lt;code&gt;Game&lt;/code&gt; class:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Game&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;move&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;board&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_finished?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;winner&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;The &lt;code&gt;CLI&lt;/code&gt; is simple; we just loop and print.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CLI&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;display_board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;move&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;display_board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;until&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_finished?&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;display_winner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;winner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;But when we would implement the GUI we would have a problem; we were relying on the &lt;code&gt;when_user_selected_location&lt;/code&gt; event to &lt;code&gt;display_board&lt;/code&gt; and &lt;code&gt;display_winner&lt;/code&gt; after each move. Now, we cannot depend upon that event. We want something automatic. We might think in using a loop like the one in the &lt;code&gt;CLI&lt;/code&gt;, but that would not work.&lt;/p&gt;
-
-&lt;p&gt;To understand why, we need to know that in a &lt;code&gt;GUI&lt;/code&gt; there are a lot of components. Events on one component have consequences on others. Most &lt;code&gt;GUI&lt;/code&gt; work with an &lt;a href=&quot;http://en.wikipedia.org/wiki/Event_loop&quot;&gt;event loop&lt;/a&gt; that, very roughly, iterates over all the components to update them, notifying any events that need to be processed and repainting if their aspect has changed. If we block the &lt;a href=&quot;http://en.wikipedia.org/wiki/Event_loop&quot;&gt;event loop&lt;/a&gt; by doing a long computation or running another very long loop, the &lt;code&gt;GUI&lt;/code&gt; will stop responding because the components are no longer notified with the events and are neither repainted.&lt;/p&gt;
-
-&lt;p&gt;We would like to execute something inside that &lt;a href=&quot;http://en.wikipedia.org/wiki/Event_loop&quot;&gt;event loop&lt;/a&gt; without stopping its iteration. It depends on the GUI framework but, most of them provide an event that enables the execution of code very frequently. Let’s refer to it as &lt;code&gt;update&lt;/code&gt;. We could use it like this:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GUI&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;start&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;display_board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;move&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;display_board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;display_winner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;winner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;game&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_finished?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;That’s good enough for our case because the &lt;code&gt;Game.move&lt;/code&gt; method does not take more than 1 second to finish in the worst case scenario. That means that the &lt;code&gt;GUI&lt;/code&gt; may not be responding for 1 second, but we are sure it will resume responding after that.&lt;/p&gt;
-
-&lt;p&gt;If the &lt;code&gt;Game.move&lt;/code&gt; method would take more than 1 second and the blocking on the &lt;code&gt;GUI&lt;/code&gt; should not happen at all, we would need to take a look at more complicated stuff: threads.&lt;/p&gt;
-
-&lt;p&gt;In the next post we will face the interleaving of &lt;code&gt;human&lt;/code&gt; and &lt;code&gt;computer&lt;/code&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 11 May 2015 22:00:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/05/11/blocking-calls-and-uis-iii.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/11/blocking-calls-and-uis-iii.html</guid>
         
         
         <category>8thlight</category>
