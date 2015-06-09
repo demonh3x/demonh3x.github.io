@@ -6,9 +6,31 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 01 Jun 2015 21:25:10 +0100</pubDate>
-    <lastBuildDate>Mon, 01 Jun 2015 21:25:10 +0100</lastBuildDate>
+    <pubDate>Tue, 09 Jun 2015 18:01:01 +0100</pubDate>
+    <lastBuildDate>Tue, 09 Jun 2015 18:01:01 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Socrates UK 2015 - part I</title>
+        <description>&lt;p&gt;Last weekend Jarkyn, Sam and I were lucky enough to be able to attend to &lt;a href=&quot;http://socratesuk.org/&quot;&gt;SoCraTes UK 2015&lt;/a&gt;. We arrived there by car, just some minutes before the presentations started.&lt;/p&gt;
+
+&lt;p&gt;I used the time in the trip to try to finish a lightning talk “Effective Learning: An apprentice point of view” that I started writing the day before.&lt;/p&gt;
+
+&lt;p&gt;In the presentations, I noticed some people interested in refactoring and influencing the culture in a company that has not adopted testing yet. So, after a tour around the hotel and dinner, I proposed &lt;a href=&quot;https://twitter.com/gemcfadyen&quot;&gt;Georgina&lt;/a&gt;, who did a lightning talk on characterization tests as a way of learning a code base, to do a session on refactoring the &lt;a href=&quot;https://github.com/emilybache/GildedRose-Refactoring-Kata&quot;&gt;Gilded Rose kata&lt;/a&gt; with those ideas. I have used that kata before in my previous company to successfully provide enough confidence to deal with their code base.&lt;/p&gt;
+
+&lt;p&gt;Next day, before presenting the session, &lt;a href=&quot;https://twitter.com/Singsalad&quot;&gt;Franzi&lt;/a&gt; proposed the same kata in mob format. So we decided to unite forces and do it together.&lt;/p&gt;
+
+&lt;p&gt;Some interesting conversations about generative, mutation and characterization testing developed because of that. The golden master technique also was mentioned in those. And I recommended to any person interested to a blog post from my first mentor, &lt;a href=&quot;https://twitter.com/_sortega&quot;&gt;Sebastian Ortega&lt;/a&gt;, about the combination of &lt;a href=&quot;http://sortega.github.io/development/2015/05/28/conjuring_golden_master/&quot;&gt;generative testing and golden master&lt;/a&gt; as what, I think, is the best approach that I know to deal with that type of code.&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 09 Jun 2015 19:00:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/06/09/socratesuk-2015-part1.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/06/09/socratesuk-2015-part1.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Simple</title>
@@ -602,30 +624,6 @@ You may know the technique of &lt;code&gt;having a shower&lt;/code&gt; or &lt;co
         <pubDate>Wed, 13 May 2015 23:00:00 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/05/13/diffuse-mode.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/13/diffuse-mode.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Sleep</title>
-        <description>&lt;p&gt;If you have read &lt;a href=&quot;/8thlight/2015/05/08/journal-8th-may.html&quot;&gt;my first journal post&lt;/a&gt;, you may have noticed that I wrote the amount of sleep I had each day. 
-You may have noticed also that it sometimes is more than expected from an adult, around 9-10 hours.&lt;/p&gt;
-
-&lt;p&gt;I’m trying lately to sleep as much as my body needs. I’m trying to wake up by myself and not because an alarm is sounding on my phone. I don’t always achieve it. Sometimes I go to sleep too late and the alarm ends up waking me up.&lt;/p&gt;
-
-&lt;p&gt;You may wonder why. I’m going to use some quotes from a very concise &lt;a href=&quot;https://class.coursera.org/learning-001/lecture/25&quot;&gt;lecture&lt;/a&gt; from &lt;a href=&quot;http://www.barbaraoakley.com/&quot;&gt;Dr. Barbara Oakley&lt;/a&gt; in a MOOC called &lt;a href=&quot;https://class.coursera.org/learning-001/lecture/25&quot;&gt;Learning How to Learn: Powerful mental tools to help you master tough subjects&lt;/a&gt; to respond to that:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Sleep, which can sometimes seem like such a waste of time, is actually your brain&#39;s way of keeping clean and healthy&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Sleep is actually an important part of the memory and learning process&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Sleep has also been shown to make a remarkable difference in your ability to figure out difficult problems and to understand what you are trying to learn&lt;/code&gt;&lt;/p&gt;
-</description>
-        <pubDate>Tue, 12 May 2015 23:00:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/05/12/sleep.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/12/sleep.html</guid>
         
         
         <category>8thlight</category>
