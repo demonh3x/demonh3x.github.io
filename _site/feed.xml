@@ -6,9 +6,88 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 09 Jun 2015 18:01:01 +0100</pubDate>
-    <lastBuildDate>Tue, 09 Jun 2015 18:01:01 +0100</lastBuildDate>
+    <pubDate>Mon, 22 Jun 2015 20:01:48 +0100</pubDate>
+    <lastBuildDate>Mon, 22 Jun 2015 20:01:48 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>JavaScript ecosystem - part I</title>
+        <description>&lt;p&gt;I’m starting a JavaScript project and I had to setup a lot of tools for a proper developing environment.&lt;/p&gt;
+
+&lt;p&gt;First, &lt;a href=&quot;https://www.npmjs.com/&quot;&gt;npm&lt;/a&gt; is the package manager that manages your project’s dependencies. It is like &lt;a href=&quot;http://bundler.io/&quot;&gt;bundler&lt;/a&gt; in Ruby.&lt;/p&gt;
+
+&lt;p&gt;In its configuration file you can define what your project needs:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;dependencies&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;devDependencies&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;After that, if you don’t want to have the developing code all in one file, you need some kind of module system that makes the code that is depended upon available.&lt;/p&gt;
+
+&lt;p&gt;The simplest thing could be:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    ...
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;vendor/vendor-1.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;vendor/vendor-n.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;src/module-1.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;src/module-n.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    ...
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  ...
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You have to keep in mind to include the vendors first, so when the other modules that require them are loaded, their dependencies are met.&lt;/p&gt;
+
+&lt;p&gt;You also have to add manually each time a new file is created. It is easy to have a lot of small source files in a project if you want them properly decoupled.&lt;/p&gt;
+
+&lt;p&gt;A way of diminish the manual work required is to concatenate them in a single file and include it. &lt;a href=&quot;http://gulpjs.com/&quot;&gt;Gulp&lt;/a&gt; has a plugin for that: &lt;a href=&quot;https://www.npmjs.com/package/gulp-concat&quot;&gt;gulp-concat&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;concat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;gulp-concat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;gulp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;compile&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gulp&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;vendor/*.js&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;src/*.js&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;concat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;my-project.js&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;gulp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;dist/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  ...
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;dist/my-projet.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  ...
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;But the code will still need to be in a place that other modules can access it. And you don’t want to start defining a lot of global variables because you will end up having name collisions at some point. The simplest thing that I have for now is a namespacing mechanism:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Namespace&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;undefined&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;Namespace&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;ModuleName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Module&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//Your exposed module;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://nodejs.org/&quot;&gt;Node&lt;/a&gt; has this built in in the form of &lt;code&gt;require&lt;/code&gt; and &lt;code&gt;module.exports = exposedModule&lt;/code&gt;. But in a browser that is not available.&lt;/p&gt;
+
+&lt;p&gt;For that, I have been recommended &lt;a href=&quot;http://browserify.org/&quot;&gt;browserify&lt;/a&gt;. I haven’t tried it yet, but I will at some point if needed.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 22 Jun 2015 21:00:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/06/22/javascript-ecosystem-part-1.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/06/22/javascript-ecosystem-part-1.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Socrates UK 2015 - part I</title>
@@ -596,34 +675,6 @@ But it took a bit more than I expected for &lt;a href=&quot;http://maikon.github
         <pubDate>Sat, 16 May 2015 22:30:00 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/05/16/journal-15th-may.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/16/journal-15th-may.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Diffuse mode</title>
-        <description>&lt;p&gt;It happens that when we are focused in a topic, we lose the ability to see it in a different way.
-You may know the technique of &lt;code&gt;having a shower&lt;/code&gt; or &lt;code&gt;going for a walk&lt;/code&gt; to get a fresh point of view. I have been involved in conversations about that topic quite frequently. &lt;a href=&quot;http://www.barbaraoakley.com/&quot;&gt;Barbara Oakley&lt;/a&gt; explains &lt;a href=&quot;https://class.coursera.org/learning-001/lecture/23&quot;&gt;the following&lt;/a&gt; &lt;a href=&quot;https://class.coursera.org/learning-001/lecture/21&quot;&gt;about it&lt;/a&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Researchers have found that we have two fundamentally different modes of thinking, here I&#39;ll call them the Focused and Diffuse mode. We are either in the Focused mode or in the Diffuse mode of thinking. It seems you can&#39;t be at both ways of thinking modes at the same time.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;When we are in the Focused mode, our brains work in constrained zones to maximize the amount of energy spent on an area of knowledge and/or abilities.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;The Focused mode, in some sense, is like if the thought is traveling along a familiar, nicely-paved road. But what if the problem you are working on needs new ideas or approaches, concepts that you haven&#39;t thought of before.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Those may need you to activate a different zone on your brain. &lt;code&gt;But if you haven&#39;t had that thought before, you don&#39;t even know where it is. How are we going to reach there in the first place?&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;In the Diffuse mode of thinking you can look at things broadly. You can make new neural connections traveling along new pathways.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;To activate the diffuse mode, &lt;code&gt;Salvador Dali would relax in his chair and let his mind go free. He&#39;d had a key in his hand and as he would slip into his dreams, falling asleep, the key would fall from his hand and the clatter would wake him up. Just in time so he could gather up those thoughts and ideas in his mind and off he&#39;d go back into the focused mode, bringing with him the new connections he made while in the diffuse mode.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;According to legend, Thomas Edison would do something similar.&lt;/code&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 13 May 2015 23:00:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/05/13/diffuse-mode.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/13/diffuse-mode.html</guid>
         
         
         <category>8thlight</category>
