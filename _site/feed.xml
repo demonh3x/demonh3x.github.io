@@ -6,12 +6,12 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 23 Jun 2015 19:00:14 +0100</pubDate>
-    <lastBuildDate>Tue, 23 Jun 2015 19:00:14 +0100</lastBuildDate>
+    <pubDate>Tue, 23 Jun 2015 19:02:56 +0100</pubDate>
+    <lastBuildDate>Tue, 23 Jun 2015 19:02:56 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
-        <title>JavaScript ecosystem - part 2</title>
+        <title>JavaScript ecosystem - part II</title>
         <description>&lt;p&gt;In the &lt;a href=&quot;/8thlight/2015/06/22/javascript-ecosystem-part-1.html&quot;&gt;last blog post&lt;/a&gt; I talked about some tooling to help in the process of developing a JavaScript client application. But I did say nothing about testing. Things get complicated when you get closer to the user interface. In this case, developing an application that will run on the browser is tricky to test.&lt;/p&gt;
 
 &lt;p&gt;For that, I used &lt;a href=&quot;http://jasmine.github.io/&quot;&gt;Jasmine&lt;/a&gt;, &lt;a href=&quot;http://phantomjs.org/&quot;&gt;PhantomJs&lt;/a&gt; and &lt;a href=&quot;https://www.npmjs.com/package/gulp-jasmine-phantom&quot;&gt;a Gulp plugin&lt;/a&gt; to join them. &lt;a href=&quot;http://jasmine.github.io/&quot;&gt;Jasmine&lt;/a&gt; is testing framework with similar syntax to &lt;a href=&quot;http://rspec.info/&quot;&gt;RSpec&lt;/a&gt; that has a runner for the browser. &lt;a href=&quot;http://phantomjs.org/&quot;&gt;PhantomJs&lt;/a&gt; is a &lt;code&gt;headless&lt;/code&gt; browser, which means that it will simulate the browser without running a full browser and interacting manually with it. The &lt;a href=&quot;https://www.npmjs.com/package/gulp-jasmine-phantom&quot;&gt;Gulp plugin&lt;/a&gt; will enable you to automate running those.&lt;/p&gt;

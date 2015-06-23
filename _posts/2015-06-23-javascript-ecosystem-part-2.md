@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "JavaScript ecosystem - part 2"
+title:  "JavaScript ecosystem - part II"
 date:   2015-06-23 19:00:00
 categories: 8thlight
 ---
