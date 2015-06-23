@@ -6,9 +6,41 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 22 Jun 2015 20:01:48 +0100</pubDate>
-    <lastBuildDate>Mon, 22 Jun 2015 20:01:48 +0100</lastBuildDate>
+    <pubDate>Tue, 23 Jun 2015 19:00:14 +0100</pubDate>
+    <lastBuildDate>Tue, 23 Jun 2015 19:00:14 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>JavaScript ecosystem - part 2</title>
+        <description>&lt;p&gt;In the &lt;a href=&quot;/8thlight/2015/06/22/javascript-ecosystem-part-1.html&quot;&gt;last blog post&lt;/a&gt; I talked about some tooling to help in the process of developing a JavaScript client application. But I did say nothing about testing. Things get complicated when you get closer to the user interface. In this case, developing an application that will run on the browser is tricky to test.&lt;/p&gt;
+
+&lt;p&gt;For that, I used &lt;a href=&quot;http://jasmine.github.io/&quot;&gt;Jasmine&lt;/a&gt;, &lt;a href=&quot;http://phantomjs.org/&quot;&gt;PhantomJs&lt;/a&gt; and &lt;a href=&quot;https://www.npmjs.com/package/gulp-jasmine-phantom&quot;&gt;a Gulp plugin&lt;/a&gt; to join them. &lt;a href=&quot;http://jasmine.github.io/&quot;&gt;Jasmine&lt;/a&gt; is testing framework with similar syntax to &lt;a href=&quot;http://rspec.info/&quot;&gt;RSpec&lt;/a&gt; that has a runner for the browser. &lt;a href=&quot;http://phantomjs.org/&quot;&gt;PhantomJs&lt;/a&gt; is a &lt;code&gt;headless&lt;/code&gt; browser, which means that it will simulate the browser without running a full browser and interacting manually with it. The &lt;a href=&quot;https://www.npmjs.com/package/gulp-jasmine-phantom&quot;&gt;Gulp plugin&lt;/a&gt; will enable you to automate running those.&lt;/p&gt;
+
+&lt;p&gt;For example, my &lt;code&gt;gulpfile.js&lt;/code&gt; contained:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gulp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jasmine&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;gulp-jasmine-phantom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;gulp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;test&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gulp&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;vendor/*.js&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;src/*.js&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;spec/*.js&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;jasmine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;integration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;That will load the &lt;code&gt;vendor&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt; and &lt;code&gt;spec&lt;/code&gt; files in that order and then run them in &lt;a href=&quot;http://phantomjs.org/&quot;&gt;PhantomJs&lt;/a&gt;. That way you have access to the &lt;code&gt;window&lt;/code&gt; and &lt;code&gt;document&lt;/code&gt; objects as well as using libraries like &lt;a href=&quot;https://jquery.com/&quot;&gt;JQuery&lt;/a&gt; to manipulate the &lt;a href=&quot;https://en.wikipedia.org/wiki/Document_Object_Model&quot;&gt;DOM&lt;/a&gt; from your code and tests.&lt;/p&gt;
+
+&lt;p&gt;But there is one thing to keep in mind: changes in the &lt;a href=&quot;https://en.wikipedia.org/wiki/Document_Object_Model&quot;&gt;DOM&lt;/a&gt; in one test will persist across during other tests. I guess this is because the &lt;a href=&quot;http://jasmine.github.io/&quot;&gt;Jasmine&lt;/a&gt; runner updates the &lt;a href=&quot;https://en.wikipedia.org/wiki/Document_Object_Model&quot;&gt;DOM&lt;/a&gt; with the test results and &lt;a href=&quot;https://www.npmjs.com/package/gulp-jasmine-phantom&quot;&gt;the Gulp plugin&lt;/a&gt; relies on that. That may break other tests if proper cleanup of the &lt;a href=&quot;https://en.wikipedia.org/wiki/Document_Object_Model&quot;&gt;DOM&lt;/a&gt; is not made &lt;code&gt;afterEach&lt;/code&gt; test.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 23 Jun 2015 20:00:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/06/23/javascript-ecosystem-part-2.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/06/23/javascript-ecosystem-part-2.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>JavaScript ecosystem - part I</title>
@@ -574,107 +606,6 @@ But it took a bit more than I expected for &lt;a href=&quot;http://maikon.github
         <pubDate>Mon, 18 May 2015 22:00:00 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/05/18/incomplete-object.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/18/incomplete-object.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Journal - week 15th May</title>
-        <description>&lt;h2 id=&quot;monday-11th&quot;&gt;Monday 11th&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;That night I slept 7 hours.&lt;/li&gt;
-  &lt;li&gt;Read XP Explained in the bus.&lt;/li&gt;
-  &lt;li&gt;Planned what steps to take to create a gem for tic-tac-toe.&lt;/li&gt;
-  &lt;li&gt;Look for information about how to make gems.&lt;/li&gt;
-  &lt;li&gt;Created a .gemspec for tic-tac-toe.&lt;/li&gt;
-  &lt;li&gt;Reorganized modules and files to separate tic-tac-toe in three repositories: Core, CLI, GUI.&lt;/li&gt;
-  &lt;li&gt;Had some problems after renaming github repository for core.&lt;/li&gt;
-  &lt;li&gt;Created github repositories for CLI and GUI.&lt;/li&gt;
-  &lt;li&gt;Configured Travis for CLI and GUI.&lt;/li&gt;
-  &lt;li&gt;Added codeclimate for CLI and GUI.&lt;/li&gt;
-  &lt;li&gt;Lost time because I installed the core gem and then I was refactoring the core gem. And any failures were not being detected because the tests were loading the gem’s classes.&lt;/li&gt;
-  &lt;li&gt;Talked with Skim and other colleagues about git branching strategies.&lt;/li&gt;
-  &lt;li&gt;Wondered about creating gems for CLI/GUI. Conclusion: They are not libraries to consume, they are binaries to execute.&lt;/li&gt;
-  &lt;li&gt;Read XP Explained in the bus.&lt;/li&gt;
-  &lt;li&gt;Published &lt;a href=&quot;/8thlight/2015/05/11/blocking-calls-and-uis-iii.html&quot;&gt;Blocking calls and UIs III&lt;/a&gt; that I wrote over the weekend.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;tuesday-12th&quot;&gt;Tuesday 12th&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;That night I slept 9-10 hours.&lt;/li&gt;
-  &lt;li&gt;Read XP Explained in the bus.&lt;/li&gt;
-  &lt;li&gt;Planned what steps to take to have similar user experience in GUI and CLI.&lt;/li&gt;
-  &lt;li&gt;Yak shaved: created git shortcuts for most used commands.&lt;/li&gt;
-  &lt;li&gt;Added tests for the option to play again: got a bit stuck on asserting that the windows were showing and hiding because the windows were always hidden in tests.&lt;/li&gt;
-  &lt;li&gt;Tried branching out each small task. Conclusion: too small tasks are a headache, story-size branches seem good.&lt;/li&gt;
-  &lt;li&gt;When had something that might be enough, asked for the client’s feedback.&lt;/li&gt;
-  &lt;li&gt;Talked a bit with Sam about Ruby: protected, public, private, modules vs inheritance, class instance variables vs instance variables.&lt;/li&gt;
-  &lt;li&gt;Tried to add bundler cache in Travis to reduce the time of GUI integration, it did not work because the gem was installed manually and bundler did not find it.&lt;/li&gt;
-  &lt;li&gt;Started refactoring GUI.&lt;/li&gt;
-  &lt;li&gt;Read XP Explained in the bus.&lt;/li&gt;
-  &lt;li&gt;At home, wrote &lt;a href=&quot;/8thlight/2015/05/12/sleep.html&quot;&gt;Sleep&lt;/a&gt; post and published it.&lt;/li&gt;
-  &lt;li&gt;Felipe proposed to pair for a bit, we started changing inheritance for composition and adding a generic layer for any GUI.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;wednesday-13th&quot;&gt;Wednesday 13th&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;That night I slept 7 hours.&lt;/li&gt;
-  &lt;li&gt;Finished reading XP Explained in the bus.&lt;/li&gt;
-  &lt;li&gt;Did standup with apprentices.&lt;/li&gt;
-  &lt;li&gt;Moved specific GUI widget details to a factory.&lt;/li&gt;
-  &lt;li&gt;Separated GUI widgets in different files.&lt;/li&gt;
-  &lt;li&gt;Because the GUI tests depended on Qt framework, I had to change the entry point to access Qt classes a lot of times.&lt;/li&gt;
-  &lt;li&gt;Generalized GUI widget APIs.&lt;/li&gt;
-  &lt;li&gt;Talked with Skim about the current refactoring state and the simplest way to detach the UI framework.&lt;/li&gt;
-  &lt;li&gt;Had idea for a blog post: setter methods for configuration instead of constructor arguments may help the refactoring stage.&lt;/li&gt;
-  &lt;li&gt;At home, wrote &lt;a href=&quot;/8thlight/2015/05/13/diffuse-mode.html&quot;&gt;Diffuse mode&lt;/a&gt; post and published it.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;thursday-14th&quot;&gt;Thursday 14th&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;That night I slept 8 hours.&lt;/li&gt;
-  &lt;li&gt;Started reading Clean Code in the bus.&lt;/li&gt;
-  &lt;li&gt;Planned what steps to take to finish the refactor.&lt;/li&gt;
-  &lt;li&gt;Standup with apprentices.&lt;/li&gt;
-  &lt;li&gt;Reinforced my feeling on setter methods over constructor arguments in the refactoring stage because simplified moving things around.&lt;/li&gt;
-  &lt;li&gt;Found a strange thing in the refactoring that felt like a smell: class with no public methods. It was only registering events in the constructor to call the logic and update the display.&lt;/li&gt;
-  &lt;li&gt;That made me wonder about refactoring towards something like &lt;code&gt;events (input)&lt;/code&gt; -&amp;gt; &lt;code&gt;logic&lt;/code&gt; -&amp;gt; &lt;code&gt;display (output)&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Had a conversation with Skim about that idea and what approach to focus on. Difficult to separate events from representation because in Qt they are tied together inside the widgets. And decided to have &lt;code&gt;common Window objects&lt;/code&gt; -use-&amp;gt; &lt;code&gt;specific GUI objects&lt;/code&gt; -use-&amp;gt; &lt;code&gt;Qt widgets&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;A lot of refactoring.&lt;/li&gt;
-  &lt;li&gt;Useful things in the refactoring:
-    &lt;ul&gt;
-      &lt;li&gt;setter methods instead of constructor arguments.&lt;/li&gt;
-      &lt;li&gt;integration tests (although had to change after most of the refactorings)&lt;/li&gt;
-      &lt;li&gt;changing modification of instance variables for arguments and return values.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Read Clean Code in the bus.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;friday-15th&quot;&gt;Friday 15th&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;That night I slept 8 hours.&lt;/li&gt;
-  &lt;li&gt;Read Clean Code in the bus.&lt;/li&gt;
-  &lt;li&gt;Standup with apprentices.&lt;/li&gt;
-  &lt;li&gt;Gave advice to Priya about nervousness in giving talks.&lt;/li&gt;
-  &lt;li&gt;Had IPM with Skim:
-    &lt;ul&gt;
-      &lt;li&gt;Delivered stories: good.&lt;/li&gt;
-      &lt;li&gt;Code review: need to do a lot of small improvements, inconsistencies and simplifications.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Did the estimations again without having to give an immediate answer. Again, it felt comfortable and quite precise.&lt;/li&gt;
-  &lt;li&gt;We assisted to a talk from Priya on Unix Processes and then another about the impostor syndrome from Daniel and Enrique.&lt;/li&gt;
-  &lt;li&gt;Had a meeting about improving and concerns.&lt;/li&gt;
-  &lt;li&gt;Had a small conversation with Uku about doing a free self-organized open-space similar to socrates conference.&lt;/li&gt;
-  &lt;li&gt;Read Clean Code in the bus.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Sat, 16 May 2015 22:30:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/05/16/journal-15th-may.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/16/journal-15th-may.html</guid>
         
         
         <category>8thlight</category>
