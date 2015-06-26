@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Testing JavaScript code in the browser - part I"
-date:   2015-06-25 19:10:00
+date:   2015-06-25 19:20:00
 categories: 8thlight
 ---
 Testing user-interface code is hard. I don't know any tool that makes this easy.
@@ -111,3 +111,19 @@ describe('Counter widget', function() {
   });
 });
 {% endhighlight %}
+
+So far, I used JQuery for the testing side as well as the production side. But what if we don't want to use JQuery in our production code? A good outcome of passing the `containerId` directly as a `string` instead of anything related with JQuery is that we can change the implementation of the production code and keep our implementation of the tests working.
+
+For example we could use plain old JavaScript DOM manipulation:
+
+{% highlight javascript %}
+function CounterWidget(containerId) {
+  this.initialize = function() {
+    var counter = document.createElement('div');
+    counter.className = 'counter';
+    document.getElementById(containerId).appendChild(counter);
+  }
+}
+{% endhighlight %}
+
+But I'm going to keep using JQuery to keep things simple.

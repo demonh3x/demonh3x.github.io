@@ -156,6 +156,19 @@ Colin Jones explains better than me <a href="http://blog.8thlight.com/colin-jone
   <span class="p">});</span>
 <span class="p">});</span></code></pre></div>
 
+<p>So far, I used JQuery for the testing side as well as the production side. But what if we don’t want to use JQuery in our production code? A good outcome of passing the <code>containerId</code> directly as a <code>string</code> instead of anything related with JQuery is that we can change the implementation of the production code and keep our implementation of the tests working.</p>
+
+<p>For example we could use plain old JavaScript DOM manipulation:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">CounterWidget</span><span class="p">(</span><span class="nx">containerId</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">initialize</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">counter</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
+    <span class="nx">counter</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">&#39;counter&#39;</span><span class="p">;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">containerId</span><span class="p">).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">counter</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>But I’m going to keep using JQuery to keep things simple.</p>
 
   </article>
 
