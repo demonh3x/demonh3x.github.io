@@ -6,9 +6,83 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 27 Jun 2015 12:30:44 +0100</pubDate>
-    <lastBuildDate>Sat, 27 Jun 2015 12:30:44 +0100</lastBuildDate>
+    <pubDate>Mon, 29 Jun 2015 19:04:47 +0100</pubDate>
+    <lastBuildDate>Mon, 29 Jun 2015 19:04:47 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Dilemma on testing functional code</title>
+        <description>&lt;p&gt;Currently I’m thinking about a dilemma in different ways to test Clojure code.&lt;/p&gt;
+
+&lt;p&gt;If we assume that functional code is based on composing another functions, how do I test the composition without testing the composed pieces again?&lt;/p&gt;
+
+&lt;p&gt;In object oriented we avoid that by injecting the collaborators and replacing them for test doubles. And there is a reason for that: &lt;a href=&quot;http://blog.thecodewhisperer.com/2010/10/16/integrated-tests-are-a-scam/&quot;&gt;Joe B. Rainsberger explains&lt;/a&gt; &lt;a href=&quot;https://vimeo.com/80533536&quot;&gt;it better than me&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But shall I avoid that in functional? Let’s put an example. Let’s say I have two functions that check against a tic-tac-toe board: &lt;code&gt;full?&lt;/code&gt; and &lt;code&gt;has-winner?&lt;/code&gt;. Their tests are:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;full?&amp;quot;&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;is false when there is one empty space&amp;quot;&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;should=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;false&lt;/span&gt;
+                       &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;full?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:o&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:o&lt;/span&gt;
+                               &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:o&lt;/span&gt;
+                               &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:o&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])))&lt;/span&gt;
+
+          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;is false when there are two empty spaces&amp;quot;&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;should=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;false&lt;/span&gt;
+                       &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;full?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:o&lt;/span&gt;     &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:o&lt;/span&gt;
+                               &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt;     &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt;
+                               &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:o&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])))&lt;/span&gt;
+
+          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;is true when there is no empty space&amp;quot;&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;should=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;true&lt;/span&gt;
+                       &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;full?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:o&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:o&lt;/span&gt;
+                               &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:o&lt;/span&gt;
+                               &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:o&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))))&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;has-winner?&amp;quot;&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;is false in a board with no marks&amp;quot;&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;should=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;false&lt;/span&gt;
+                       &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;has-winner?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt;
+                                     &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt;
+                                     &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])))&lt;/span&gt;
+
+          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;is true in a board with the first horizontal line occupied by x&amp;quot;&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;should=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;true&lt;/span&gt;
+                       &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;has-winner?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt;     &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt;     &lt;span class=&quot;ss&quot;&gt;:x&lt;/span&gt;
+                                     &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt;
+                                     &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])))&lt;/span&gt;
+
+          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;is o in a board with the third vertical line occupied by o&amp;quot;&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;should=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;true&lt;/span&gt;
+                       &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;has-winner?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:o&lt;/span&gt;
+                                     &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:o&lt;/span&gt;
+                                     &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:empty&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])))&lt;/span&gt;
+
+          &lt;span class=&quot;c1&quot;&gt;;More tests ommited: each line that makes a player win and its edge cases&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And now let’s implement the &lt;code&gt;finished?&lt;/code&gt; function. The implementation of which should be similar to:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;finished?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;or &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;full?&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;has-winner?&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;How would you test that?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Would you find a way to stub the collaborators (&lt;code&gt;full?&lt;/code&gt; and &lt;code&gt;has-winner?&lt;/code&gt;)? Wouldn’t that be over-complicated for such a simple function?&lt;/li&gt;
+  &lt;li&gt;Would you put much less examples? How do you make sure the correct implementation is in place?&lt;/li&gt;
+  &lt;li&gt;Would you repeat all the same input examples that have been used in &lt;code&gt;full?&lt;/code&gt; and &lt;code&gt;has-winner?&lt;/code&gt; again? Isn’t that duplication?&lt;/li&gt;
+  &lt;li&gt;Would you move all the tests examples from &lt;code&gt;full?&lt;/code&gt; and &lt;code&gt;has-winner?&lt;/code&gt; to &lt;code&gt;finished?&lt;/code&gt; and remove the tests for &lt;code&gt;full?&lt;/code&gt; and &lt;code&gt;has-winner?&lt;/code&gt; (Because they are utility functions). Wouldn’t that be a lot of tests with different behaviors for only one function?&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 29 Jun 2015 20:00:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/06/29/dilemma-on-testing-functional-code.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/06/29/dilemma-on-testing-functional-code.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Testing JavaScript code in the browser - part II</title>
@@ -518,95 +592,6 @@ But it took a bit more than I expected for &lt;a href=&quot;http://maikon.github
         <pubDate>Wed, 27 May 2015 23:00:00 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/05/27/reflection-vs-homoiconicity.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/27/reflection-vs-homoiconicity.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Journal - week 22nd May</title>
-        <description>&lt;h2 id=&quot;monday-18th&quot;&gt;Monday 18th&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;That night I slept 9 hours.&lt;/li&gt;
-  &lt;li&gt;Started doing negamax implementation from pseudo-code, needed to adapt a bit the tests that I had for minimax.&lt;/li&gt;
-  &lt;li&gt;Standup with apprentices.&lt;/li&gt;
-  &lt;li&gt;Continued with negamax. Was confused with the negations so I added the tests one by one to discard problems and solve the ones that are appearing.&lt;/li&gt;
-  &lt;li&gt;I thought I had finished implementing negamax.&lt;/li&gt;
-  &lt;li&gt;Used negamax for the AI.&lt;/li&gt;
-  &lt;li&gt;Paired with &lt;a href=&quot;https://twitter.com/slagyr&quot;&gt;Micah&lt;/a&gt; to make the AI in tictactoe value immediate outcomes more. Found some problems caused by some failures on the negamax implementation.&lt;/li&gt;
-  &lt;li&gt;When arrived home, tried to do the &lt;a href=&quot;http://en.wikipedia.org/wiki/Bubble_sort&quot;&gt;bubble sort&lt;/a&gt; but I got stuck because I was tired and I was trying a recursive solution (I am not comfortable with it).&lt;/li&gt;
-  &lt;li&gt;Before going to sleep, while in the &lt;a href=&quot;/8thlight/2015/05/13/diffuse-mode.html&quot;&gt;diffused mode&lt;/a&gt; had some ideas of how to refactor the code of tictactoe. I wrote them down to not forget them.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;tuesday-19th&quot;&gt;Tuesday 19th&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;That night I slept 8 hours.&lt;/li&gt;
-  &lt;li&gt;In the bus, I started refactoring the tictactoe: Introduced immutable cycling iterator (circular linked list) to simplify the knowledge passed to the AI (players information).&lt;/li&gt;
-  &lt;li&gt;Continued refactoring in the office.&lt;/li&gt;
-  &lt;li&gt;Standup with apprentices.&lt;/li&gt;
-  &lt;li&gt;Sam shared his smells on the code.&lt;/li&gt;
-  &lt;li&gt;More refactoring: Added a bit of player polymorphism and reduced the arguments passed to negamax.&lt;/li&gt;
-  &lt;li&gt;Noticed an strange lock when the AI played 4x4. Got a bit stuck. Fixed it by incrementing the depth of the options tree. Lost performance.&lt;/li&gt;
-  &lt;li&gt;Added a rake task for profiling the code.&lt;/li&gt;
-  &lt;li&gt;Added performance tests to have acceptable criteria and mark the negamax implementation as not good enough yet.&lt;/li&gt;
-  &lt;li&gt;Sam helped to view the problem on the negamax implementation.&lt;/li&gt;
-  &lt;li&gt;In the bus home, I wrote two short blog posts about vim plugins (series sugestion from Felipe).&lt;/li&gt;
-  &lt;li&gt;When arrived home, finished the bubble sort kata with non-recursive solution. Not good enough yet.&lt;/li&gt;
-  &lt;li&gt;Before going to sleep, while in the &lt;a href=&quot;/8thlight/2015/05/13/diffuse-mode.html&quot;&gt;diffused mode&lt;/a&gt; had some ideas of how to refactor the code of tictactoe and how to improve the kata. I wrote them down to not forget them.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;wednesday-20th&quot;&gt;Wednesday 20th&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;That night I slept 7 hours.&lt;/li&gt;
-  &lt;li&gt;In the bus, I read Clean Code and had the idea of taking pictures of the interesting parts instead of putting a marker between two pages.&lt;/li&gt;
-  &lt;li&gt;Tried to fix the loss of performance. Did not manage to do it.&lt;/li&gt;
-  &lt;li&gt;Standup with apprentices.&lt;/li&gt;
-  &lt;li&gt;Sam paired a bit more with the negamax problem. Realized that lazy enumerators in Ruby are slow! Fixed the problem with the depth, but it is still slow.&lt;/li&gt;
-  &lt;li&gt;Got back to the previous hand-coded, test-driven implementation of minimax with alpha-beta pruning. Much faster! So much time wasted… :S&lt;/li&gt;
-  &lt;li&gt;Realized that the algorithm for getting the best moves could be reused.&lt;/li&gt;
-  &lt;li&gt;Extracted the common code for the Players.&lt;/li&gt;
-  &lt;li&gt;Paired with Skim on refactoring to see how to face some things that I didn’t see how to refactor.
-    &lt;ul&gt;
-      &lt;li&gt;Each UI will implement HumanPlayer and connect the creation of it with the core without knowing about specific UIs.&lt;/li&gt;
-      &lt;li&gt;Validation of the moves.&lt;/li&gt;
-      &lt;li&gt;Sending unused game state to the HumanPlayer (required for player polymorphism)&lt;/li&gt;
-      &lt;li&gt;Weird cyclic dependency between part of HumanPlayer and the Game.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Read Clean Code in the bus home.&lt;/li&gt;
-  &lt;li&gt;At home, continued with the bubble sort kata. Found a much better path to follow by doing variations analysis (will write a post about it). Still needed improvement.&lt;/li&gt;
-  &lt;li&gt;Paired with Jarkyn on her kata.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;thursday-21st&quot;&gt;Thursday 21st&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;That night I slept 7 hours. I woke up tired.&lt;/li&gt;
-  &lt;li&gt;Improved the steps for the bubble sort kata in the bus.&lt;/li&gt;
-  &lt;li&gt;Standup with apprentices&lt;/li&gt;
-  &lt;li&gt;Paired with Priya on how to test the code she had to do.&lt;/li&gt;
-  &lt;li&gt;Started extracting resulting pieces from the refactorings and test-drove them.&lt;/li&gt;
-  &lt;li&gt;Refactored player polymorphism.&lt;/li&gt;
-  &lt;li&gt;Started organizing lunch for friday.&lt;/li&gt;
-  &lt;li&gt;Refactored more small things.&lt;/li&gt;
-  &lt;li&gt;Updated the gem version to 0.1.1 and published it.&lt;/li&gt;
-  &lt;li&gt;At home, improved the path for the bubble sort kata and practiced it to not have to think much in the steps. Wrote notes of the steps and what to say while performing it.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;friday-22nd&quot;&gt;Friday 22nd&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;That night I slept 7 hours. I was tired.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/slagyr&quot;&gt;Micah&lt;/a&gt; had prepared a cohort.&lt;/li&gt;
-  &lt;li&gt;We started with an introduction to SOLID principles.&lt;/li&gt;
-  &lt;li&gt;Introduction to Design patterns followed.&lt;/li&gt;
-  &lt;li&gt;Each one had to choose a design pattern from a list, research about it and then explain it to the rest.&lt;/li&gt;
-  &lt;li&gt;We had the performance of the katas from each one of us.&lt;/li&gt;
-  &lt;li&gt;And we finished by a post-writing session. Each one had to choose a topic, research about it and then write a post that another person will read to the rest.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Tue, 26 May 2015 23:00:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/05/26/journal-22nd-may.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/05/26/journal-22nd-may.html</guid>
         
         
         <category>8thlight</category>
