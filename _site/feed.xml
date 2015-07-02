@@ -6,9 +6,54 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Jul 2015 19:13:41 +0100</pubDate>
-    <lastBuildDate>Wed, 01 Jul 2015 19:13:41 +0100</lastBuildDate>
+    <pubDate>Thu, 02 Jul 2015 18:49:09 +0100</pubDate>
+    <lastBuildDate>Thu, 02 Jul 2015 18:49:09 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Is Clojure more productive?</title>
+        <description>&lt;p&gt;I have been positively surprised this week. Let me put you in context: In my last IPM, I was assigned to do one task: tictactoe in Clojure with perfect AI.&lt;/p&gt;
+
+&lt;p&gt;I estimated that story to be finished in 6 days. For several reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;I had never done a project that big with Clojure. But I had done simple katas and some exercises at &lt;a href=&quot;http://www.4clojure.com/&quot;&gt;4clojure&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;I am not comfortable implementing the perfect AI yet.&lt;/li&gt;
+  &lt;li&gt;It took me 4 days and a half to do tictactoe without perfect AI in other languages.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Foreseeing that I would have to work hard to fit those 6 days of work into 4 and a half (the iteration duration), I did the &lt;a href=&quot;http://clojurekoans.com/&quot;&gt;Clojure koans&lt;/a&gt; in the weekend to get more comfortable with the language.&lt;/p&gt;
+
+&lt;p&gt;Through the week, we were doing &lt;a href=&quot;https://en.wikipedia.org/wiki/Stand-up_meeting#Software_development&quot;&gt;daily stand-up&lt;/a&gt;. So I had to think of what I should have finished each day to meet the expectations at the next IPM. I was focusing in these two points:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What did I accomplish yesterday?&lt;/li&gt;
+  &lt;li&gt;What will I do today?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;First day, I managed to have almost all the game logic working.
+Second day, I had the CLI working and a bit of a dumb computer player.
+And the third day I finished the perfect AI as the computer player.&lt;/p&gt;
+
+&lt;p&gt;I was done! I’ve done in 3 days what in other languages took me approximately 6 days. I’m sure not all the credit goes to Clojure. I guess the most important factors that led me to that productivity boost were:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Clojure (Because it is a terse language and has a lot of advanced functionality already built in)&lt;/li&gt;
+  &lt;li&gt;Daily stand-up and planning the daily objectives&lt;/li&gt;
+  &lt;li&gt;Having done the same problem before several times&lt;/li&gt;
+  &lt;li&gt;Focusing on simplicity: just enough to make it work&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’m still surprised.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 02 Jul 2015 20:00:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/07/02/is-clojure-more-productive.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/07/02/is-clojure-more-productive.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Testing JavaScript code in the browser - part III</title>
@@ -601,84 +646,6 @@ Colin Jones explains better than me &lt;a href=&quot;http://blog.8thlight.com/co
         <pubDate>Tue, 09 Jun 2015 19:00:00 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/06/09/socratesuk-2015-part1.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/06/09/socratesuk-2015-part1.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Simple</title>
-        <description>&lt;p&gt;Last Friday, &lt;a href=&quot;http://maikon.github.io/&quot;&gt;Makis&lt;/a&gt; offered to pair on whatever I was working on. I just started working a bit with &lt;a href=&quot;http://rack.github.io/&quot;&gt;Rack&lt;/a&gt;.
-I did a bit of the pieces I thought I needed and I was proud of the path I was taking. It was clever, too clever. To the point of re-implementing some of the functionality provided by &lt;a href=&quot;http://rack.github.io/&quot;&gt;Rack&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;For example the router. Only because I didn’t like the API; it seemed complex and rigid to me:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/route&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;text/plain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;OK&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;You can see that the way of doing routing is by using &lt;code&gt;Rack::Builder&lt;/code&gt;. You have to specify the full path with &lt;code&gt;map&lt;/code&gt;, you cannot match the requests by other characteristics. And you cannot filter by &lt;code&gt;GET&lt;/code&gt;, &lt;code&gt;POST&lt;/code&gt;, etc. there. So I did my own implementation of a router:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Router&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;UNDEFINED_DEFAULT_HANDLER&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;No default handler has been defined!&amp;#39;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default_handler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;UNDEFINED_DEFAULT_HANDLER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;routes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;routes&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default_handler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default_handler&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;routes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;default_handler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
-  &lt;span class=&quot;kp&quot;&gt;attr_accessor&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:default_handler&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;The same client code would be like:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;path_starts_with?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;partial_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;REQUEST_PATH&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start_with?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;partial_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;path_starts_with?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;/route&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;text/plain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;OK&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Very similar to the &lt;code&gt;Rack::Builder&lt;/code&gt; syntax. But the &lt;code&gt;Router&lt;/code&gt; I implemented is much more flexible and it does not depend on any class of &lt;a href=&quot;http://rack.github.io/&quot;&gt;Rack&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I thought it was simple: the logic of the router (&lt;code&gt;call&lt;/code&gt; method) is only 4 lines long!
-But it took a bit more than I expected for &lt;a href=&quot;http://maikon.github.io/&quot;&gt;Makis&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/ChristophGockel&quot;&gt;Christoph&lt;/a&gt; to see what was happening there. I remember what &lt;a href=&quot;https://twitter.com/ChristophGockel&quot;&gt;Christoph&lt;/a&gt; said:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;The router receives the routes. But wait... It is a hash and its keys are lambdas!!?&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;That was something unexpected. Simple code should be easy to maintain. And to be easy to maintain, &lt;a href=&quot;http://www.azquotes.com/quote/773497&quot;&gt;has to be obvious&lt;/a&gt;. The &lt;code&gt;Router&lt;/code&gt; is not obvious. It is expected for anyone looking to a &lt;a href=&quot;http://rack.github.io/&quot;&gt;Rack&lt;/a&gt; project to see &lt;code&gt;Rack::Builder&lt;/code&gt;, not a custom &lt;code&gt;Router&lt;/code&gt;. And even worse, it is not expected to see &lt;code&gt;lambdas&lt;/code&gt; as keys in a &lt;code&gt;Hash&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://maikon.github.io/&quot;&gt;Makis&lt;/a&gt; also like another &lt;a href=&quot;http://en.wikiquote.org/wiki/Ward_Cunningham#The_Simplest_Thing_that_Could_Possibly_Work&quot;&gt;quote from Ward Cunningham&lt;/a&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Simplicity is the shortest path to a solution.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Writing those custom classes is not the shortest path.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 01 Jun 2015 22:00:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/06/01/simple.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/06/01/simple.html</guid>
         
         
         <category>8thlight</category>
