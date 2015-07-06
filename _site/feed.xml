@@ -6,9 +6,56 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Jul 2015 18:49:09 +0100</pubDate>
-    <lastBuildDate>Thu, 02 Jul 2015 18:49:09 +0100</lastBuildDate>
+    <pubDate>Mon, 06 Jul 2015 19:40:53 +0100</pubDate>
+    <lastBuildDate>Mon, 06 Jul 2015 19:40:53 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Game sequence - part I</title>
+        <description>&lt;p&gt;While working in the Clojure tic-tac-toe, to decouple the game evolution (how the game changes from one turn to the next) from the representation of it (user interface), I represented the game as a sequence of game-states.&lt;/p&gt;
+
+&lt;p&gt;Let’s use a trivial example: a countdown.&lt;/p&gt;
+
+&lt;p&gt;First, I needed to have a function that takes the previous &lt;code&gt;count&lt;/code&gt; and returns the next &lt;code&gt;count&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;countdown&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;dec &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To have the complete sequence is as easy as iterating over it:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;game&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;initial-count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;iterate &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;countdown&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;initial-count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;That will give us an infinite sequence, but we need to stop when the game has been finished: in this case when we arrive at 0. Let’s define that condition:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;finished?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;&amp;lt;= count &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And we need now the sequence to that point. I could use &lt;code&gt;take-while&lt;/code&gt; for that purpose:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;game&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;initial-count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;take-while &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;not &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;finished?&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;iterate &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;countdown&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;initial-count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;But if we run that, the output is:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;nv&quot;&gt;user=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;game&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;What happened to the &lt;code&gt;0&lt;/code&gt;? We want to display the &lt;code&gt;initial-count&lt;/code&gt; and the last count where the game has &lt;code&gt;finished?&lt;/code&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;take-while&lt;/code&gt; is not suitable for us. I’ve been looking for a built-in function that would include that &lt;code&gt;0&lt;/code&gt;, but I haven’t found it.&lt;/p&gt;
+
+&lt;p&gt;We need to implement it ourselves. We will see that in the following parts.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Jul 2015 20:15:00 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/07/06/game-sequence-part-1.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/07/06/game-sequence-part-1.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Is Clojure more productive?</title>
@@ -624,28 +671,6 @@ Colin Jones explains better than me &lt;a href=&quot;http://blog.8thlight.com/co
         <pubDate>Mon, 22 Jun 2015 21:00:00 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/06/22/javascript-ecosystem-part-1.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/06/22/javascript-ecosystem-part-1.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Socrates UK 2015 - part I</title>
-        <description>&lt;p&gt;Last weekend Jarkyn, Sam and I were lucky enough to be able to attend to &lt;a href=&quot;http://socratesuk.org/&quot;&gt;SoCraTes UK 2015&lt;/a&gt;. We arrived there by car, just some minutes before the presentations started.&lt;/p&gt;
-
-&lt;p&gt;I used the time in the trip to try to finish a lightning talk “Effective Learning: An apprentice point of view” that I started writing the day before.&lt;/p&gt;
-
-&lt;p&gt;In the presentations, I noticed some people interested in refactoring and influencing the culture in a company that has not adopted testing yet. So, after a tour around the hotel and dinner, I proposed &lt;a href=&quot;https://twitter.com/gemcfadyen&quot;&gt;Georgina&lt;/a&gt;, who did a lightning talk on characterization tests as a way of learning a code base, to do a session on refactoring the &lt;a href=&quot;https://github.com/emilybache/GildedRose-Refactoring-Kata&quot;&gt;Gilded Rose kata&lt;/a&gt; with those ideas. I have used that kata before in my previous company to successfully provide enough confidence to deal with their code base.&lt;/p&gt;
-
-&lt;p&gt;Next day, before presenting the session, &lt;a href=&quot;https://twitter.com/Singsalad&quot;&gt;Franzi&lt;/a&gt; proposed the same kata in mob format. So we decided to unite forces and do it together.&lt;/p&gt;
-
-&lt;p&gt;Some interesting conversations about generative, mutation and characterization testing developed because of that. The golden master technique also was mentioned in those. And I recommended to any person interested to a blog post from my first mentor, &lt;a href=&quot;https://twitter.com/_sortega&quot;&gt;Sebastian Ortega&lt;/a&gt;, about the combination of &lt;a href=&quot;http://sortega.github.io/development/2015/05/28/conjuring_golden_master/&quot;&gt;generative testing and golden master&lt;/a&gt; as what, I think, is the best approach that I know to deal with that type of code.&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 09 Jun 2015 19:00:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/06/09/socratesuk-2015-part1.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/06/09/socratesuk-2015-part1.html</guid>
         
         
         <category>8thlight</category>
