@@ -6,9 +6,59 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 18 Aug 2015 19:25:15 +0100</pubDate>
-    <lastBuildDate>Tue, 18 Aug 2015 19:25:15 +0100</lastBuildDate>
+    <pubDate>Wed, 19 Aug 2015 18:29:13 +0100</pubDate>
+    <lastBuildDate>Wed, 19 Aug 2015 18:29:13 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Complexity dimensions - FizzBuzz part II</title>
+        <description>&lt;p&gt;Referring to the &lt;a href=&quot;/8thlight/2015/08/18/complexity-dimensions-p1.html&quot;&gt;kata on the previous post&lt;/a&gt;, you can see how in the first minute (0:00 - 1:18), I add three tests that force me to have a correct implementation on one of the &lt;code&gt;dimensions&lt;/code&gt;: &lt;code&gt;It returns the same number that has been prompted&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Basically, the tests are (&lt;code&gt;Input -&amp;gt; Output&lt;/code&gt;):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can see how the &lt;code&gt;3 -&amp;gt; 3&lt;/code&gt; test is missing. That’s because 3 would not result in &lt;code&gt;3&lt;/code&gt;, it would be &lt;code&gt;Fizz&lt;/code&gt;. That’s another &lt;code&gt;complexity dimension&lt;/code&gt; because it follows a different independent requirement that make the algorithm more complex.&lt;/p&gt;
+
+&lt;p&gt;During the next two minutes (1:18 - 3:10), I add the following three tests that unveil enough duplication to implement the generic algorithm for that &lt;code&gt;dimension&lt;/code&gt;: &lt;code&gt;It returns Fizz when the number is divisible by 3&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Fizz&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Fizz&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Fizz&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Two more minutes (3:10 - 5:14) and I have another &lt;code&gt;dimension&lt;/code&gt;: &lt;code&gt;It returns Buzz when the number is divisible by 5&lt;/code&gt;. You can see how I hesitate when adding the third test. I was thinking that 15 will result in &lt;code&gt;FizzBuzz&lt;/code&gt;. But that’s another &lt;code&gt;complexity dimension&lt;/code&gt; because it is the combination of other &lt;code&gt;complexity dimensions&lt;/code&gt; and thus, makes the algorithm more complex. That’s why I chose to go for the 20, which is only &lt;code&gt;Buzz&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Buzz&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Buzz&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Buzz&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I then continue combining the &lt;code&gt;Fizz dimension&lt;/code&gt; and the &lt;code&gt;Buzz dimension&lt;/code&gt; in a bit more than two minutes (5:14 - 7:41). The tests introduced to force a correct implementation are:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;FizzBuzz&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;FizzBuzz&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;FizzBuzz&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This is the point where the implementation meets the &lt;a href=&quot;http://c2.com/cgi/wiki?FizzBuzzTest&quot;&gt;initial requirements of the kata&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fizzbuzz&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prompt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;FizzBuzz&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prompt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prompt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Buzz&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prompt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Fizz&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prompt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;prompt&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Although the duplication is not completely obvious, you can see how &lt;code&gt;prompt % 5 == 0&lt;/code&gt; and &lt;code&gt;Buzz&lt;/code&gt; appear twice. Same thing with &lt;code&gt;prompt % 3 == 0&lt;/code&gt; and &lt;code&gt;Fizz&lt;/code&gt;. Just for the purpose to demonstrate another aspect of the &lt;code&gt;complexity dimensions&lt;/code&gt; concept I’m not going to stop here.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 19 Aug 2015 19:30:19 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/08/19/complexity-dimensions-p2.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/08/19/complexity-dimensions-p2.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Complexity dimensions - FizzBuzz part I</title>
@@ -595,48 +645,6 @@ And to test the &lt;code&gt;CounterWidget&lt;/code&gt; in isolation we can injec
         <pubDate>Wed, 01 Jul 2015 20:00:00 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/07/01/testing-browser-code-3.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/07/01/testing-browser-code-3.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Expressive Clojure</title>
-        <description>&lt;p&gt;It is not the first time that I hear: &lt;code&gt;Clojure is not a very readable language&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;I must admit, it is very difficult to give proper names in code. But naming is an ability in which the only way to get better is by practicing.&lt;/p&gt;
-
-&lt;p&gt;People with some experience in object oriented languages are a bit used to give names to classes, attributes and methods. But in functional languages naming is even more difficult because we are not used to give names to higher-order-functions. The more abstract they are, the more difficult is to name them.&lt;/p&gt;
-
-&lt;p&gt;I want to share a piece of Clojure code I wrote today. It is not perfect and I’m sure it can be improved in many ways but I spent some time trying to make it expressive. If you think that Clojure code cannot be very readable, I hope this will change a bit your opinion.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;play&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ask-until-is-one-of&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;empty-spaces&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn- &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ask-until-is-one-of&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;empty-spaces&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;let &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;empty-space?&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;empty-spaces&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;nv&quot;&gt;choices&lt;/span&gt;      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;repeatedly&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ask-for&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;empty-space?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))]&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;print-to-choose-from&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;empty-spaces&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get-first&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;empty-space?&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;choices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn- &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ask-for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;empty-space?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;let &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;choice&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ask-a-number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;when-not &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;empty-space?&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;choice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-              &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;println &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;That space is not empty!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;choice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;In order to &lt;code&gt;play [board]&lt;/code&gt;, I &lt;code&gt;(ask-until-is-one-of (empty-spaces board))&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;I want you to also notice that when &lt;code&gt;ask-until-is-one-of [empty-spaces]&lt;/code&gt; the &lt;code&gt;choices&lt;/code&gt; are &lt;code&gt;(repeatedly #(ask-for empty-space?))&lt;/code&gt;. And the result is &lt;code&gt;(get-first empty-space? choices)&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;To &lt;code&gt;ask-for [empty-space?]&lt;/code&gt;, I get the &lt;code&gt;choice&lt;/code&gt; by &lt;code&gt;(ask-a-number)&lt;/code&gt; and &lt;code&gt;(when-not (empty-space? choice) (println &quot;That space is not empty!&quot;))&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;It still is far from human language, but I think it could be understood by non-programmers.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 30 Jun 2015 20:30:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/06/30/expressive-clojure.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/06/30/expressive-clojure.html</guid>
         
         
         <category>8thlight</category>
