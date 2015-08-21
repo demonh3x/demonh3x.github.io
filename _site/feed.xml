@@ -6,9 +6,25 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 20 Aug 2015 17:53:18 +0100</pubDate>
-    <lastBuildDate>Thu, 20 Aug 2015 17:53:18 +0100</lastBuildDate>
+    <pubDate>Fri, 21 Aug 2015 20:46:23 +0100</pubDate>
+    <lastBuildDate>Fri, 21 Aug 2015 20:46:23 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Overcommitment</title>
+        <description>&lt;p&gt;Giving estimations is one of the hardest things I am learning. I am constantly discovering new things to keep in mind when giving an estimate. This time I’m going to talk about my experience when I don’t consider my stress. You may think &lt;code&gt;your stress has nothing to do with the task that needs to be done&lt;/code&gt;. Well, if I am the person asked for an estimation, I can only say the effort I think will take me to do it.&lt;/p&gt;
+
+&lt;p&gt;The problem is that, given several slight underestimations, I still want to have them done no matter the extra effort and without thinking on long term consequences. I know I can do it if necessary, but doing that for too long results in burning out. That is not a &lt;a href=&quot;http://www.infoq.com/news/2013/08/sustainable-pace-achieve-improve&quot;&gt;sustainable pace&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 21 Aug 2015 22:00:19 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/08/21/overcommitment.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/08/21/overcommitment.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>Complexity dimensions - FizzBuzz part III</title>
@@ -586,51 +602,6 @@ That may seem simple but has tremendous implications. We are going to explore so
         <pubDate>Mon, 06 Jul 2015 20:15:00 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/07/06/game-sequence-part-1.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/07/06/game-sequence-part-1.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Is Clojure more productive?</title>
-        <description>&lt;p&gt;I have been positively surprised this week. Let me put you in context: In my last IPM, I was assigned to do one task: tictactoe in Clojure with perfect AI.&lt;/p&gt;
-
-&lt;p&gt;I estimated that story to be finished in 6 days. For several reasons:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;I had never done a project that big with Clojure. But I had done simple katas and some exercises at &lt;a href=&quot;http://www.4clojure.com/&quot;&gt;4clojure&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;I am not comfortable implementing the perfect AI yet.&lt;/li&gt;
-  &lt;li&gt;It took me 4 days and a half to do tictactoe without perfect AI in other languages.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Foreseeing that I would have to work hard to fit those 6 days of work into 4 and a half (the iteration duration), I did the &lt;a href=&quot;http://clojurekoans.com/&quot;&gt;Clojure koans&lt;/a&gt; in the weekend to get more comfortable with the language.&lt;/p&gt;
-
-&lt;p&gt;Through the week, we were doing &lt;a href=&quot;https://en.wikipedia.org/wiki/Stand-up_meeting#Software_development&quot;&gt;daily stand-up&lt;/a&gt;. So I had to think of what I should have finished each day to meet the expectations at the next IPM. I was focusing in these two points:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;What did I accomplish yesterday?&lt;/li&gt;
-  &lt;li&gt;What will I do today?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;First day, I managed to have almost all the game logic working.
-Second day, I had the CLI working and a bit of a dumb computer player.
-And the third day I finished the perfect AI as the computer player.&lt;/p&gt;
-
-&lt;p&gt;I was done! I’ve done in 3 days what in other languages took me approximately 6 days. I’m sure not all the credit goes to Clojure. I guess the most important factors that led me to that productivity boost were:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Clojure (Because it is a terse language and has a lot of advanced functionality already built in)&lt;/li&gt;
-  &lt;li&gt;Daily stand-up and planning the daily objectives&lt;/li&gt;
-  &lt;li&gt;Having done the same problem before several times&lt;/li&gt;
-  &lt;li&gt;Focusing on simplicity: just enough to make it work&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I’m still surprised.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 02 Jul 2015 20:00:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/07/02/is-clojure-more-productive.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/07/02/is-clojure-more-productive.html</guid>
         
         
         <category>8thlight</category>
