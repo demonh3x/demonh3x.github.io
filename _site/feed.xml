@@ -6,9 +6,42 @@
 </description>
     <link>http://demonh3x.github.io//</link>
     <atom:link href="http://demonh3x.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 27 Aug 2015 21:31:53 +0100</pubDate>
-    <lastBuildDate>Thu, 27 Aug 2015 21:31:53 +0100</lastBuildDate>
+    <pubDate>Mon, 07 Sep 2015 19:38:31 +0100</pubDate>
+    <lastBuildDate>Mon, 07 Sep 2015 19:38:31 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Objection levels</title>
+        <description>&lt;p&gt;When more than one person develop the same piece of software, there are going to be different points of view and different criteria of what is acceptable. But usually the objection is not as clear as yes/no.&lt;/p&gt;
+
+&lt;p&gt;If one side of the pair expresses their concern on something, the other side will always respect that and stop so both can focus on it before continuing.&lt;/p&gt;
+
+&lt;p&gt;Sometimes, a concern cannot be deferred and need to be addressed right away. Maybe something that will affect the correctness, maintainability and/or clarity of the system. If you are pairing, you can identify this, for example, when your pair says (or you say): &lt;em&gt;I don’t like this&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sometimes, you can hear the same words to mean a personal preference on how to do it. This objection should not be given that much importance. In this case, it should be treated as a suggestion and not something to spend nearly as much energy as the previous concern.&lt;/p&gt;
+
+&lt;p&gt;And these two examples are not the only cases. In my short experience, I found the need to communicate concerns with very different importance levels. Sometimes, while trying to communicate those, the importance level was not clearly transmitted to the pair. As a result, we ended up giving too much importance to something that is unimportant.&lt;/p&gt;
+
+&lt;p&gt;What if we had some defined way of quickly expressing the importance of an objection? What if we qualified with numbers from 1 to 5 how important a concern is? 1 being the most important, 5 the less.&lt;/p&gt;
+
+&lt;p&gt;They could mean:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1- Stop, let’s address this before continuing because it is critical.&lt;/li&gt;
+  &lt;li&gt;2- There is a thing that is bugging me, but we can defer it for a bit.&lt;/li&gt;
+  &lt;li&gt;3- I have an opinion about this and need to know where you stand about it so we find common ground.&lt;/li&gt;
+  &lt;li&gt;4- I’m fine with how things are but want to propose the following in case you think it is better and want to take action.&lt;/li&gt;
+  &lt;li&gt;5- I’m just saying this because I think it could be interesting for you to know how I see it, but I don’t expect any action.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 07 Sep 2015 21:00:19 +0100</pubDate>
+        <link>http://demonh3x.github.io//8thlight/2015/09/07/objection-levels.html</link>
+        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/09/07/objection-levels.html</guid>
+        
+        
+        <category>8thlight</category>
+        
+      </item>
     
       <item>
         <title>The two sides of APIs</title>
@@ -390,62 +423,6 @@ But using Clojure from Java is not as easy as the other way around.&lt;/p&gt;
         <pubDate>Mon, 17 Aug 2015 19:46:19 +0100</pubDate>
         <link>http://demonh3x.github.io//8thlight/2015/08/17/java-clojure-interop.html</link>
         <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/08/17/java-clojure-interop.html</guid>
-        
-        
-        <category>8thlight</category>
-        
-      </item>
-    
-      <item>
-        <title>Game sequence - part II</title>
-        <description>&lt;p&gt;A solution that is easy to understand would be using &lt;code&gt;partition-by&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;nv&quot;&gt;user=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;partition-by&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;finished?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;range &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;user=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;let &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;after&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;partition-by&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;finished?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;range &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))]&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;concat &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;take &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;after&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;That seems will work. Let’s define it.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;take-while+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;predicate&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;sequence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;let &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;after&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;partition-by&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;predicate&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;sequence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;concat &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;take &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;after&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;But if we integrate that with our &lt;code&gt;countdown&lt;/code&gt; function and we run it:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;game&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;initial-count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;take-while+&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;not &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;finished?&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-               &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;iterate &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;countdown&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;initial-count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;user=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;game&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;;... blocked ...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;It will get blocked because &lt;code&gt;(iterate countdown initial-count)&lt;/code&gt; returns an infinite lazy-sequence and partition-by will evaluate every element in the next sequence. Which in this case is equivalent to an infinite loop.
-Let’s demonstrate it through &lt;code&gt;take-while+&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;nv&quot;&gt;user=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;take-while+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;fn &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-                      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;println &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;evaluated&amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;finished?&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-                    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;range &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;evaluated&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;evaluated&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;evaluated&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;evaluated&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;evaluated&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;evaluated&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;evaluated&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;evaluated&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-1&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;evaluated&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-2&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;evaluated&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-3&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;evaluated&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-4&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;You can see how it is evaluating all the elements of the &lt;code&gt;(range 5 -5 -1)&lt;/code&gt; sequence. I would expect to stop evaluating at &lt;code&gt;0&lt;/code&gt; (the first element that is &lt;code&gt;finished?&lt;/code&gt;).&lt;/p&gt;
-</description>
-        <pubDate>Tue, 28 Jul 2015 20:30:00 +0100</pubDate>
-        <link>http://demonh3x.github.io//8thlight/2015/07/28/game-sequence-part-2.html</link>
-        <guid isPermaLink="true">http://demonh3x.github.io//8thlight/2015/07/28/game-sequence-part-2.html</guid>
         
         
         <category>8thlight</category>
